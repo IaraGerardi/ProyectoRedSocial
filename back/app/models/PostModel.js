@@ -2,9 +2,9 @@ const db = require('../database/db.js');
 const { DataTypes } = require('sequelize');
 
 const PostModel = db.define('posts',{
-    content: {types: DataTypes.STRING},
-    likes: {types: DataTypes.INTEGER},
-    image: {types: DataTypes.STRING}
+    content: {type: DataTypes.STRING},
+    likes: {type: DataTypes.INTEGER},
+    image: {type: DataTypes.STRING}
 })
 
 module.exports = PostModel;
