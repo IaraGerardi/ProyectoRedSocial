@@ -1,6 +1,6 @@
 // Requerimos modelos de la tablas de la BDD
-const userModel = require('./models/usersModel');
-const postModel = require('./models/postsModel');
+const userModel = require('../models/UserModel.js');
+const postModel = require('../models/PostModel.js');
 
 // Configuramos controllers
 exports.getAllUsers = async (req, res) => {
@@ -24,7 +24,7 @@ exports.getAllPosts = async (req, res) => {
 exports.createPost = async (req, res) => {
     try {
         await postModel.create(req.body)
-        res.json({"message": "Register created successfully"});
+        res.json({"message": "Post created successfully"});
     } catch (error) {
         res.json({message: error.message});
     }
@@ -39,3 +39,14 @@ exports.updatePost = async (req, res) => {
         res.json({message: error.message});
     }
 }
+
+exports.deletePost = async (req, res) => {
+    try {
+        await postModel.destroy({
+            where: {id: req.params.id}
+        })
+        res.json({'message' : 'Post deleted succesfully'})
+    } catch (error) {
+        res.json({message: error.message});
+    }
+};
