@@ -1,6 +1,8 @@
 import React from 'react';
 import 'boxicons';
 
+ 
+
 function ProfileInfo({ setEditUser }) {
     return (
         <div className='profileInfo'>
