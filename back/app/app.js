@@ -4,7 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const app = express();
+const session = require("express-session")
 const db = require("./database/db.js")
+require('./database/associations.js');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -18,6 +20,7 @@ try {
 //
 app.use(logger('dev'));
 app.use(express.json());
+app.use(session( {secret: "Nuestro mensaje secreto",resave: true, saveUninitialized: true}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
