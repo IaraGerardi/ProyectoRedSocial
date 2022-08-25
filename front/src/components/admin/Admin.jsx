@@ -52,18 +52,13 @@ useEffect(()=>{
 
   return (
     <>
-      <nav>
-        <ul>
-          <li>Logo</li>
-          <li>Lista de Usuarios</li>
-          <li>Admin</li>
-        </ul>
-      </nav>
-      <br />
 
-      <div >
+      <nav>
+        <ul className='backgroundNav'>
+          <li>Logo</li>
+          <li><div >
   {editing ? (
-    <div>
+    <div className='boxAddMain'>
       <h2>Editar usuario</h2>
       <EditUserForm
         setEditing={setEditing}
@@ -72,12 +67,24 @@ useEffect(()=>{
       />
     </div>
   ) : (
-    <div>
-      <h2>Agregar Usuario</h2>
+    <div className='boxAddMain'>
+   
       <AddUserForm addUser={addUser} />
     </div>
   )}
 </div>
+</li>
+          <li>Admin</li>
+        </ul>
+        <ul className='boxUser1'>
+        <li className='name1'>Nombre</li>
+        <li className='name1'>Usuario</li>
+        <li className='actions'>Acciones</li>
+      </ul>
+      </nav>
+      <br />
+
+      
 
       <UserTable users={users} deleteUser={deleteUser} editRow={editRow} />
 

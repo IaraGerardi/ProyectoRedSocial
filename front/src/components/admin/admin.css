@@ -17,17 +17,21 @@ body{
 
 nav{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 10vh;
-    background-color: black;
+    
     color: aliceblue;
     position: sticky;
     top:0;
     z-index: 999;
 
+}
+
+.backgroundNav{
+    background-color: black;
+    padding-top: 10px;
 }
 
 ul{
@@ -39,9 +43,8 @@ ul{
 }
 
 .boxUser1{
-    
-    margin: 5px;
-    width: 98%;
+    width: 100%;
+    background-color: rgb(127, 91, 229);
   }
 
 .actions{
@@ -93,6 +96,7 @@ button{
     height: 36px;
     border-radius: 8px;
     padding: 10px;
+    cursor: pointer;
 }
 
 button:hover{
@@ -106,5 +110,38 @@ button:hover{
 }
 
 
+.boxAddUser{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    
+    width: 700px;
+}
+
+.boxAddMain{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    width: 300px;
+}
+
+input{
+    border-radius: 8px;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btnAddUser{
+    cursor: pointer;
+}
+
+.btnAddUser:hover{
+    background-color: rgb(200, 0, 255);
+}
 
 

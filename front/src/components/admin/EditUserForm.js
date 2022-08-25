@@ -13,32 +13,33 @@ const EditUserForm = (props) => {
 
   return (
     <form
+    className='boxAddUser'
       onSubmit={(event) => {
         event.preventDefault()
 
         props.updateUser(user.id, user)
       }}
     >
-      <label>Name</label>
+      <label>Nombre</label>
       <input
         type="text"
         name="name"
         value={user.name}
         onChange={handleInputChange}
       />
-      <label>Username</label>
+      <label>Usuario</label>
       <input
         type="text"
         name="username"
         value={user.username}
         onChange={handleInputChange}
       />
-      <button>Update user</button>
+      <button>Actualizar</button>
       <button
         onClick={() => props.setEditing(false)}
         className="button muted-button"
       >
-        Cancel
+        Cancelar
       </button>
     </form>
 

@@ -13,6 +13,7 @@ const handleInputChange = (event) => {
 
   return (
     <form
+    className='boxAddUser'
       onSubmit={(event) => {
         event.preventDefault()
         if (!user.name || !user.username) return
@@ -21,21 +22,21 @@ const handleInputChange = (event) => {
         setUser(initialFormState)
       }}
     >
-      <label>Name</label>
+      <label>Nombre</label>
       <input
         type="text"
         name="name"
         value={user.name}
         onChange={handleInputChange}
       />
-      <label>Username</label>
+      <label>Usuario</label>
       <input
         type="text"
         name="username"
         value={user.username}
         onChange={handleInputChange}
       />
-      <button>Add new user</button>
+      <button className='btnAddUser'>Agregar</button>
     </form>
   )
 }

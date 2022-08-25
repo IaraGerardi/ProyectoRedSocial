@@ -8,13 +8,7 @@ const UserTable = ({ users, deleteUser, editRow }) =>{
     return(
 
     <div>
-    <div>
-      <ul className='boxUser1'>
-        <li className='name1'>Name</li>
-        <li className='name1'>Username</li>
-        <li className='actions'>Actions</li>
-      </ul>
-    </div>
+    
     <div>
       {users.length > 0 ? (
         users.map((user) => (
