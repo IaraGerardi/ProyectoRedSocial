@@ -1,30 +1,42 @@
 .container-Home{
     display:flex;
     width: 100%;
-   height: 100vh;
-  background-color: black;
+background-color:rgb(73, 73, 159);
+
+
   justify-content: space-around;
 
 }
 /* ---------------container Menu------------------- */
 .container-Menu{
     width:20%;
- 
+  height: 700px;
  display: flex;
  flex-direction: column;
  align-items: center;
  padding-top: 20px;
  gap: 30px;
+ border-right:1px solid grey;
+ position: sticky;
+ top: 0;
+
+ 
 }
 .sidebar{
     width:80%;
     height: 400px;
     border-radius: 30px;
-    background-color: azure;
+    
     display: flex;
     font-weight: 700;
     justify-content: center;
-    
+  
+    background: rgba(167, 167, 167, 0.1);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.5px );
+    -webkit-backdrop-filter: blur( 2.5px );
+   
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     
 }
 .sidebar ul{
@@ -40,38 +52,101 @@
   width: 90%;
   display: flex;
   padding-left: 60px; 
-  color: #fff;
+ 
 }
-.imgprofile{
+.imgProfile{
   width: 70px;
   height: 70px;
   border-radius: 30px;
   background-color: blueviolet;
 }
-
+.userProfile{
+  margin-top: 10px;
+  margin-left:10px;
+}
 /* ------------------Container Post--------------- */
 .container-Posts{
     width: 78%;
-  background-color: cyan;
+ 
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 .boxPost{
   width:80%;
   height: 150px;
   border-radius: 40px;
-  background-color: #fff;
+ 
   display: flex;
  flex-direction: column;
+ margin-left: 10px;
+ padding: 10px;
+ background: rgba(167, 167, 167, 0.1);
+ box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+ backdrop-filter: blur( 2.5px );
+ -webkit-backdrop-filter: blur( 2.5px );
+
+ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .textPost{
   width: 80%;
   height: 100px;
   border-radius: 40px;
-background-color:rgba(65, 60, 69, 0.317) ;
+background-color:#fff;
  margin-left: 50px;
+}
+.textPost p{
+text-align: start;
+margin-left:20px ;
 }
 .boxProfilePost{
 width: 20%;
+display: flex;
+margin-left: 30px;
+
+}
+.boxImgProfile{
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: blueviolet;
+}
+.userPost{
+  margin-left:5px;
+}
+.boxReactions{
+  padding: 10px;
+  width: 400px;
+ 
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+ 
+}
+.boxReactions img{
+  width: 15px;
+  height: 15px;
+}
+.btnPosting{
+ 
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  
+ 
+}
+.btnPosting button{
+  width: 120px;
+  height: 40px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+.imgBtnPost{
+  width: 15px;
+  height: 15px;
 }

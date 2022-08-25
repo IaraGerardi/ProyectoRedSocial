@@ -5,9 +5,9 @@ function Menu() {
   return (
     <div className="container-Menu">
       <div className="profile">
-        <div className="imgprofile"></div>
+        <div className="imgProfile"></div>
     
-        <span>@usuario</span>
+        <span className="userProfile">@usuario</span>
       </div>
      <Sidebar/>
     </div>
