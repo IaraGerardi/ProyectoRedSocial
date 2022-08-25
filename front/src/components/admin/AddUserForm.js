@@ -22,7 +22,7 @@ const handleInputChange = (event) => {
         setUser(initialFormState)
       }}
     >
-      <label>Nombre</label>
+      <label className='labelAdmin'>Nombre</label>
       <input
       className='inputAdmin'
         type="text"
@@ -30,7 +30,7 @@ const handleInputChange = (event) => {
         value={user.name}
         onChange={handleInputChange}
       />
-      <label>Usuario</label>
+      <label className='labelAdmin'>Usuario</label>
       <input
       className='inputAdmin'
         type="text"

@@ -76,11 +76,7 @@ useEffect(()=>{
 </li>
           <li>Admin</li>
         </ul>
-        <ul className='boxUser1'>
-        <li className='name1'>Nombre</li>
-        <li className='name1'>Usuario</li>
-        <li className='actions'>Acciones</li>
-      </ul>
+        
       </nav>
       <br />
 

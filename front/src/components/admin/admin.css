@@ -137,10 +137,10 @@ ul{
 } 
 
 
-/* label{
+.labelAdmin{
     font-size: 20px;
     font-weight: bold;
-}  */
+}
 
 .btnAddUser{
     cursor: pointer;

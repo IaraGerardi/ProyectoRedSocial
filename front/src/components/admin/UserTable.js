@@ -13,7 +13,8 @@ const UserTable = ({ users, deleteUser, editRow }) =>{
       {users.length > 0 ? (
         users.map((user) => (
           <ul key={user.id} className='boxUser'>
-            <li className='name'> <img className='usersAdmin' src={usersAdmin} alt='user' /> {user.name}</li>
+            <li><img className='usersAdmin' src={usersAdmin} alt='user' /></li>
+            <li className='name'>{user.name}</li>
             <li className='name'>{user.username}</li>
             <li className='boxBtn'>
               <button className='btnAction'  onClick={() => { editRow(user) }} >Edit</button>
