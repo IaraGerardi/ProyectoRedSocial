@@ -24,6 +24,7 @@ const handleInputChange = (event) => {
     >
       <label>Nombre</label>
       <input
+      className='inputAdmin'
         type="text"
         name="name"
         value={user.name}
@@ -31,6 +32,7 @@ const handleInputChange = (event) => {
       />
       <label>Usuario</label>
       <input
+      className='inputAdmin'
         type="text"
         name="username"
         value={user.username}

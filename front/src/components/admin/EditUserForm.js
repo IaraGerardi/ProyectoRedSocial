@@ -22,6 +22,7 @@ const EditUserForm = (props) => {
     >
       <label>Nombre</label>
       <input
+        className='inputAdmin'
         type="text"
         name="name"
         value={user.name}
@@ -29,6 +30,7 @@ const EditUserForm = (props) => {
       />
       <label>Usuario</label>
       <input
+      className='inputAdmin'
         type="text"
         name="username"
         value={user.username}
