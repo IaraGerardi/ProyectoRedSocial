@@ -32,6 +32,10 @@ function EditUser({ setPopUp, father }) {
                     </form>
                     // Si el father es home renderiza el pop up en el que se crean los posteos
                     // No tiene ningun estilo pero le puedo poner el mismo estilo que el pop up de editar perfil
+                    /* El post debe contener:
+                    -Contenido 
+                    -Posibilidad de subir una imagen
+                    */
                     : father === 'home' ?
                         <form method='PUT'>
                             <div className='user editBox'>

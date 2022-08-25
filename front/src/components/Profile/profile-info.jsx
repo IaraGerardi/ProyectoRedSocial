@@ -17,8 +17,8 @@ function ProfileInfo({ setPopUp }) {
                     <div className='userStats' />
                     <p>Posts: 12</p>
                     <p>Likes: 40</p>
-                    <div className="editButton" >
-                        <box-icon name='edit-alt' onClick={() => setPopUp(true)} />
+                    <div className="editButton"  onClick={() => setPopUp(true)}>
+                        <box-icon name='edit-alt' onClick={() => setPopUp(true)} /> 
                     </div>
                 </div>
                 <p className='profileDescription'> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro repellat veniam, illum eius veritatis autem nisi expedita odio. Nobis sint culpa voluptatibus quo alias ipsam tempore odio eius, perspiciatis eveniet esse unde asperiores. </p>
