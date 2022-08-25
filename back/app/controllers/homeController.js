@@ -23,12 +23,14 @@ exports.getAllPosts = async (req, res) => {
                 model: associations.UserModel,
                 as: "users",
                 attributes: ['id', 'user']
-            }],
-            include: [{
-                model: associations.CommentModel,
+            },{ 
+                // FALTA MATCHEAR ID DEL POST CON ID DEL COMENTARIO
+                model: associations.CommentModel.findAll({
+                    where: {postId: associations.CommentModel.id}
+                }),
                 as: "comment",
                 attributes: ['content', 'likes', 'images', 'postId', 'usersId'] 
-            }], attributes: ["id" ,"content", "likes", "image", "createdAt", "usersId"]
+            }], attributes: ["id" ,"content", "likes", "image", "createdAt"]
         });
         res.json(posts);
     } catch (error) {

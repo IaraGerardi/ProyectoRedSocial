@@ -14,8 +14,8 @@ CommentModel.belongsTo(PostModel, {as: "asd", foreignKey: 'postId' }); //se aña
 CommentModel.belongsTo(UserModel, {as: "comentarios",  foreignKey: 'usersId' });
  */
 
-CommentModel.hasMany(PostModel, { foreingKey: 'Id' });//1 post / muchos comments
-PostModel.belongsTo(CommentModel, {as: "comment", foreignKey: 'Id' }); //se añade una clave postId al tabla post
+CommentModel.hasMany(PostModel, { foreingKey: 'id' });//1 post / muchos comments
+PostModel.belongsTo(CommentModel, {as: "comment", foreignKey: 'id' }); //se añade una clave postId al tabla post
 
 
 module.exports = {CommentModel, PostModel, UserModel};
