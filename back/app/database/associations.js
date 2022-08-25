@@ -10,4 +10,4 @@ PostModel.hasMany(CommentModel, {  foreingKey: 'postId' });//1 post / muchos com
 CommentModel.belongsTo(PostModel, { as: 'publicacion', foreingKey: 'postId' }); //se añade una clave postId al tabla post
 
 UserModel.hasMany(CommentModel, {  foreingKey: 'usersId' });
-CommentModel.belongsTo(UserModel, {  foreingKey: 'usersId' })
+CommentModel.belongsTo(UserModel, {  foreingKey: 'usersId' });
