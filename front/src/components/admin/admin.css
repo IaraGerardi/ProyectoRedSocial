@@ -7,15 +7,14 @@
 
 
 /* Admin nav */
-body{
-    
+.boxAdmin{
     background-image: url('https://i.pinimg.com/564x/17/3c/21/173c21b00a7ed05813919828e18b73b9.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-nav{
+.navAdmin{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,7 +90,7 @@ ul{
 }
 
 
-button{
+.btnAction{
     width: 100px;
     height: 36px;
     border-radius: 8px;
@@ -99,7 +98,7 @@ button{
     cursor: pointer;
 }
 
-button:hover{
+.btnAction:hover{
     background-color: black;
     color: beige;
     font-weight: bold;
@@ -127,21 +126,31 @@ button:hover{
     width: 300px;
 }
 
-input{
+/* input{
     border-radius: 8px;
+    height: 30px;
 }
+
 
 label{
     font-size: 20px;
     font-weight: bold;
-}
+} */
 
 .btnAddUser{
     cursor: pointer;
+    width: 100px;
+    height: 36px;
+    border-radius: 8px;
+    padding: 10px;
 }
 
 .btnAddUser:hover{
     background-color: rgb(200, 0, 255);
 }
 
+.editarUser{
+    font-size: 20px;
+    font-weight: none;
+}
 

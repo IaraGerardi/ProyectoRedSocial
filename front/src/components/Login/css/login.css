@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-  box-sizing: border-box;
-}
+
 
 .all-cont {
-  background-image: url("https://img.freepik.com/vector-gratis/fondo-galaxia-dibujos-animados_23-2148987835.jpg?w=2000");
+  box-sizing: border-box;
+  background-image: url("../img/Fondo-login.png");
   background-size: cover;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,9 +16,6 @@
   margin: -20px 0 40px;
 }
 
-h2 {
-  text-align: center;
-}
 
 .container-login {
   background-color: #fff;
@@ -34,12 +30,12 @@ h2 {
 }
 
 
-h1 {
+.title {
   font-weight: bold;
   margin-bottom: 40px;
 }
 
-p {
+.help-comment {
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;
@@ -47,11 +43,11 @@ p {
   margin: 20px 0 30px;
 }
 
-span {
+.coment {
   font-size: 12px;
 }
 
-a {
+.reload-paswword {
   color: #333;
   font-size: 14px;
   text-decoration: none;

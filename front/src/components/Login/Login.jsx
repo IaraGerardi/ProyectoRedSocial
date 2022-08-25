@@ -30,8 +30,8 @@ function Login() {
                 <div class="form-container login">
 
                     <form method='POST'>
-                        <h1>Crear Cuenta</h1>
-                        <span>completar formulario para avanzar</span>
+                        <h1 className="title">Crear Cuenta</h1>
+                        <span className="coment">completar formulario para avanzar</span>
                         <Input
                             Type="text"
                             Placeholder="Usuario"
@@ -72,9 +72,9 @@ function Login() {
 
                 <div class="form-container register">
                     <form method='POST'>
-                        <h1>¡Bienvenido!</h1>
+                        <h1 className="title">¡Bienvenido!</h1>
 
-                        <span>Ingresa desde tu cuenta</span>
+                        <span className="coment">Ingresa desde tu cuenta</span>
                         <Input
                             Type="email"
                             Placeholder="Nombre usuario o Email"
@@ -89,7 +89,7 @@ function Login() {
                             Name="passwordLog"
                         />
 
-                        <a href="#">¿Olvidaste tu contraseña?</a>
+                        <a className="reload-paswword" href="#">¿Olvidaste tu contraseña?</a>
                         <Boton
                             Type="submit"
                             BtnClass="btn"
@@ -102,8 +102,8 @@ function Login() {
                     <div class="front">
 
                         <div class="front-panel front-left">
-                            <h1>¡Bienvenido de vuelta!</h1>
-                            <p>Ingresa para seguir posteando</p>
+                            <h1 className="title">¡Bienvenido de vuelta!</h1>
+                            <p className="help-comment">Ingresa para seguir posteando</p>
                             <Boton
                                 BtnClass="ghost btn"
                                 Type=""
@@ -112,8 +112,8 @@ function Login() {
                         </div>
 
                         <div class="front-panel front-right">
-                            <h1>¿Aún no tienes cuenta?</h1>
-                            <p>¡Registrate ya mismo!</p>
+                            <h1 className="title">¿Aún no tienes cuenta?</h1>
+                            <p className="help-comment">¡Registrate ya mismo!</p>
                             <Boton
                                 BtnClass="ghost btn"
                                 Type=""

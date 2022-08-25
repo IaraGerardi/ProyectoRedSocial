@@ -1,18 +1,21 @@
 import React, {useState} from "react";
+
 import ProfileInfo from "./profile-info";
 import EditUser from "./editProfile";
+import Menu from "../Home/components-Home/Menu";
 import "./profile.css"
 
 // Profile es el componente que contiene todos los componentes que forman la vista del perfil, y es el componente que renderiza react router en la ruta de "/user"
 
 
 function Profile() {
-    const [editUser, setEditUser] = useState(false);
+    const [popUp, setPopUp] = useState(false);
     return (
-        <div className='profile'>
+        <div className='profileView'>
+            <Menu/>
             {/* <div className="profileContainer"> */}
-                <ProfileInfo setEditUser={setEditUser}/>
-                {editUser ? <EditUser setEditUser={setEditUser}/> : null}
+                <ProfileInfo setPopUp={setPopUp}/>
+                {popUp ? <EditUser father='profile' setPopUp={setPopUp}/> : null}
         </div>
     )
 }
