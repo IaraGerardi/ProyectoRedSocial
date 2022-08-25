@@ -7,6 +7,7 @@ function EditUser({ setPopUp, father }) {
     return (
         <>
             <div className='editUserForm'>
+                {/* Esta imagen es un icono de x para cerrar el pop up, si sacamos el boxicon hay que cambiarlo */}
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAN9JREFUSEvtleENAiEMRt9NoJvoCLqJG6gTOYKucBs4im5gvgQSEu+4VlD8Ab+bPvpoy0CjMzTi0sE/M99V/5XqNXAFzsB94WYH4AjsgUcu1vLGgm1CIiWcgwt6CbAR2JWC04SqYgqexjwDNGvHUrEunoO7oUpoBc/Bt4leU6VRvwc8BVfj6big3orjZVO1H0FrgecaLjt5JaqldxWyu+Ee8FT3ps3lglvBuZGxzPmbdgvYMqduuAUcV+bSyFRfmZrVG3AyfhKK054u/iS+8lVaVHdwFQNddRWNliTNVL8A3XRCH6P6Iy4AAAAASUVORK5CYII="
                     onClick={() => setPopUp(false)} alt='close edit user' />
                 {/* Si father es profile renderiza el pop up que tiene que cambiar la informacion del perfil de usuario */}
@@ -29,6 +30,7 @@ function EditUser({ setPopUp, father }) {
                             <label htlmfor='passwordEdit'>Contraseña</label>
                             <input type='password' name='passwordEdit' id='passwordEdit'></input>
                         </div>
+                        <button type='submit'/>
                     </form>
                     // Si el father es home renderiza el pop up en el que se crean los posteos
                     // No tiene ningun estilo pero le puedo poner el mismo estilo que el pop up de editar perfil
@@ -50,6 +52,7 @@ function EditUser({ setPopUp, father }) {
                                 <label htlmfor='passwordEdit'>Contraseña</label>
                                 <input type='password' name='passwordEdit' id='passwordEdit'></input>
                             </div>
+                            <button type='submit'/>
                         </form>
                         : null}
             </div>
