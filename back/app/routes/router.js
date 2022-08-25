@@ -7,7 +7,7 @@ const {registerUser, loginUser, logout, isAuthenticated} = require ('../controll
 
 
 /* GET home page. */
-router.get('/', isAuthenticated, getAllPosts);
+router.get('/', /* isAuthenticated, */ getAllPosts);
 
 /*  */
 router.post('/', createPost);

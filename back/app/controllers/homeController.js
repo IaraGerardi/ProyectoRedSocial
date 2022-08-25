@@ -2,10 +2,10 @@
 const userModel = require('../models/UserModel.js');
 const postModel = require('../models/PostModel.js');
 const commentModel = require('../models/CommentModel.js');
-
+const associations = require('../database/associations.js')
 // Configuramos controllers para definir que usuario hizo cada post
 
-exports.getAllPosts = async (req, res) => {
+/* exports.getAllPosts = async (req, res) => {
     try {
         const posts = await postModel.findAll({
             attributes: ["content", "likes", "image", "createdAt"]
@@ -14,26 +14,27 @@ exports.getAllPosts = async (req, res) => {
     } catch (error) {
         res.json({message: error.message});
     }
-};
+}; */
 
-/* exports.getAllPosts = async (req, res) => {
+exports.getAllPosts = async (req, res) => {
     try {
-        const posts = await postModel.findAll({
+        const posts = await associations.PostModel.findAll({
             include: [{
-                model: userModel,
-                as: "user",
-                attributes: ['user']
-            },{
-                model: commentModel,
-                as: "publicacion",
-                attributes: ['content', 'likes', 'images']
-            }], attributes: ["content", "likes", "image", "createdAt"]
+                model: associations.UserModel,
+                as: "users",
+                attributes: ['id', 'user']
+            }],
+            include: [{
+                model: associations.CommentModel,
+                as: "comment",
+                attributes: ['content', 'likes', 'images', 'postId', 'usersId'] 
+            }], attributes: ["id" ,"content", "likes", "image", "createdAt", "usersId"]
         });
         res.json(posts);
     } catch (error) {
         res.json({message: error.message});
     }
-}; */
+};
 
 // Configuramos crear, actualizar y eliminar posts
 exports.createPost = async (req, res) => {
