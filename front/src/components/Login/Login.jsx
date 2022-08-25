@@ -23,9 +23,9 @@ function Login() {
 
 
     return (
-        <div>
+        <div className="all-cont">
 
-            <div class="container" id="container">
+            <div class="container-login" id="container">
 
                 <div class="form-container login">
 
