@@ -16,9 +16,9 @@ const UserTable = ({ users, deleteUser, editRow }) =>{
             <li className='name'> <img className='usersAdmin' src={usersAdmin} alt='user' /> {user.name}</li>
             <li className='name'>{user.username}</li>
             <li className='boxBtn'>
-              <button onClick={() => { editRow(user) }} >Edit</button>
+              <button className='btnAction'  onClick={() => { editRow(user) }} >Edit</button>
             
-              <button onClick=
+              <button className='btnAction' onClick=
               {() => {deleteUser(user.id)}}
               >Delete</button>
 
