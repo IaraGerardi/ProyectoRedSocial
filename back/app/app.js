@@ -4,10 +4,17 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const app = express();
+const db = require("./database/db.js")
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 //
+try {
+  db.authenticate()
+  console.log("conexion exitosa")
+} catch (error) {
+  console.log(`el error en conexion es: ${error}`)
+}
 //
 app.use(logger('dev'));
 app.use(express.json());
