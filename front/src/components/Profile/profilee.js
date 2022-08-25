@@ -18,6 +18,7 @@ function Profile() {
                 <ProfileInfo setPopUp={setPopUp}/>
                 {popUp ? <EditUser father='profile' setPopUp={setPopUp}/> : null}
         </div>
+        // relleno
     )
 }
 

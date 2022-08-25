@@ -30,7 +30,7 @@ function EditUser({ setPopUp, father }) {
                             <label htlmfor='passwordEdit'>Contraseña</label>
                             <input type='password' name='passwordEdit' id='passwordEdit'></input>
                         </div>
-                        <button type='submit'/>
+                        <input type='submit'/>
                     </form>
                     // Si el father es home renderiza el pop up en el que se crean los posteos
                     // No tiene ningun estilo pero le puedo poner el mismo estilo que el pop up de editar perfil
@@ -52,7 +52,7 @@ function EditUser({ setPopUp, father }) {
                                 <label htlmfor='passwordEdit'>Contraseña</label>
                                 <input type='password' name='passwordEdit' id='passwordEdit'></input>
                             </div>
-                            <button type='submit'/>
+                            <input type='submit'/>
                         </form>
                         : null}
             </div>
