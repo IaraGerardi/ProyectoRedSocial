@@ -105,10 +105,23 @@ exports.loginUser = async (req, res)=>{
     }
 
     exports.userLogged = async (req, res, next)=>{
-        if (!req.cookies.jwt) {
-            console.log("hola")
+        if (req.cookies.jwt) {
+            try {
+                const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+                const user = await UserModel.findAll({
+                    where : {id : decodificada.id}
+                })
+                    if(!user){res.redirect('/'); console.log("Usuario logueado, redirigiendo a home")}
+                    req.user = user[0]
+                    res.redirect('/'); console.log("Usuario logueado, redirigiendo a home") 
+            
+            } catch (error) {
+                console.log(error)
+                return next()
+            }
         }else{
-            res.redirect('/'); console.log("Usuario logueado, redirigiendo a home")        
+            console.log("El usuario debe estar logueado")
+            return next()
         }
     }
 
