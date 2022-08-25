@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments` (
-  `idComent` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) NOT NULL,
   `likes` int(11) DEFAULT NULL,
   `images` varchar(100) DEFAULT NULL,
@@ -31,11 +31,11 @@ CREATE TABLE `comments` (
   `updatedAt` date DEFAULT NULL,
   `postId` int(11) DEFAULT NULL,
   `usersId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idComent`),
+  PRIMARY KEY (`id`),
   KEY `fk_postId` (`postId`),
   KEY `fk_usersId_comment` (`usersId`),
-  CONSTRAINT `fk_postId` FOREIGN KEY (`postId`) REFERENCES `posts` (`idPost`),
-  CONSTRAINT `fk_usersId_comment` FOREIGN KEY (`usersId`) REFERENCES `users` (`idUser`)
+  CONSTRAINT `fk_postId` FOREIGN KEY (`postId`) REFERENCES `posts` (`id`),
+  CONSTRAINT `fk_usersId_comment` FOREIGN KEY (`usersId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -56,16 +56,16 @@ DROP TABLE IF EXISTS `posts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `posts` (
-  `idPost` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `content` varchar(255) NOT NULL,
   `likes` int(11) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   `usersId` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idPost`),
+  PRIMARY KEY (`id`),
   KEY `fk_usersId` (`usersId`),
-  CONSTRAINT `fk_usersId` FOREIGN KEY (`usersId`) REFERENCES `users` (`idUser`)
+  CONSTRAINT `fk_usersId` FOREIGN KEY (`usersId`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,15 +86,15 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `idUser` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) NOT NULL,
-  `pass` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `avatar` varchar(100) NOT NULL,
   `rol` varchar(10) NOT NULL,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
-  PRIMARY KEY (`idUser`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -116,4 +116,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-24 16:27:30
+-- Dump completed on 2022-08-25 10:34:52
