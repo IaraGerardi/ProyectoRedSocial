@@ -1,0 +1,110 @@
+* {
+    Margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+  }
+
+
+
+/* Admin nav */
+body{
+    
+    background-image: url('https://i.pinimg.com/564x/17/3c/21/173c21b00a7ed05813919828e18b73b9.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10vh;
+    background-color: black;
+    color: aliceblue;
+    position: sticky;
+    top:0;
+    z-index: 999;
+
+}
+
+ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.boxUser1{
+    
+    margin: 5px;
+    width: 98%;
+  }
+
+.actions{
+    text-align: center;
+    width: 200px;
+    font-size: 23px;
+    padding: 10px;
+}
+
+.boxUserTitle li {
+    text-align: start;
+}
+
+.boxUser{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    margin-top: 10px;
+ 
+}
+
+.name1{
+    width: 200px;
+    text-align: start;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.name{
+    width: 200px;
+    text-align: start;
+    padding: 10px;
+}
+
+
+.boxBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+button{
+    width: 100px;
+    height: 36px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+button:hover{
+    background-color: black;
+    color: beige;
+    font-weight: bold;
+}
+
+.usersAdmin{
+    padding: 5px;
+}
+
+
+
+
