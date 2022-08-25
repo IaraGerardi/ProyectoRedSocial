@@ -1,18 +1,39 @@
 // Requerimos modelos de la tablas de la BDD
 const userModel = require('../models/UserModel.js');
 const postModel = require('../models/PostModel.js');
+const commentModel = require('../models/CommentModel.js');
 
 // Configuramos controllers para definir que usuario hizo cada post
 
 exports.getAllPosts = async (req, res) => {
     try {
-        const posts = await postModel.findAll();
+        const posts = await postModel.findAll({
+            attributes: ["content", "likes", "image", "createdAt"]
+        });
         res.json(posts);
     } catch (error) {
         res.json({message: error.message});
     }
 };
 
+/* exports.getAllPosts = async (req, res) => {
+    try {
+        const posts = await postModel.findAll({
+            include: [{
+                model: userModel,
+                as: "user",
+                attributes: ['user']
+            },{
+                model: commentModel,
+                as: "publicacion",
+                attributes: ['content', 'likes', 'images']
+            }], attributes: ["content", "likes", "image", "createdAt"]
+        });
+        res.json(posts);
+    } catch (error) {
+        res.json({message: error.message});
+    }
+}; */
 
 // Configuramos crear, actualizar y eliminar posts
 exports.createPost = async (req, res) => {
