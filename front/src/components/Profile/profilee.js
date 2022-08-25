@@ -3,7 +3,9 @@ import React, {useState} from "react";
 import ProfileInfo from "./profile-info";
 import EditUser from "./editProfile";
 import Menu from "../Home/components-Home/Menu";
+// import Post from "../Home/components-Home/Post";
 import "./profile.css"
+import './popUpForm.css'
 
 // Profile es el componente que contiene todos los componentes que forman la vista del perfil, y es el componente que renderiza react router en la ruta de "/user"
 
@@ -17,6 +19,7 @@ function Profile() {
             {/* <div className="profileContainer"> */}
                 <ProfileInfo setPopUp={setPopUp}/>
                 {popUp ? <EditUser father='profile' setPopUp={setPopUp}/> : null}
+                {/* Cuando tenga la info del back renderizo una lista con los post utilizando el componente de posts */}
         </div>
         // relleno
     )
