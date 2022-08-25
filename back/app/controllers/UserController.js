@@ -9,14 +9,16 @@ const { Op } = require("sequelize")
 
 exports.registerUser = async(req, res)=>{
     let errors = (validationResult(req));
-    const {userReg,emailReg} = req.body
+    const {userReg,emailReg, password2Reg} = req.body
+    const avatar = "default.jpg"
     const passwordReg = await bcryptjs.hash(req.body.passwordReg, 10)
-    if (errors.isEmpty()){
+    if (errors.isEmpty() && await bcryptjs.compare(password2Reg, passwordReg)){
     try {
         await UserModel.create({
             user: userReg,
             password: passwordReg,
             email: emailReg,
+            avatar: avatar,
             rol: "user"
         })
         await db.query("SET @counter = 0;")
