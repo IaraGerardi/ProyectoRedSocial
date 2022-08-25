@@ -13,11 +13,11 @@ function Login() {
     const [singIn, setSingIn] = useState(true);
     const [singUp, setSignUp] = useState(false);
 
-    const setViewSingIn=() => {
+    const setViewSingIn = () => {
         setSingIn(true)
         setSingIn(false)
     }
-    const setViewSingUp=() => {
+    const setViewSingUp = () => {
         setSignUp(true)
         setSingIn(false)
     }
@@ -30,28 +30,32 @@ function Login() {
 
                 <div class="form-container login">
 
-                    <form method='POST'>
+                    <form className="form-login" method='POST'>
                         <h1 className="title">Crear Cuenta</h1>
                         <span className="coment">completar formulario para avanzar</span>
                         <Input
+                            ClassInput="input-login"
                             Type="text"
                             Placeholder="Usuario"
                             Id="userReg"
                             Name="userReg" />
 
                         <Input
+                            ClassInput="input-login"
                             Type="email"
                             Placeholder="Email"
                             Id="emailReg"
                             Name="emailReg" />
 
                         <Input
+                            ClassInput="input-login"
                             Type="password"
                             Placeholder="Contraseña"
                             Id="passwordReg"
                             Name="passwordReg" />
 
                         <Input
+                            ClassInput="input-login"
                             Type="password"
                             Placeholder="Repetir contraseña"
                             Id="password2Reg"
@@ -70,11 +74,12 @@ function Login() {
 
 
                 <div class="form-container register">
-                    <form method='POST'>
+                    <form className="form-login" method='POST'>
                         <h1 className="title">¡Bienvenido!</h1>
 
                         <span className="coment">Ingresa desde tu cuenta</span>
                         <Input
+                            ClassInput="input-login"
                             Type="email"
                             Placeholder="Nombre usuario o Email"
                             Id="userLog"
@@ -82,6 +87,7 @@ function Login() {
                         />
 
                         <Input
+                            ClassInput="input-login"
                             Type="password"
                             Placeholder="Contraseña"
                             Id="passwordLog"
@@ -114,8 +120,8 @@ function Login() {
                                 BtnClass="ghost btn"
                                 Type=""
                                 BtnNombre="Ingresar"
-                                Id="signIn" 
-                                onClick={()=>setViewSingUp}/>
+                                Id="signIn"
+                                onClick={() => setViewSingUp} />
                         </div>
 
                         <div class="front-panel front-right">
@@ -132,8 +138,8 @@ function Login() {
                                 BtnClass="ghost btn"
                                 Type=""
                                 BtnNombre="Registrarse"
-                                Id="signUp" 
-                                onClick={()=>setViewSingIn}/>
+                                Id="signUp"
+                                onClick={() => setViewSingIn} />
                         </div>
 
                     </div>
