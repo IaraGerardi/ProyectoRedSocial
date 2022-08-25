@@ -13,7 +13,6 @@
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
   height: 100vh;
-  margin: -20px 0 40px;
 }
 
 
@@ -55,7 +54,7 @@
 }
 
 
-form {
+.form-login {
   display: flex;
   background-color: #FFFFFF;
   justify-content: center;
@@ -66,7 +65,7 @@ form {
 }
 
 
-input {
+.input-login {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
@@ -74,7 +73,7 @@ input {
   width: 100%;
 }
 
-input:focus {
+.input-login:focus {
   outline: none
 }
 

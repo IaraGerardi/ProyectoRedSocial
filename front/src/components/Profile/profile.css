@@ -12,7 +12,7 @@
 
 /* Profile info */
 
-/*Profile info display, flex-direction y alineamiento*/
+/*Profile info display*/
 .profileInfo, .profilePictureContainer, .userStats, .upperInfoProfile  {
     display: flex;
 }
@@ -41,12 +41,7 @@
     filter: blur(2px);
 }
 
-
 .profilePicture {
-    /* position: absolute; */
-    /* voy a cambiar el top y el left cuando agregue el menu izquierdo */
-    /* top: 24vh;
-    left: 30vw;  */
     width: 130px;
     height: 130px;
     object-fit: cover;
@@ -55,7 +50,6 @@
 }
 
 .infoContainer {
-    /* background-color: chartreuse; */
     border-radius: 0 0 50px 50px;
     height: 250px;
     background-color: rgb(70, 70, 70);
@@ -87,12 +81,10 @@
 }
 /* Edit user formulario */
 
-/*Edit user form display, flex-direction y alineamiento*/
+/*Edit user form display*/
 .editUserForm, .editBox, .glassmorphism  {
     display: flex;
 }
-
-
 
 .editUserForm {
     position: absolute;

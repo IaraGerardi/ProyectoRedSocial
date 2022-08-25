@@ -20,24 +20,26 @@ const EditUserForm = (props) => {
         props.updateUser(user.id, user)
       }}
     >
-      <label>Nombre</label>
+      <label className='labelAdmin'>Nombre</label>
       <input
+        className='inputAdmin'
         type="text"
         name="name"
         value={user.name}
         onChange={handleInputChange}
       />
-      <label>Usuario</label>
+      <label className='labelAdmin'>Usuario</label>
       <input
+      className='inputAdmin'
         type="text"
         name="username"
         value={user.username}
         onChange={handleInputChange}
       />
-      <button>Actualizar</button>
+      <button className='btnAddUser'>Actualizar</button>
       <button
         onClick={() => props.setEditing(false)}
-        className="button muted-button"
+        className='btnAddUser'
       >
         Cancelar
       </button>

@@ -51,7 +51,7 @@ useEffect(()=>{
     }
 
   return (
-    <>
+    
     <div className='boxAdmin'>
       <nav className='navAdmin'>
         <ul className='backgroundNav'>
@@ -76,11 +76,7 @@ useEffect(()=>{
 </li>
           <li>Admin</li>
         </ul>
-        <ul className='boxUser1'>
-        <li className='name1'>Nombre</li>
-        <li className='name1'>Usuario</li>
-        <li className='actions'>Acciones</li>
-      </ul>
+        
       </nav>
       <br />
 
@@ -89,6 +85,6 @@ useEffect(()=>{
       <UserTable users={users} deleteUser={deleteUser} editRow={editRow} />
 
       </div>
-    </>
+    
   )
 }

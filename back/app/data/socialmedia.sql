@@ -88,7 +88,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(45) NOT NULL,
   `avatar` varchar(100) NOT NULL,
   `rol` varchar(10) NOT NULL,

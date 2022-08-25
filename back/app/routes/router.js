@@ -3,7 +3,7 @@ const router = express.Router()
 const loginValidation = require("../validations/loginValidation.js")
 const registerValidation = require("../validations/registerValidation.js")
 const {getAllPosts, updatePost, createPost, deletePost} = require ('../controllers/homeController.js');
-const {registerUser, loginUser, logout, isAuthenticated} = require ('../controllers/UserController.js');
+const {registerUser, loginUser, logout, isAuthenticated, userLogged} = require ('../controllers/UserController.js');
 
 
 /* GET home page. */
@@ -15,8 +15,8 @@ router.put('/:id', updatePost);
 router.delete('/:id', deletePost);
 
 //Register y login CRUD
-router.post('/login', registerValidation, registerUser);
-router.get('/login', loginValidation, loginUser);
+router.post('/login', registerValidation, userLogged, registerUser);
+router.get('/login', loginValidation, userLogged, loginUser);
 
 //Logout
 router.get('/logout', logout)
