@@ -4,6 +4,7 @@ const UserModel = require('../models/UserModel.js')
 const bcryptjs = require('bcryptjs')
 const {validationResult} = require('express-validator');
 const db = require('../database/db.js')
+const { Op } = require("sequelize")
 
 
 exports.registerUser = async(req, res)=>{
@@ -46,9 +47,14 @@ exports.loginUser = async (req, res)=>{
                 ruta: 'login'
             })
         }else{
-                const user = await UserModel.findAll({ //probar FINDONE
+                const user = await UserModel.findAll({ 
                     where: {
-                          user: userLog
+                        [Op.or]:
+                        [{
+                            user: userLog
+                        }, {
+                            email: userLog
+                        }],
                     }
                 })
                 if(  user.length == 0 || ! (await bcryptjs.compare(passwordLog, user[0].password)) ){
