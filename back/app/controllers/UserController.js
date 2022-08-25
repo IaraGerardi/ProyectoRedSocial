@@ -104,6 +104,14 @@ exports.loginUser = async (req, res)=>{
     }
     }
 
+    exports.userLogged = async (req, res, next)=>{
+        if (!req.cookies.jwt) {
+            console.log("hola")
+        }else{
+            res.redirect('/'); console.log("Usuario logueado, redirigiendo a home")        
+        }
+    }
+
     exports.isAuthenticated = async (req, res, next)=>{
         if (req.cookies.jwt) {
             try {
@@ -126,5 +134,5 @@ exports.loginUser = async (req, res)=>{
     
     exports.logout = (req, res)=>{
         res.clearCookie('jwt')   
-        res.redirect('/')
+        res.redirect('/login')
     } 
