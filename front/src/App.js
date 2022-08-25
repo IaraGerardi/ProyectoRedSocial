@@ -7,6 +7,7 @@ import { Admin } from './components/admin/Admin';
 /*Vistas*/
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='/home' element={<Home/>}/>
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/allUsers' element={<Admin />}/>
+      <Route path='/login' element={<Login />}/>
       {/* <Route path='*' element={<Error/>}/> */}
     </Routes>
     {/* <div className="App">
