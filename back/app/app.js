@@ -13,14 +13,14 @@ app.set('view engine', 'jade');
 //
 try {
   db.authenticate()
-  console.log("conexion exitosa")
+  console.log("Connected to database on MySQL")
 } catch (error) {
-  console.log(`el error en conexion es: ${error}`)
+  console.log(`Error on connection: ${error}`)
 }
 //
 app.use(logger('dev'));
 app.use(express.json());
-app.use(session( {secret: "Nuestro mensaje secreto",resave: true, saveUninitialized: true}));
+app.use(session( {secret: "Our secret message",resave: true, saveUninitialized: true}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

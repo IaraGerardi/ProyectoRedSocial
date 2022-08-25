@@ -35,7 +35,6 @@ exports.loginUser = async (req, res)=>{
     try {
         const userLog = req.body.userLog
         const passwordLog = req.body.passwordLog
-    
         if(!userLog || !passwordLog ){
             res.json({
                 alert:true,
@@ -47,8 +46,10 @@ exports.loginUser = async (req, res)=>{
                 ruta: 'login'
             })
         }else{
-                const user = await UserModel.findAll({
-                    where : {user:userLog}
+                const user = await UserModel.findAll({ //probar FINDONE
+                    where: {
+                          user: userLog
+                    }
                 })
                 if(  user.length == 0 || ! (await bcryptjs.compare(passwordLog, user[0].password)) ){
                     res.json({
@@ -73,7 +74,7 @@ exports.loginUser = async (req, res)=>{
                     const token = jwt.sign({id:id}, process.env.JWT_SECRETO, {
                         expiresIn: process.env.JWT_TIEMPO_EXPIRA
                     })
-                   console.log("TOKEN: "+token+" para el USUARIO : "+user)
+                   console.log("TOKEN: "+token+" para el USUARIO : "+userLog)
     
                    const cookiesOptions = {
                         expires: new Date(Date.now()+process.env.JWT_COOKIE_EXPIRES * 24 * 60 * 60 * 1000),
