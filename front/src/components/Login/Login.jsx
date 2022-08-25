@@ -1,25 +1,26 @@
 import React from "react";
+import { useState, useEffect } from "react";
+
+// Components
 import Boton from "./Boton";
 import Input from "./Input"
+
+// Style
 import "./css/login.css"
 
 function Login() {
 
+    const [singIn, setSingIn] = useState(true);
+    const [singUp, setSignUp] = useState(false);
 
-  
-    // const signUpButton = document.getElementById('signUp');
-    // const signInButton = document.getElementById('signIn');
-    // const container = document.getElementById('container');
-  
-  
-    // signUpButton.addEventListener('click', () => {
-    //   container.classList.add("right-panel-active");
-    // });
-  
-    // signInButton.addEventListener('click', () => {
-    //   container.classList.remove("right-panel-active");
-    // });
-  
+    const setViewSingIn=() => {
+        setSingIn(true)
+        setSingIn(false)
+    }
+    const setViewSingUp=() => {
+        setSignUp(true)
+        setSingIn(false)
+    }
 
 
     return (
@@ -54,8 +55,8 @@ function Login() {
                             Type="password"
                             Placeholder="Repetir contraseña"
                             Id="password2Reg"
-                            Name="password2Reg" 
-                            />
+                            Name="password2Reg"
+                        />
 
                         <Boton
                             Type="submit"
@@ -64,8 +65,6 @@ function Login() {
                             Id=""
 
                         />
-
-
                     </form>
                 </div>
 
@@ -102,23 +101,39 @@ function Login() {
                     <div class="front">
 
                         <div class="front-panel front-left">
-                            <h1 className="title">¡Bienvenido de vuelta!</h1>
-                            <p className="help-comment">Ingresa para seguir posteando</p>
+
+                            <h1 className="title">
+                                ¡Bienvenido de vuelta!
+                            </h1>
+
+                            <p className="help-comment">
+                                Ingresa para seguir posteando
+                            </p>
+
                             <Boton
                                 BtnClass="ghost btn"
                                 Type=""
                                 BtnNombre="Ingresar"
-                                Id="signIn" />
+                                Id="signIn" 
+                                onClick={()=>setViewSingUp}/>
                         </div>
 
                         <div class="front-panel front-right">
-                            <h1 className="title">¿Aún no tienes cuenta?</h1>
-                            <p className="help-comment">¡Registrate ya mismo!</p>
+
+                            <h1 className="title">
+                                ¿Aún no tienes cuenta?
+                            </h1>
+
+                            <p className="help-comment">
+                                ¡Registrate ya mismo!
+                            </p>
+
                             <Boton
                                 BtnClass="ghost btn"
                                 Type=""
                                 BtnNombre="Registrarse"
-                                Id="signUp" />
+                                Id="signUp" 
+                                onClick={()=>setViewSingIn}/>
                         </div>
 
                     </div>
