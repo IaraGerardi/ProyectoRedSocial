@@ -1,6 +1,5 @@
 //Modelos de tablas que vamos a utilizar
 const UserModel = require('../models/UserModel.js');
-const postModel = require('../models/PostModel.js');
 
 
 //Configuración que traera toda la lista de usuarios.
