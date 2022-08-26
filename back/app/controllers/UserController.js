@@ -23,7 +23,6 @@ exports.registerUser = async(req, res)=>{
         })
         await db.query("SET @counter = 0;")
         await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
-        res.redirect("/login")
     }catch (error) {
         res.json({message:error.message})
     }
@@ -151,3 +150,27 @@ exports.loginUser = async (req, res)=>{
         res.clearCookie('jwt')   
         res.redirect('/login')
     } 
+
+    exports.updateUser = async(req, res)=>{
+        try {         //actualiza el cuerpo del registro existente
+            const userEditDB = UserModel.findOne({
+                where: { id: req.params.id } //probar req.body si no funciona
+            });
+            const user = req.body.userEdit.toLowerCase()
+            const password = await bcryptjs.hash(req.body.passwordEdit, 10)
+            const avatar = !(req.files[0]) ? userEditDB.avatar : req.files[0].filename
+            const email = req.body.emailEdit
+            await UserModel.update ({
+                user: user,
+                password: password,
+                avatar: avatar,
+                email: email
+            })
+            res.json({
+                "message": "registro actualizado correctamente"
+            })
+            
+        } catch (error) {
+            res.json({message:error.message})
+        }
+    }
