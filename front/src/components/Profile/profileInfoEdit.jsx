@@ -5,7 +5,6 @@ function ProfileInfoEdit({ setPopUp }) {
     //     event.preventDefault();
     // }
     const [description, setDescription] = useState('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro repellat veniam, illum eius veritatis autem nisi expedita odio. Nobis sint culpa voluptatibus quo alias ipsam tempore odio eius, perspiciatis eveniet esse unde asperiores.')
-    const [defaultDescription, setDefaultDescription] = useState('Lorem.')
     const handleChangeDesc =(e)=>{
         setDescription(e.target.value);
     }
