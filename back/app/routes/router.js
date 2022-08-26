@@ -4,7 +4,7 @@ const loginValidation = require("../validations/loginValidation.js")
 const registerValidation = require("../validations/registerValidation.js")
 const {getAllPosts, updatePost, createPost, deletePost} = require ('../controllers/homeController.js');
 const {registerUser, loginUser, logout, isAuthenticated, userLogged} = require ('../controllers/UserController.js');
-const { getAllUserAdmin, updateUserAdmin } = require('../controllers/adminController.js');
+const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin } = require('../controllers/adminController.js');
 
 
 /* GET home page. */
@@ -26,6 +26,6 @@ router.get('/logout', logout);
 //Ruta admin. Todos los usuarios, editar, borrar.
 router.get('/allUsers', getAllUserAdmin); //Obtener todos los usuarios
 router.put('/allUser/:id', updateUserAdmin); //modificar usuario por ID
-router.delete('/allUser/:id'); //Eliminar usuario por ID
+router.delete('/allUser/:id', deleteUserAdmin); //Eliminar usuario por ID
 
 module.exports = router;
