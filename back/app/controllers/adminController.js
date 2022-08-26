@@ -4,7 +4,7 @@ const postModel = require('../models/PostModel.js');
 const userModel = require('../../../../../node.js/_CLASES/_Equipo/maxiPortel/22_02-08/Login_JWT_MySQL/models/userModel.js');
 
 //Configuración que traera toda la lista de usuarios.
-const getAllUser = async (req, res) => {
+const getAllUserAdmin = async (req, res) => {
     try {
         const user = await UserModel.findAll();
         res.json(user);
@@ -13,10 +13,10 @@ const getAllUser = async (req, res) => {
     }
 };
 
-const updateUser = async (req, res) => {
+const updateUserAdmin = async (req, res) => {
     try {
         const userEdit = UserModel.findOne({
-            where: { id: req.params.id }
+            where: { id: req.params.id } //probar req.body si no funciona
         }); //buscamos el id que "creo" vendría por la ruta para luego poder utilizar el avatar que tiene en base de datos. Así si el input es null deja el que ya tiene
         const user = req.body.user.toLowerCase()
         const pass = await bcryptjs.hash(req.body.pass, 10)
@@ -36,7 +36,7 @@ const updateUser = async (req, res) => {
     }
 }
 
-const deleteUser = async (req, res) => {
+const deleteUserAdmin = async (req, res) => {
     await userModel.destroy({
         where: { id: req.params.id }
     })
@@ -44,7 +44,7 @@ const deleteUser = async (req, res) => {
 
 //Exportamos los modulos alfabeticamente
 module.exports = {
-    deleteUser,
-    getAllUser,
-    updateUser
+    deleteUserAdmin,
+    getAllUserAdmin,
+    updateUserAdmin
 }
