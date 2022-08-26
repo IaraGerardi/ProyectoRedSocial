@@ -1,5 +1,5 @@
 import React from "react";
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // Components
 import Boton from "./Boton";
@@ -10,38 +10,53 @@ import "./css/login.css"
 
 function Login() {
 
-    // const [singIn, setSingIn] = useState(true);
-    // const [singUp, setSignUp] = useState(false);
+    // const [login, setLogin] = useState();
+    // useEffect(() => {
+    //     obtenerDatos()
+    // },[])
 
-    // const setViewSingIn = () => {
-    //     setSingIn(true)
-    //     setSingIn(false)
+    // const obtenerDatos = async () => {
+    //     const datos = await fetch("localhost:8000/login")
+    //     const user = await datos.post();
+    //     setLogin(login)
+
     // }
-    // const setViewSingUp = () => {
-    //     setSignUp(true)
-    //     setSingIn(false)
-    // }
+
+    // obtenerDatos();
 
 
+    const URI = 'http://localhost:8000/login/';
+
+    const [user, setUser] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordsec, setPasswordSec] = useState('')
 
 
+    //procedimiento guardar
+    const store = async (e) => {
+        e.preventDefault()
+        await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
 
+    }
 
-// DESCOMENTAR LO DE ABAJO
+    store();
 
-    // const signUpButton = document.getElementById('signUp');
-    // const signInButton = document.getElementById('signIn');
-    // const container = document.getElementById('container');
-    
-    // signUpButton.addEventListener('click', () => {
-    //     container.classList.add("right-panel-active");
-    // });
-    
-    // signInButton.addEventListener('click', () => {
-    //     container.classList.remove("right-panel-active");
-    // });
+    // DESCOMENTAR LO DE ABAJO
 
-// DESCOMENTAR LO DE ARRIBA
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+    // DESCOMENTAR LO DE ARRIBA
 
     return (
         <div className="all-cont">
@@ -50,29 +65,35 @@ function Login() {
 
                 <div className="form-container login">
 
-                    <form className="form-login" method='POST'>
+                    <form className="form-login" method='POST' onSubmit={store}>
                         <h1 className="title">Crear Cuenta</h1>
                         <span className="coment">completar formulario para avanzar</span>
-                        <Input
+                        {/* <Input
                             ClassInput="input-login"
                             Type="text"
                             Placeholder="Usuario"
                             Id="userReg"
-                            Name="userReg" />
+                            Name="userReg"
+                            onChange={(e) => setUser(e.target.value)}
+                        /> */}
+                        <input type="text" className="input-login" placeholder="Usuario" id="userReg" name="userReg"
+                            onChange={(e) => setUser(e.target.value)} />
 
                         <Input
                             ClassInput="input-login"
                             Type="email"
                             Placeholder="Email"
                             Id="emailReg"
-                            Name="emailReg" />
+                            Name="emailReg"
+                            onChange={(e) => setEmail(e.target.value)} />
 
                         <Input
                             ClassInput="input-login"
                             Type="password"
                             Placeholder="Contraseña"
                             Id="passwordReg"
-                            Name="passwordReg" />
+                            Name="passwordReg"
+                            onChange={(e) => setPassword(e.target.value)} />
 
                         <Input
                             ClassInput="input-login"
@@ -80,6 +101,7 @@ function Login() {
                             Placeholder="Repetir contraseña"
                             Id="password2Reg"
                             Name="password2Reg"
+                            onChange={(e) => setPasswordSec(e.target.value)}
                         />
 
                         <Boton
@@ -141,8 +163,8 @@ function Login() {
                                 Type=""
                                 BtnNombre="Ingresar"
                                 Id="signIn"
-                                // onClick={() => setViewSingUp}
-                                 />
+                            // onClick={() => setViewSingUp}
+                            />
                         </div>
 
                         <div className="front-panel front-right">
@@ -160,8 +182,8 @@ function Login() {
                                 Type=""
                                 BtnNombre="Registrarse"
                                 Id="signUp"
-                                // onClick={() => setViewSingIn} 
-                                />
+                            // onClick={() => setViewSingIn} 
+                            />
                         </div>
 
                     </div>
