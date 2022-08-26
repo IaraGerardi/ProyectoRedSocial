@@ -3,6 +3,7 @@ import './admin.css'
 import UserTable from './UserTable';
 import AddUserForm from './AddUserForm';
 import EditUserForm from './EditUserForm';
+import socialLogo from '../pageInitial/assets/socialDEV.png'
 
 
 export const Admin = () => {
@@ -55,7 +56,7 @@ useEffect(()=>{
     <div className='boxAdmin'>
       <nav className='navAdmin'>
         <ul className='backgroundNav'>
-          <li>Logo</li>
+          <li><img className='logoAdmin' src={socialLogo} alt="logo" /></li>
           <li><div >
   {editing ? (
     <div className='boxAddMain'>
