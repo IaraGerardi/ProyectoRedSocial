@@ -111,7 +111,8 @@ exports.loginUser = async (req, res)=>{
                 const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
                 const user = await UserModel.findAll({
                     where : {id : decodificada.id}
-                })
+                }) 
+                console.log(decodificada)
                     if(!user){res.redirect('/'); console.log("Usuario logueado, redirigiendo a home")}
                     req.user = user[0]
                     res.redirect('/'); console.log("Usuario logueado, redirigiendo a home") 
@@ -123,6 +124,27 @@ exports.loginUser = async (req, res)=>{
         }else{
             console.log("El usuario debe estar logueado")
             return next()
+        }
+    }
+
+    exports.userToProfile = async (req, res, next)=>{
+        if (req.cookies.jwt) {
+            const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+            const users = await UserModel.findAll({
+                where : {id: decodificada.id}
+            })
+            req.user = users[0].user
+            console.log(req.user)
+         if(req.params.user == req.user){
+            console.log("podes pasar")
+            return next()
+        } else {
+            console.log("No podes pasar1")
+            res.redirect(`/profile/${req.user}`) //cuando vaya a un perfil que no es el propio, lo va a redirigir a lo que pongamos aca
+        }
+        } else{
+            console.log("No esta logueado")
+            res.redirect("/login")
         }
     }
 
@@ -151,26 +173,41 @@ exports.loginUser = async (req, res)=>{
         res.redirect('/login')
     } 
 
+    exports.getUserEdit = async (req, res) => {
+        try {
+            const userEdit = req.params.user
+            const userFind = await UserModel.findOne({ 
+                where: {
+                    user: userEdit
+                }
+            })
+            res.json(userFind);
+        } catch (error) {
+            res.json({ message: error.message });
+        }
+    };
+
     exports.updateUser = async(req, res)=>{
-        try {         //actualiza el cuerpo del registro existente
-            const userEditDB = UserModel.findOne({
-                where: { id: req.params.id } //probar req.body si no funciona
+        try {  
+            const userEdit = await UserModel.findOne({
+                where: { user: req.params.user }
             });
             const user = req.body.userEdit.toLowerCase()
             const password = await bcryptjs.hash(req.body.passwordEdit, 10)
-            const avatar = !(req.files[0]) ? userEditDB.avatar : req.files[0].filename
             const email = req.body.emailEdit
+            const avatar = req.files ? req.files[0].filename : userEdit.avatar
             await UserModel.update ({
                 user: user,
                 password: password,
-                avatar: avatar,
-                email: email
-            })
+                email: email,
+                avatar: avatar
+            }, {where:{user:req.params.user}})
             res.json({
                 "message": "registro actualizado correctamente"
             })
             
         } catch (error) {
             res.json({message:error.message})
+
         }
     }
