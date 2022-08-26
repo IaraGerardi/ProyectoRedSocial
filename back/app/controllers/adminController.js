@@ -1,7 +1,7 @@
 //Modelos de tablas que vamos a utilizar
-const UserModel = require('../models/UserModuserel.js');
+const UserModel = require('../models/UserModel.js');
 const postModel = require('../models/PostModel.js');
-const userModel = require('../../../../../node.js/_CLASES/_Equipo/maxiPortel/22_02-08/Login_JWT_MySQL/models/userModel.js');
+
 
 //Configuración que traera toda la lista de usuarios.
 const getAllUserAdmin = async (req, res) => {
