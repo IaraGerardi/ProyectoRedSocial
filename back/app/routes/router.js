@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router()
 const loginValidation = require("../validations/loginValidation.js")
 const registerValidation = require("../validations/registerValidation.js")
-const editValidation = require("../validations/editValidation")
-const editValidationAdmin = require("../validations/editValidationAdmin")
+const editValidation = require("../validations/editValidation.js")
+const editValidationAdmin = require("../validations/editValidationAdmin.js")
 const {getAllPosts, updatePost, createPost, deletePost} = require ('../controllers/homeController.js');
 const { registerUser, loginUser, logout, isAuthenticated, userLogged, updateUser, getUserEdit, userToProfile } = require ('../controllers/UserController.js');
 const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin } = require('../controllers/adminController.js');
@@ -31,7 +31,7 @@ router.get('/logout', logout);
 
 //Profile
 router.get('/profile/:user', isAuthenticated, userToProfile, getUserEdit)
-router.put('/profile/:user', isAuthenticated, editValidation, userImage.any(), updateUser)
+router.put('/profile/:user', userImage.any(), isAuthenticated, editValidation, updateUser)
 
 
 //Ruta admin. Todos los usuarios, editar, borrar.

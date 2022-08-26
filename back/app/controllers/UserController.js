@@ -188,6 +188,8 @@ exports.loginUser = async (req, res)=>{
     };
 
     exports.updateUser = async(req, res)=>{
+        let errors = (validationResult(req));
+        if (errors.isEmpty()){
         try {  
             const userEdit = await UserModel.findOne({
                 where: { user: req.params.user }
@@ -210,4 +212,7 @@ exports.loginUser = async (req, res)=>{
             res.json({message:error.message})
 
         }
+    } else {
+        res.json(errors.mapped())
+    }
     }
