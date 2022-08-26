@@ -2,7 +2,7 @@ import BtnPosting from './BtnPosting';
 import Post from './Post';
 import {useEffect,useState} from 'react';
 
-function Posts() {
+function Posts({setPopUp}) {
     const [users,setUsers]=useState([]);
 
 
@@ -16,7 +16,8 @@ const getUser=async()=>{
  },[]) 
   return (
     <div className="container-Posts">
-      <BtnPosting/>
+      {/* Paso de nuevo la funcion de cambiar estado asi desde el boton lo puedo cambiar */}
+      <BtnPosting setPopUp={setPopUp}/>
 
       <>
         {
