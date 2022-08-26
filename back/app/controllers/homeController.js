@@ -2,35 +2,21 @@
 const userModel = require('../models/UserModel.js');
 const postModel = require('../models/PostModel.js');
 const commentModel = require('../models/CommentModel.js');
-const associations = require('../database/associations.js')
+const associations = require('../database/associations.js');
+
 // Configuramos controllers para definir que usuario hizo cada post
-
-/* exports.getAllPosts = async (req, res) => {
-    try {
-        const posts = await postModel.findAll({
-            attributes: ["content", "likes", "image", "createdAt"]
-        });
-        res.json(posts);
-    } catch (error) {
-        res.json({message: error.message});
-    }
-}; */
-
 exports.getAllPosts = async (req, res) => {
     try {
         const posts = await associations.PostModel.findAll({
-            include: [{
+            include: [{ 
                 model: associations.UserModel,
-                as: "users",
+                association: "users",
                 attributes: ['id', 'user']
-            },{ 
-                // FALTA MATCHEAR ID DEL POST CON ID DEL COMENTARIO
-                model: associations.CommentModel.findAll({
-                    where: {postId: associations.CommentModel.id}
-                }),
-                as: "comment",
-                attributes: ['content', 'likes', 'images', 'postId', 'usersId'] 
-            }], attributes: ["id" ,"content", "likes", "image", "createdAt"]
+                },{
+                    model: associations.CommentModel,
+                    association: "comments",
+                    attributes: ['id','content', 'likes', 'images', 'postId', 'usersId']                
+                }], attributes: ["id" ,"content", "likes", "image", "createdAt", "usersId"]
         });
         res.json(posts);
     } catch (error) {
