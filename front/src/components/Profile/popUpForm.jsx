@@ -8,9 +8,11 @@ function EditUser({ setPopUp, father }) {
         <>
             {/* className='editUserForm'> es ahora container data form, y data form tiene q tener todo centrado */}
             <div className='containerDataForm'>
-                {/* Esta imagen es un icono de x para cerrar el pop up, si sacamos el boxicon hay que cambiarlo */}
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAN9JREFUSEvtleENAiEMRt9NoJvoCLqJG6gTOYKucBs4im5gvgQSEu+4VlD8Ab+bPvpoy0CjMzTi0sE/M99V/5XqNXAFzsB94WYH4AjsgUcu1vLGgm1CIiWcgwt6CbAR2JWC04SqYgqexjwDNGvHUrEunoO7oUpoBc/Bt4leU6VRvwc8BVfj6big3orjZVO1H0FrgecaLjt5JaqldxWyu+Ee8FT3ps3lglvBuZGxzPmbdgvYMqduuAUcV+bSyFRfmZrVG3AyfhKK054u/iS+8lVaVHdwFQNddRWNliTNVL8A3XRCH6P6Iy4AAAAASUVORK5CYII="
-                    onClick={() => setPopUp(false)} alt='close edit user' />
+                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="30"
+                onClick={() => setPopUp(false)} >
+                    <path d="M22.853,1.148a3.626,3.626,0,0,0-5.124,0L1.465,17.412A4.968,4.968,0,0,0,0,20.947V23a1,1,0,0,0,1,1H3.053a4.966,4.966,0,0,0,3.535-1.464L22.853,6.271A3.626,3.626,0,0,0,22.853,1.148ZM5.174,21.122A3.022,3.022,0,0,1,3.053,22H2V20.947a2.98,2.98,0,0,1,.879-2.121L15.222,6.483l2.3,2.3ZM21.438,4.857,18.932,7.364l-2.3-2.295,2.507-2.507a1.623,1.623,0,1,1,2.295,2.3Z" />
+                </svg> */}
+                {/* <iconify-icon icon="bi:x-circle" onClick={() => setPopUp(false)} /> */}
                 {/* Si father es profile renderiza el pop up que tiene que cambiar la informacion del perfil de usuario */}
                 {/* Del perfil se debe poder personalizar:
                 -Foto de perfil y header,
@@ -42,9 +44,9 @@ function EditUser({ setPopUp, father }) {
                     */
                     : father === 'home' ?
                         <form method='POST' className='homeForm'>
-                            <input type="text" name='content' id='content' maxLength='255' required/>
+                            <input type="text" name='content' id='content' maxLength='255' required />
                             <input type="file" id='image' name='image' src='' alt='subir foto' />
-                            <input type='submit' placeholder="POST"/>
+                            <input type='submit' placeholder="POST" />
                         </form>
                         : null}
             </div>

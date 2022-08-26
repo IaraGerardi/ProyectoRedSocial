@@ -15,7 +15,7 @@ Los z index 2 y 3 estan en profile.css
 }
 
 .containerDataForm {
-    position: absolute;
+    /* position: absolute; */
     padding: 10px;
     border-radius: 30px;
     /* background-color: rgb(242, 242, 242); */
@@ -28,6 +28,7 @@ Los z index 2 y 3 estan en profile.css
     backdrop-filter: blur(5px); 
 }
 .profileForm{
+    position: absolute; 
     background-color: azure;
     width: 80vw;
     height: 600px;

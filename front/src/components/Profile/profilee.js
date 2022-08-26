@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import ProfileInfo from "./profile-info";
-import EditUser from "./popUpForm";
+// import EditUser from "./popUpForm";
 import Menu from "../Home/components-Home/Menu";
+// import Posts from "../Home/components-Home/Posts";
+import ProfileInfoEdit from "./profileInfoEdit";
 // import Post from "../Home/components-Home/Post";
 import "./profile.css"
 import './popUpForm.css'
@@ -15,13 +17,17 @@ function Profile() {
     const [popUp, setPopUp] = useState(false);
     return (
         <div className='profileView'>
-            <Menu/>
-            {/* <div className="profileContainer"> */}
-                <ProfileInfo setPopUp={setPopUp}/>
-                {popUp ? <EditUser father='profile' setPopUp={setPopUp}/> : null}
+            <Menu />
+            <div className='mainProfileContainer'>
+                {/* El pop up indicaria si la vision de editar se muestra */}
+                {popUp ?
+                    <ProfileInfoEdit setPopUp={setPopUp} /> :
+                    <ProfileInfo setPopUp={setPopUp} />
+                }
+                {/* {popUp ? <EditUser father='profile' setPopUp={setPopUp} /> : null} */}
                 {/* Cuando tenga la info del back renderizo una lista con los post utilizando el componente de posts */}
+            </div>
         </div>
-        // relleno
     )
 }
 
