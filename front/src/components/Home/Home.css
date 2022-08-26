@@ -1,16 +1,20 @@
 .container-Home{
     display:flex;
     width: 100%;
-background-color:rgb(73, 73, 159);
-
-
-  justify-content: space-around;
+   background-color:rgb(116, 14, 160);
+   justify-content: space-around;
 
 }
+ul{
+  list-style: none;
+  padding: 0;
+  
+ }
+ 
 /* ---------------container Menu------------------- */
 .container-Menu{
     width:20%;
-  height: 700px;
+  height: 100vh;
  display: flex;
  flex-direction: column;
  align-items: center;
@@ -40,14 +44,136 @@ background-color:rgb(73, 73, 159);
     
 }
 .sidebar ul{
-  
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 50px;
-  text-align: start;
+  text-align:center;
   
   
 }
+
+.ulSidebar{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align:center;
+  
+}
+
+.liSidebar{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  fill:currentColor;
+  
+  
+}
+
+.liSidebar:hover{
+  color: goldenrod;
+  padding: 10px;
+}
+
+/* ------------------------button effect ------------------------------ */
+
+.liEffect {
+  --c: goldenrod;
+  color: var(--c);
+  font-size: 16px;
+  
+  border-radius: 0.5em;
+  width: auto;
+  height: 3em;
+  text-transform: uppercase;
+  line-height: 3em;
+  text-align: center;
+ 
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1em;
+}
+
+.liEffect .spanEffect {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: var(--c);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+
+ .liEffect:hover {
+  color: black;
+  
+}
+
+.liEffect:hover .spanEffect {
+  transform: translateY(0) scale(2);
+  border: 0.3em solid var(--c);
+}
+
+.liEffect .spanEffect:nth-child(1) {
+  --n: 1;
+}
+
+.liEffect .spanEffect:nth-child(2) {
+  --n: 2;
+}
+
+.liEffect .spanEffect:nth-child(3) {
+  --n: 3;
+}
+
+.liEffect .spanEffect:nth-child(4) {
+  --n: 4;
+}
+
+
+
+/* -------------------------- button effect session ------------------------ */
+.btnEffectSession {
+  display: flex;
+  margin-left: 15px;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  padding: 0.8em 1.3em 0.8em 0.9em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  border: none;
+  letter-spacing: 0.05em;
+  border-radius: 16px;
+ }
+ 
+ .btnEffectSession svg {
+  transform: rotate(30deg);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+ }
+ 
+ .btnEffectSession .spanSession {
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+ }
+ 
+ .btnEffectSession:hover svg {
+  transform: translateX(5px) rotate(90deg);
+ }
+ 
+  .btnEffectSession:hover .spanSession {
+  transform: translateX(7px);
+ }
+
 .profile{
   width: 90%;
   display: flex;
@@ -73,14 +199,16 @@ background-color:rgb(73, 73, 159);
   justify-content: center;
   
 }
+
 .boxPost{
   width:80%;
-  height: 150px;
+  min-height: 150px;
   border-radius: 40px;
  
   display: flex;
  flex-direction: column;
  margin-left: 10px;
+ margin-top: 20px;
  padding: 10px;
  background: rgba(167, 167, 167, 0.1);
  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -89,12 +217,14 @@ background-color:rgb(73, 73, 159);
 
  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
 .textPost{
   width: 80%;
-  height: 100px;
-  border-radius: 40px;
+  min-height: 80px;
+  border-radius: 20px;
 background-color:#fff;
- margin-left: 50px;
+ margin-left:40px;
+ margin-top: 10px;
 }
 .textPost p{
 text-align: start;
@@ -116,7 +246,7 @@ margin-left: 30px;
   margin-left:5px;
 }
 .boxReactions{
-  padding: 10px;
+  padding-top: 10px;
   width: 400px;
  
   align-self: center;
@@ -127,6 +257,7 @@ margin-left: 30px;
 .boxReactions img{
   width: 15px;
   height: 15px;
+  cursor: pointer;
 }
 .btnPosting{
  
@@ -135,18 +266,65 @@ margin-left: 30px;
   align-items: center;
   margin-left: 15px;
   
+  
  
 }
-.btnPosting button{
+ .btnPostingChildren{
   width: 120px;
   height: 40px;
   border-radius: 30px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 
 }
 .imgBtnPost{
   width: 15px;
   height: 15px;
+}
+/* ------------box comentarios abre----------------------- */
+.boxComments{
+width: 35%;
+min-height: 80px;
+border-radius: 40px;
+align-self:center;
+padding-top: 15px;
+display: flex;
+flex-direction: column;
+margin-top: 5px;
+margin-bottom: 1px;
+background: rgba(167, 167, 167, 0.1);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 2.5px );
+-webkit-backdrop-filter: blur( 2.5px );
+
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.boxComments ul{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+.boxComments li{
+  width: 80%;
+min-height: 40px;
+display: flex;
+ border-radius: 25px;
+background-color: #fff;
+}
+.boxComment{
+width: 80% ;
+min-height: 40px;
+display: flex;
+justify-content: space-evenly;
+}
+.imgUserComment{
+  width: 11%;
+  height: 35px;
+  border-radius: 10px;
+}
+.inputComment{
+  align-self: center;
 }

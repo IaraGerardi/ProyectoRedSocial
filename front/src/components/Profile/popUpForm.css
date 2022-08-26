@@ -1,24 +1,34 @@
+/*Z-indexs:
+2- .headerProfile (foto header)
+3- .profilePicture
+3- .editButton (para abrir el modal de editar)
+
+Los z index 2 y 3 estan en profile.css
+
+4-.editUserForm (el form de edicion)
+*/
 /* Edit user formulario */
 
 /*Edit user form display*/
 .editUserForm, .editBox, .glassmorphism  {
     display: flex;
 }
-/* className='editUserForm' */
+
 .containerDataForm {
-    position: absolute;
+    /* position: absolute; */
     padding: 10px;
     border-radius: 30px;
     /* background-color: rgb(242, 242, 242); */
     /* background-color: blue; */
     margin: 10px;
-    /* El z-index es importante en la vista profile para que ande todo, si necesitan subirlo subanlo pero no  */
+    /* El z-index es importante en la vista profile para que ande todo, si necesitan subirlo subanlo pero no lo bajen */
     z-index: 4;
     background-color: rgba(78, 78, 78, 0.461);
     /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.44), rgba(255, 255, 255, 0.44)); */
     backdrop-filter: blur(5px); 
 }
 .profileForm{
+    position: absolute; 
     background-color: azure;
     width: 80vw;
     height: 600px;
@@ -40,6 +50,10 @@
     border: none;
     margin: 15px;
 }
+
+/*Profile pop-up*/
+
+
 
 /* 
 Lo dejo comentado porque era mucho tener el pop up y el fondo con el mismo efecto, pero es el div que esta solo para darle un fondo que oscuresca/difumine todo lo que esta detras del pop up

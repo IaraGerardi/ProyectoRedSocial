@@ -1,14 +1,14 @@
 /*Z-indexs:
-2- .profilePictureContainer
-3- .editButton
-4-.editUserForm
+2- .headerProfile (foto header)
+3- .profilePicture
+3- .editButton (para abrir el modal de editar)
+4-.editUserForm (el form de edicion, esta en popUpForm.css)
 */
 
 /* General profile */
 .profileView {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 /* Profile info */
@@ -20,10 +20,11 @@
 
 .profileInfo {
     width: 80vw;
+    height: 500px;
     flex-direction: column;
     border-radius: 50px;
     background-color: rgb(202, 26, 26);
-    margin: 5px;
+    margin: 20px;
 }
 
 .profilePictureContainer{
@@ -32,7 +33,6 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.272);
     position: absolute;
-    z-index: 2; 
 }
 .headerProfile {
     width: 80vw; 
@@ -40,6 +40,7 @@
     border-radius: 50px 50px 0 0;
     object-fit: cover;
     filter: blur(2px);
+    z-index: 2; 
 }
 
 .profilePicture {
@@ -48,6 +49,7 @@
     object-fit: cover;
     border-radius: 30px;
     margin: 0px 0px 0px 40px;
+    z-index: 3; 
 }
 
 .infoContainer {
@@ -56,7 +58,7 @@
     background-color: rgb(184, 184, 184);
 }
 
-.infoContainer p {
+.infoContainer p, .profileInfoEdit input[type='text'], .profileInfoEdit textarea {
     font-size: 30px;
 }
 
@@ -77,7 +79,42 @@
 }
 .editButton{
     display: flex;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
     position: absolute;
     z-index: 3;
     right: 1.5vw;
+}
+
+
+/* Edit view */
+
+.profileInfoEdit .profileDescription{
+    display: flex;
+    flex-grow: 1;
+    width: 73vw;
+    height: 150px;
+}
+
+.profilePicEdit{
+    display: flex;
+    flex-direction: column;
+    background:url(https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80) no-repeat ;
+    background-position: center;
+    background-size: cover;
+}
+.headerEdit{
+    background:url(https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80) no-repeat ;
+    background-size: cover;
+    background-position: center;
+}
+.profileInfoEdit textarea, .profileInfoEdit input[type='text']{
+    border: none;
+    background: none;
+}
+.profileInfoEdit textarea{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;;
 }

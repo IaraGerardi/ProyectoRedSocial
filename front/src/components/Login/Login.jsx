@@ -10,49 +10,90 @@ import "./css/login.css"
 
 function Login() {
 
-    const [singIn, setSingIn] = useState(true);
-    const [singUp, setSignUp] = useState(false);
+    // const [login, setLogin] = useState();
+    // useEffect(() => {
+    //     obtenerDatos()
+    // },[])
 
-    const setViewSingIn = () => {
-        setSingIn(true)
-        setSingIn(false)
-    }
-    const setViewSingUp = () => {
-        setSignUp(true)
-        setSingIn(false)
+    // const obtenerDatos = async () => {
+    //     const datos = await fetch("localhost:8000/login")
+    //     const user = await datos.post();
+    //     setLogin(login)
+
+    // }
+
+    // obtenerDatos();
+
+
+    const URI = 'http://localhost:8000/login/';
+
+    const [user, setUser] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordsec, setPasswordSec] = useState('')
+
+
+    //procedimiento guardar
+    const store = async (e) => {
+        e.preventDefault()
+        await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
+
     }
 
+    store();
+
+    // DESCOMENTAR LO DE ABAJO
+
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+
+    // DESCOMENTAR LO DE ARRIBA
 
     return (
         <div className="all-cont">
 
-            <div class="container-login" id="container">
+            <div className="container-login" id="container">
 
-                <div class="form-container login">
+                <div className="form-container login">
 
-                    <form className="form-login" method='POST'>
+                    <form className="form-login" method='POST' onSubmit={store}>
                         <h1 className="title">Crear Cuenta</h1>
                         <span className="coment">completar formulario para avanzar</span>
-                        <Input
+                        {/* <Input
                             ClassInput="input-login"
                             Type="text"
                             Placeholder="Usuario"
                             Id="userReg"
-                            Name="userReg" />
+                            Name="userReg"
+                            onChange={(e) => setUser(e.target.value)}
+                        /> */}
+                        <input type="text" className="input-login" placeholder="Usuario" id="userReg" name="userReg"
+                            onChange={(e) => setUser(e.target.value)} />
 
                         <Input
                             ClassInput="input-login"
                             Type="email"
                             Placeholder="Email"
                             Id="emailReg"
-                            Name="emailReg" />
+                            Name="emailReg"
+                            onChange={(e) => setEmail(e.target.value)} />
 
                         <Input
                             ClassInput="input-login"
                             Type="password"
                             Placeholder="Contraseña"
                             Id="passwordReg"
-                            Name="passwordReg" />
+                            Name="passwordReg"
+                            onChange={(e) => setPassword(e.target.value)} />
 
                         <Input
                             ClassInput="input-login"
@@ -60,6 +101,7 @@ function Login() {
                             Placeholder="Repetir contraseña"
                             Id="password2Reg"
                             Name="password2Reg"
+                            onChange={(e) => setPasswordSec(e.target.value)}
                         />
 
                         <Boton
@@ -73,14 +115,14 @@ function Login() {
                 </div>
 
 
-                <div class="form-container register">
+                <div className="form-container register">
                     <form className="form-login" method='POST'>
                         <h1 className="title">¡Bienvenido!</h1>
 
                         <span className="coment">Ingresa desde tu cuenta</span>
                         <Input
                             ClassInput="input-login"
-                            Type="email"
+                            Type="text"
                             Placeholder="Nombre usuario o Email"
                             Id="userLog"
                             Name="userLog"
@@ -103,10 +145,10 @@ function Login() {
                     </form>
                 </div>
 
-                <div class="cont-front">
-                    <div class="front">
+                <div className="cont-front">
+                    <div className="front">
 
-                        <div class="front-panel front-left">
+                        <div className="front-panel front-left">
 
                             <h1 className="title">
                                 ¡Bienvenido de vuelta!
@@ -121,10 +163,11 @@ function Login() {
                                 Type=""
                                 BtnNombre="Ingresar"
                                 Id="signIn"
-                                onClick={() => setViewSingUp} />
+                            // onClick={() => setViewSingUp}
+                            />
                         </div>
 
-                        <div class="front-panel front-right">
+                        <div className="front-panel front-right">
 
                             <h1 className="title">
                                 ¿Aún no tienes cuenta?
@@ -139,7 +182,8 @@ function Login() {
                                 Type=""
                                 BtnNombre="Registrarse"
                                 Id="signUp"
-                                onClick={() => setViewSingIn} />
+                            // onClick={() => setViewSingIn} 
+                            />
                         </div>
 
                     </div>

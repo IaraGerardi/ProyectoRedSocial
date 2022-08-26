@@ -1,10 +1,10 @@
 import imgBtnPost from '../assets/editar.png';
 
-function BtnPosting() {
+function BtnPosting({setPopUp}) {
   return (
     <div className="btnPosting">
       
-      <button><img src={imgBtnPost} alt="" className='imgBtnPost' />Postear</button>
+      <button onClick={()=> setPopUp(true)} className="btnPostingChildren"><img src={imgBtnPost} alt="" className='imgBtnPost' />Postear</button>
     </div>
   )
 }
