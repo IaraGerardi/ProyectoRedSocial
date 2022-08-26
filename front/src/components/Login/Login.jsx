@@ -1,11 +1,12 @@
 import React from "react";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 
 // Components
 import Boton from "./Boton";
 import Input from "./Input"
 
 // Style
+import "./js/slider"
 import "./css/login.css"
 
 function Login() {
@@ -46,9 +47,9 @@ function Login() {
     return (
         <div className="all-cont">
 
-            <div class="container-login" id="container">
+            <div className="container-login" id="container">
 
-                <div class="form-container login">
+                <div className="form-container login">
 
                     <form className="form-login" method='POST'>
                         <h1 className="title">Crear Cuenta</h1>
@@ -93,7 +94,7 @@ function Login() {
                 </div>
 
 
-                <div class="form-container register">
+                <div className="form-container register">
                     <form className="form-login" method='POST'>
                         <h1 className="title">¡Bienvenido!</h1>
 
@@ -123,10 +124,10 @@ function Login() {
                     </form>
                 </div>
 
-                <div class="cont-front">
-                    <div class="front">
+                <div className="cont-front">
+                    <div className="front">
 
-                        <div class="front-panel front-left">
+                        <div className="front-panel front-left">
 
                             <h1 className="title">
                                 ¡Bienvenido de vuelta!
@@ -145,7 +146,7 @@ function Login() {
                                  />
                         </div>
 
-                        <div class="front-panel front-right">
+                        <div className="front-panel front-right">
 
                             <h1 className="title">
                                 ¿Aún no tienes cuenta?
