@@ -17,7 +17,8 @@ function ProfileInfo({ setPopUp }) {
                     <div className='userStats' />
                     <p>Posts: 12</p>
                     <p>Likes: 40</p>
-                    <div className="editButton"  onClick={() => setPopUp(true)}>
+                    <div className="editButton">
+                    <iconify-icon icon="bxs:edit-alt"/>
                         <box-icon name='edit-alt' onClick={() => setPopUp(true)} /> 
                     </div>
                 </div>

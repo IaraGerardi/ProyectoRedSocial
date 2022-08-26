@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import ProfileInfo from "./profile-info";
-import EditUser from "./editProfile";
+import EditUser from "./popUpForm";
 import Menu from "../Home/components-Home/Menu";
 // import Post from "../Home/components-Home/Post";
 import "./profile.css"

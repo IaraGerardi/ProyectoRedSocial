@@ -41,10 +41,9 @@ function EditUser({ setPopUp, father }) {
                     -Posibilidad de subir una imagen
                     */
                     : father === 'home' ?
-                    // Hay que agregar una funcion que haga prevent default pq se recarga cuando se manda una imagen y desaparece el formulario
                         <form method='POST' className='homeForm'>
                             <input type="text" name='content' id='content' maxLength='255' required/>
-                            <input type="image" id='image' name='image' src='' alt='subir foto' />
+                            <input type="file" id='image' name='image' src='' alt='subir foto' />
                             <input type='submit' placeholder="POST"/>
                         </form>
                         : null}

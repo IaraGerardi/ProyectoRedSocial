@@ -1,14 +1,14 @@
 /*Z-indexs:
-2- .profilePictureContainer
-3- .editButton
-4-.editUserForm
+2- .headerProfile (foto header)
+3- .profilePicture
+3- .editButton (para abrir el modal de editar)
+4-.editUserForm (el form de edicion, esta en popUpForm.css)
 */
 
 /* General profile */
 .profileView {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 /* Profile info */
@@ -20,10 +20,11 @@
 
 .profileInfo {
     width: 80vw;
+    height: 500px;
     flex-direction: column;
     border-radius: 50px;
     background-color: rgb(202, 26, 26);
-    margin: 5px;
+    margin: 20px;
 }
 
 .profilePictureContainer{
@@ -32,7 +33,6 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.272);
     position: absolute;
-    z-index: 2; 
 }
 .headerProfile {
     width: 80vw; 
@@ -40,6 +40,7 @@
     border-radius: 50px 50px 0 0;
     object-fit: cover;
     filter: blur(2px);
+    z-index: 2; 
 }
 
 .profilePicture {
@@ -48,6 +49,7 @@
     object-fit: cover;
     border-radius: 30px;
     margin: 0px 0px 0px 40px;
+    z-index: 3; 
 }
 
 .infoContainer {
