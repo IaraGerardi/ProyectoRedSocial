@@ -1,25 +1,28 @@
 import imgReactionLike from '../assets/amor.png';
 import imgReactionLikeado from '../assets/me-gusta (1).png';
+ import imgUserPost from '../assets/imgUserPost.jpg';
+ import imgUserComment from '../assets/Screenshot_3.png'
 import imgReactionComment from '../assets/comentario.png';
 import {useState} from 'react';
 
-function Post({textPostProp,userPostProp,imgUserPost}) {
-//-------traigo api user,mas adelante el "json" de user de chicos back----------
-/*   const [users,setUsers]=useState([]);
+function Post({textPostProp,userPostProp}) {
 
+/*   ---------manejo de caja Comentarios----- */
+  const [openComments,setOpenComments]=useState(false);
+ const handleOpenComments =()=>{
+  if(openComments===true){
+    setOpenComments(false)
+  }else{
+    setOpenComments(true);
+  }
+     
+ }
 
-const getUser=async()=>{
-  const dataUsers= await fetch(`https://randomuser.me/api/?results=10_`);
-  const dataUsersJson= await dataUsers.json();
-  setUsers(dataUsersJson.results);
-}
- useEffect(()=>{
-  getUser();
- },[]) */
 
 //----------------manejo del like abre------------
   const [like,setLike]=useState(0);
  const[liked,setlLiked]=useState(false);
+ 
 
     const handleLike=()=>{
     if(like===0 && liked===false){
@@ -45,12 +48,34 @@ const getUser=async()=>{
                           <div className="textPost">
                           <p>{textPostProp}</p>
                           </div>   
+                          <div className="boxReactions">
+                            <span>{liked===false ? <img src={imgReactionLike} alt="" onClick={handleLike}/>: <img src={imgReactionLikeado} alt="" onClick={handleLike}/>}{like}</span>
+                            <span><img src={imgReactionComment} alt="" onClick={handleOpenComments}/></span>
+                          </div>
                       </div>
 
-                      <div className="boxReactions">
-                            <span>{liked===false ? <img src={imgReactionLike} alt="" onClick={handleLike}/>: <img src={imgReactionLikeado} alt="" onClick={handleLike}/>}{like}</span>
-                            <span><img src={imgReactionComment} alt="" /></span>
-                      </div>
+                   
+
+{/* ---------------------------caja comentarios abre----------------------------------------- */}
+                          {openComments===true ? <div className='boxComments'>
+                            <ul>
+                              <li>
+                                <div className='boxComment'>
+                                  <img src={imgUserComment} className="imgUserComment" alt="" />
+                                    <p>shgkjksdjgkhbdskhghdvsa</p> 
+                                </div>
+                              </li>
+                            </ul>
+                             <div className='inputComment'>
+                             <input type="text" />
+                              <button>Comentar</button>
+                              </div> 
+                               
+                          </div>: null}
+
+
+
+
                       </>
             
            )
