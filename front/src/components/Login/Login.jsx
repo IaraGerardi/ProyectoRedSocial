@@ -10,18 +10,38 @@ import "./css/login.css"
 
 function Login() {
 
-    const [singIn, setSingIn] = useState(true);
-    const [singUp, setSignUp] = useState(false);
+    // const [singIn, setSingIn] = useState(true);
+    // const [singUp, setSignUp] = useState(false);
 
-    const setViewSingIn = () => {
-        setSingIn(true)
-        setSingIn(false)
-    }
-    const setViewSingUp = () => {
-        setSignUp(true)
-        setSingIn(false)
-    }
+    // const setViewSingIn = () => {
+    //     setSingIn(true)
+    //     setSingIn(false)
+    // }
+    // const setViewSingUp = () => {
+    //     setSignUp(true)
+    //     setSingIn(false)
+    // }
 
+
+
+
+
+
+// DESCOMENTAR LO DE ABAJO
+
+    // const signUpButton = document.getElementById('signUp');
+    // const signInButton = document.getElementById('signIn');
+    // const container = document.getElementById('container');
+    
+    // signUpButton.addEventListener('click', () => {
+    //     container.classList.add("right-panel-active");
+    // });
+    
+    // signInButton.addEventListener('click', () => {
+    //     container.classList.remove("right-panel-active");
+    // });
+
+// DESCOMENTAR LO DE ARRIBA
 
     return (
         <div className="all-cont">
@@ -80,7 +100,7 @@ function Login() {
                         <span className="coment">Ingresa desde tu cuenta</span>
                         <Input
                             ClassInput="input-login"
-                            Type="email"
+                            Type="text"
                             Placeholder="Nombre usuario o Email"
                             Id="userLog"
                             Name="userLog"
@@ -121,7 +141,8 @@ function Login() {
                                 Type=""
                                 BtnNombre="Ingresar"
                                 Id="signIn"
-                                onClick={() => setViewSingUp} />
+                                // onClick={() => setViewSingUp}
+                                 />
                         </div>
 
                         <div class="front-panel front-right">
@@ -139,7 +160,8 @@ function Login() {
                                 Type=""
                                 BtnNombre="Registrarse"
                                 Id="signUp"
-                                onClick={() => setViewSingIn} />
+                                // onClick={() => setViewSingIn} 
+                                />
                         </div>
 
                     </div>
