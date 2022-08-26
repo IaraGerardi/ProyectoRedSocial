@@ -6,7 +6,6 @@ import Boton from "./Boton";
 import Input from "./Input"
 
 // Style
-import "./js/slider"
 import "./css/login.css"
 
 function Login() {
