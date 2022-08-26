@@ -4,7 +4,7 @@
 
 /* CONTAINER PRINCIPAL TIENE EL FONDO DEGRADADO */
 .containerOne {
-  background: linear-gradient(180deg, #d400ff 0%, #33fff4 100%);
+  background: linear-gradient(180deg, #A938F9 0%, #C966BF 100%);
   width: 100%;
   width: 100vw;
   height: 100vh;
@@ -28,7 +28,6 @@
   display: flex;
   justify-content: center;
   justify-content: space-around;
-  margin-top: 20px;
 }
 
 /* CONTIENE LOS TEXTOS SECUNDARIOS */
@@ -108,13 +107,18 @@
 @media (min-width: 425px) {
   .containerFour {
     text-align: center;
+    /* margin-bottom: 30px; */
   }
   .containerTree {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
+
+
 }
+
+
 
 @media (min-width: 375px) {
   .containerTree {
