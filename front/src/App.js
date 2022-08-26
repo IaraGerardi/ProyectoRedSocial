@@ -9,12 +9,14 @@ import Home from './components/Home/Home';
 import Profile from './components/Profile/profilee';
 import Login from './components/Login/Login';
 import Error from './components/Error/Error';
+import { Welcome } from './components/pageInitial/Welcome';
 
 function App() {
   return (
     <BrowserRouter>
     <Routes>
       {/* Cambiar login, allUsers y * cuando vayan haciendo push con los componentes */}
+      <Route path='/' element={<Welcome/>}/>
       {/* <Route path='/login' element={<Login/>}/> */}   
       <Route path='/home' element={<Home/>}/>
       <Route path='/profile' element={<Profile/>}/>
