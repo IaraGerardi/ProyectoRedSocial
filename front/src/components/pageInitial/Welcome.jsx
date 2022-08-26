@@ -1,7 +1,7 @@
 import React from 'react'
 import './welcome.css'
 /* import socialDev from './assets/socialDEV-removebg-preview.png' */
-import logo1 from '../pageInitial/assets/logofg.png'
+import logo1 from './assets/Social-dev-opacidad-100.png'
 import { Link } from 'react-router-dom'
 
 

@@ -75,7 +75,9 @@ useEffect(()=>{
   )}
 </div>
 </li>
-          <li>Admin</li>
+          <li>Admin 
+
+</li>
         </ul>
         
       </nav>
