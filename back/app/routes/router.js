@@ -36,7 +36,7 @@ router.put('/profile/:user', userImage.any(), isAuthenticated, editValidation, u
 
 //Ruta admin. Todos los usuarios, editar, borrar.
 router.get('/allUsers', getAllUserAdmin); //Obtener todos los usuarios
-router.put('/allUsers/:id', editValidationAdmin, updateUserAdmin); //modificar usuario por ID
+router.put('/allUsers/:id', userImage.any()/* , editValidationAdmin */, updateUserAdmin); //modificar usuario por ID
 router.delete('/allUsers/:id', deleteUserAdmin); //Eliminar usuario por ID
 
 
