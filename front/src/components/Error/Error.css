@@ -1,120 +1,149 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+
 /* CONTAINER PRINCIPAL TIENE EL FONDO DEGRADADO */
-.containerOne{
- background: linear-gradient(180deg, #d400ff 0%, #33fff4 100%);    width: 100%;
- width: 100vw;
- height: 100vh;
- overflow: hidden;
+.containerOne {
+  background: linear-gradient(180deg, #d400ff 0%, #33fff4 100%);
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ESTE CONTAINER CONTIENE TODO EL CONTENIDO LO ALINEAMOS EN EL MEDIO */
-.containerTwo{
- display: flex;
- flex-direction: column;
- width: 100%;
- height: 50%;
- margin-top: 80px;
+.containerTwo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
 }
 
-.containerTree{
-    display: flex;
-    justify-content: center;
-    justify-content: space-around;
+/* CONTIENE LOS TEXTOS PRINCIPALES */
+.containerTree {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-.containerFour{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* CONTIENE LOS TEXTOS SECUNDARIOS */
+.containerFour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.containerimg{
-    margin-right: auto;
-    margin-left: auto;
-    width: 80%;
-    height: 100%;
-    margin-top: 20px;
+/* EL CONTAINER QUE ENVUELVE LA IMAGEN */
+.containerimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: auto;
+  height: 400px;
+  margin-top: 20px;
 }
 
 /* CLASSNAME PARA DARLE MEDIDAS A LA IMAGEN */
-.imgrobot{
- width: 80%;
- height: 100%;  
+.imgrobot {
+  width: 100%;
+  height: 70%;
 }
 
-/* --- */
-.hh1{
- color: wheat;
- font-size: 35px;
- text-shadow: 3px 3px 4px rgb(0, 0, 0);
+/* CLASE QUE LE DIMOS A LOS TEXTOS */
+.hh1 {
+  color: rgb(255, 255, 0);
+  font-size: 35px;
+  text-shadow: 3px 3px 4px rgb(0, 0, 0);
+  font-family: 'Silkscreen', cursive;
+  /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
 }
 
-/* --- */
-.hh2{
- font-size: 30px;
- color: white;
- text-shadow: 3px 3px 4px rgb(0, 0, 0);
- margin-top: 20px;
-
+/* CLASE QUE LE DIMOS A LOS TEXTOS */
+.hh2 {
+  font-size: 30px;
+  color: white;
+  text-shadow: 3px 3px 4px rgb(0, 0, 0);
+  margin-top: 20px;
 }
 
 /* CLASE PARA EL BOTON QUE REGRESA AL INICIO */
-.botonone{
-	/* box-shadow:inset 0px 1px 0px 0px #97c4fe; */
-    /* text-shadow: 4px 4px 2px rgb(0, 0, 0); */
-
-    background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
-	background-color:#3d94f6;
-	border-radius:6px;
-	border:1px solid #337fed;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #1570cd;
-    margin-top: 30px;
-    box-shadow: 2px 2px 4px rgb(0, 0, 0);
-
+.botonone {
+  background: linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+  background-color: #3d94f6;
+  border-radius: 6px;
+  border: 1px solid #337fed;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #1570cd;
+  margin-top: 10px;
+  box-shadow: 2px 2px 4px rgb(0, 0, 0);
 }
+
 .botonone:hover {
-	background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
-	background-color:#1e62d0;
+  background: linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+  background-color: #1e62d0;
 }
+
 .botonone:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
 }
 
+/*--------------------MEDIA QUERY------------------*/
+/* APLICAMOS MEDIA QUERY PARA QUE SE ADAPTE Y MANTENGA SU ESTRUCTURA DE IMAGEN */
 
-/* MEDIA QUERY */
-
-@media (max-width: 768px){
-    .containerTwo{
-        margin-top: 70px;
-    }
-
-    .containerTree{
+@media (min-width: 425px) {
+  .containerFour {
+    text-align: center;
+  }
+  .containerTree {
+    display: flex;
     flex-direction: column;
-    }
-
-    .containerFour{
-        display: flex;
-        text-align: center;
-    
-    }
-
-    .hh1{
-        display: flex;
-        color: rgb(255, 255, 255);
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hh2{
-        color: rgb(255, 255, 255);
-    }
+    text-align: center;
+  }
 }
 
+@media (min-width: 375px) {
+  .containerTree {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .containerFour {
+    display: flex;
+    text-align: center;
+  }
+  .containerimg {
+    width: auto;
+    height: 350px;
+  }
+}
+
+@media (max-width: 375px) {
+  .containerTwo {
+    height: 95vh;
+    margin-bottom: 20px;
+  }
+  .containerTree {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .containerFour {
+    display: flex;
+    text-align: center;
+  }
+}
