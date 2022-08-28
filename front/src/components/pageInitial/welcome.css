@@ -74,12 +74,12 @@ button {
     font-family: inherit;
    }
    
-   button.learn-more {
+   .learn-more {
     width: 12rem;
     height: auto;
    }
    
-   button.learn-more .circle {
+  .learn-more .circle {
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: relative;
     display: block;

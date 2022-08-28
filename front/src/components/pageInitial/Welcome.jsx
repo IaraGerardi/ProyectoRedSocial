@@ -12,11 +12,12 @@ export const Welcome = () => {
     <div className='boxWelcome2'>
         <div className='blurWelcome'>
             <img className='socialLogo' src={logo1} alt="logo" />
-            <Link to='/login'><button class="learn-more">
+            <Link to='/login'><button className='btnInitialPage'><button class="learn-more">
                     <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                     </span>
                     <span class="button-text">Iniciar</span>
+                    </button>
                 </button>
             </Link>
             

@@ -127,7 +127,7 @@ ul{
     flex-direction: row;
     justify-content: space-around;
     align-items:center;
-    background-color: black;
+    background-color:none;
     width: 700px;
 }
 

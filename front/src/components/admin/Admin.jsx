@@ -4,22 +4,46 @@ import UserTable from './UserTable';
 import AddUserForm from './AddUserForm';
 import EditUserForm from './EditUserForm';
 import socialLogo from '../pageInitial/assets/socialDEV.png'
+import axios from 'axios'
 
-
+const URI= 'http://localhost:8000/allUsers'
 export const Admin = () => {
   
-  const [users, setUsers] = useState([])
+ /*  const [users, setUsers] = useState([]) */
  
-  const obtenerUsuarios = async () => {
-      const obtenerDatos = await fetch('https://jsonplaceholder.typicode.com/users');
+/*   const obtenerUsuarios = async () => {
+      const obtenerDatos = await fetch('http://localhost:8000/allUsers');
       const res=await obtenerDatos.json();
       setUsers(res); //"Answer of async/await", res
-} 
+}  */
+
+/* 
+useEffect(() => {
+  const getData = () => {
+    fetch('http://localhost:8000/allUsers')
+    .then(res => res.json())
+    .then(res => setUsers(res))
+  }
+  getData()
+  
+}, []) */
+
+ //hooks
+ const [users, setUser] = useState ([])
+ useEffect( ()=>{
+     getUsers()
+ },[])
+
+ //muestra todos los blogs
+ const getUsers = async () => {
+     const res = await axios.get(URI) //peticion al back
+     setUser(res.data)
+ }
 
 
-useEffect(()=>{
+/* useEffect(()=>{
   obtenerUsuarios()    
-},[])
+},[]) */
  
 
     const [editing, setEditing] = useState(false)
@@ -29,26 +53,26 @@ useEffect(()=>{
     //add user
     const addUser = (user) => {
       user.id = users.length + 1
-      setUsers([...users, user])
+      setUser([...users, user])
     }
   
     //delete user
     const deleteUser = (id) => {
-      setUsers(users.filter((user) => user.id !== id))
+      setUser(users.filter((user) => user.id !== id))
     }
 
     //edit user
-    const editRow = (user) => {
+    const editRow = (users) => {
       setEditing(true)
     
-      setCurrentUser({ id: user.id, name: user.name, username: user.username })
+      setCurrentUser({ id: users.id, name: users.user, email: users.email})
     }
 
     //update User
     const updateUser = (id, updatedUser) => {
       setEditing(false)
     
-      setUsers(users.map((user) => (user.id === id ? updatedUser : user)))
+      setUser(users.map((user) => (user.id === id ? updatedUser : user)))
     }
 
   return (
