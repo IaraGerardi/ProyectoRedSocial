@@ -266,11 +266,8 @@ margin-left: 30px;
   display: flex;
   align-items: center;
   margin-left: 15px;
-  
-  
- 
 }
- .btnPostingChildren{
+/*  .btnPostingChildren{
   width: 120px;
   height: 40px;
   border-radius: 30px;
@@ -279,10 +276,66 @@ margin-left: 30px;
   align-items: center;
   cursor: pointer;
 
-}
+} */
+
+/* btn postear */
+.btnPost1 {
+  font-family: inherit;
+  font-size: 20px;
+  background: goldenrod;
+  color: white;
+  padding: 10px;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+ }
+ 
+ .btnPost1 .spanPost {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+ }
+ 
+ .btnPost1 .imgBtnPost {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+ }
+ 
+ .btnPost1:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+ }
+ 
+ .btnPost1:hover .imgBtnPost {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+ }
+ 
+ .btnPost1:hover .spanPost {
+  transform: translateX(5em);
+ }
+ 
+ .btnPost1:active {
+  transform: scale(0.95);
+ }
+ 
+ @keyframes fly-1 {
+  from {
+   transform: translateY(0.1em);
+  }
+ 
+  to {
+   transform: translateY(-0.1em);
+  }
+ }
+ 
+
 .imgBtnPost{
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
 }
 /* -----------  WritePost-------------------------- */
 .container-filterWritePost{
@@ -363,21 +416,49 @@ background: rgb(0, 0, 0.8);
   letter-spacing: 0.05em;
   border-radius: 16px;
  }
- .btnResetPost,.btnCloseWritePost{
+
+ .btnResetPost{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width:30px ;
   height: 30px;
-  display: flex;
-  align-items: center;
-  font-family: inherit;
-  font-weight: 500;
   font-size: 15px;
-  padding: 0.8em 1.3em 0.8em 0.9em;
+  padding: 8px;
   color: white;
   background: #ad5389;
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   border: none;
-  letter-spacing: 0.05em;
   border-radius: 10px;
+ }
+
+ .btnResetPost:hover{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+ }
+
+ .btnCloseWritePost{
+  width:30px ;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  border: none;
+  border-radius: 10px;
+ }
+
+ .btnCloseWritePost:hover{
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
  }
  
  .btnSendWritePost svg {
