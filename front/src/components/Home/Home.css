@@ -190,14 +190,14 @@ ul{
   margin-top: 10px;
   margin-left:10px;
 }
-/* ------------------Container Post--------------- */
+/* ------------------Container Posts--------------- */
 .container-Posts{
     width: 78%;
  
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
+  z-index: 1;
 }
 
 .boxPost{
@@ -259,6 +259,7 @@ margin-left: 30px;
   height: 15px;
   cursor: pointer;
 }
+/* --------------BtnPosting----------------------- */
 .btnPosting{
  
   height: 100px;
@@ -283,6 +284,119 @@ margin-left: 30px;
   width: 15px;
   height: 15px;
 }
+/* -----------  WritePost-------------------------- */
+.container-filterWritePost{
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+
+position:fixed;
+top: 0px;
+right: 0px;
+z-index: 2;
+backdrop-filter: blur(3px);
+background: rgb(0, 0, 0.8);
+
+}
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .container-filterWritePost {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    background-color: rgba(255, 255, 255, 0.075);  
+  }
+  .warning {
+    display: none;
+  }
+}
+.container-WritePost{
+  width: 50%;
+ height: 190px;
+ max-height: 250px;
+ gap:5px;
+  background-color: #fff;
+  border-radius: 40px;
+  margin-top: 150px;
+  padding-left:40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  
+  box-shadow: 0px 2px 47px 2px rgba(0,0,0,0.75);
+  z-index: 2;
+}
+.container-WritePost input{
+  width: 70%;
+  height: 50px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.formWritePost{
+  display: flex;
+  flex-direction: column;
+
+ 
+}
+.btnsFormWritePost{
+  width: 60%;
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+  padding-right: 50px;
+}
+.btnSendWritePost {
+  width:110px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 0.8em 1.3em 0.8em 0.9em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  border: none;
+  letter-spacing: 0.05em;
+  border-radius: 16px;
+ }
+ .btnResetPost,.btnCloseWritePost{
+  width:30px ;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 0.8em 1.3em 0.8em 0.9em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  border: none;
+  letter-spacing: 0.05em;
+  border-radius: 10px;
+ }
+ 
+ .btnSendWritePost svg {
+  margin-right: 3px;
+  transform: rotate(30deg);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+ }
+ 
+ .btnSendWritePost span {
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+ }
+ 
+ .btnSendWritePost:hover svg {
+  transform: translateX(5px) rotate(90deg);
+ }
+ 
+ .btnSendWritePost:hover span {
+  transform: translateX(7px);
+ }
 /* ------------box comentarios abre----------------------- */
 .boxComments{
 width: 35%;
@@ -325,6 +439,7 @@ justify-content: space-evenly;
   height: 35px;
   border-radius: 10px;
 }
-.inputComment{
+.formComment{
   align-self: center;
+ 
 }

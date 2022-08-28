@@ -1,11 +1,23 @@
+import { useState } from 'react';
 import BtnPosting from './BtnPosting';
 import Post from './Post';
+import WritePost from './WritePost';
+
 
  /* import {useEffect,useState} from 'react';  */
 
-function Posts({setPopUp,popUp}) {
-  /* const [popUp, setPopUp] = useState(false); */
+function Posts() {
+  const [popUp, setPopUp] = useState(false);
 
+  const handlePopUpWritePost =()=>{
+ if(popUp===true){
+  setPopUp(false)
+ }else{
+  setPopUp(true);
+ }
+    
+  
+  }
 /*   ----------------------esto lo dejo para traer el json de gente de back------- */
 /*     const [users,setUsers]=useState([]);
 
@@ -22,8 +34,9 @@ const getUser=async()=>{
 
   return (
     <div className="container-Posts">
-      {/* Paso de nuevo la funcion de cambiar estado asi desde el boton lo puedo cambiar */}
-     {popUp?null:<BtnPosting setPopUp={setPopUp}  />} 
+   
+               <BtnPosting OpenWritePost={handlePopUpWritePost} />
+               {popUp===true?<WritePost propWritePost={handlePopUpWritePost}/>:null} 
 
                 <Post  textPostProp="holiiiiiiiiiiiiiii" userPostProp="gonzalo"/>
                  <Post userPostProp="Macarena" textPostProp="holiii aguante react"/>

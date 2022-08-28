@@ -66,10 +66,10 @@ function Post({textPostProp,userPostProp}) {
                                 </div>
                               </li>
                             </ul>
-                             <div className='inputComment'>
+                             <form className='formComment' method='post'>
                              <input type="text" />
-                              <button>Comentar</button>
-                              </div> 
+                              <button type='submit'>Comentar</button>
+                              </form> 
                                
                           </div>: null}
 
