@@ -7,8 +7,11 @@ import { useNavigate } from "react-router-dom"
 import Boton from "./Boton";
 import Input from "./Input"
 
+
 // Style
 import "./css/login.css"
+import { useEffect } from "react";
+
 
 
 
@@ -31,6 +34,8 @@ function Login() {
 
 
 
+
+
     const URI = 'http://localhost:8000/login/';
 
     const [user, setUser] = useState('')
@@ -38,41 +43,63 @@ function Login() {
     const [password, setPassword] = useState('')
     const [passwordsec, setPasswordSec] = useState('')
 
+    const [errors, setErrors] = useState([])
+    useEffect(()=>{
+
+    })
+
     const navigate = useNavigate();
 
 
     const store = async (e) => {
         e.preventDefault()
-        await axios.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
-        navigate("/home")
+        // await axios.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
+
+        //     .then((response) => {
+        //         setErrors(response.data);
+        //     })
+
+        await axios.post(`${URI}`, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
+
+
+            .then((response) => {
+                if (response.data == "Registro Completado!") {
+                    alert("hola")
+                    (navigate('/login'))
+                    
+                } else {
+                    console.log(response.data);
+                    setErrors(response.data);
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
-
-
-    store()
-
-
-
-    //procedimiento guardar
-    // const store = async (e) => {
-    //  const res = await axios.get(URI)
-    //  setUser(res.data)
-    //   await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
-
-    // }
-
-    // store();
-
 
     return (
         <div className="all-cont">
+
+
+{/* 
+            <div> {errors.map((error) => (
+                <ul key={error.alertMesagge}>
+                    <li> {error.alertTitle} </li>
+                    <li> {error.alertMessage} </li>
+                </ul>))}
+            </div> */}
+
+
 
             <div className="container-login" ref={moverSlider}>
 
                 <div className="form-container login">
 
+
+                    <span></span>
+
                     <form className="form-login" method='POST'
-                        onSubmit={store}
-                    >
+                        onSubmit={store} >
 
                         <h1 className="title">Crear Cuenta</h1>
                         <span className="coment">completar formulario para avanzar</span>
@@ -84,6 +111,8 @@ function Login() {
                             Name="userReg"
                             EventoInput={(e) => setUser(e.target.value)}
                         />
+
+
 
 
                         <Input
@@ -203,6 +232,8 @@ function Login() {
 
 
             </div>
+
+
         </div>
     )
 }
