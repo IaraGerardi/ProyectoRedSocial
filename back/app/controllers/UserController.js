@@ -23,12 +23,13 @@ exports.registerUser = async(req, res)=>{
         })
         await db.query("SET @counter = 0;")
         await db.query("UPDATE users SET id = @counter := @counter + 1 ORDER BY id")
+        res.json({completado: "Registro Completado!"})
     }catch (error) {
         res.json({message:error.message})
     }
-}   else{
-    console.log(errors)
-    return res.json({errors:errors.errors})
+} else {
+        console.log(errors)
+        return res.json({errors:errors.errors})
     }
 }
 
@@ -215,4 +216,4 @@ exports.loginUser = async (req, res)=>{
     } else {
         res.json(errors.mapped())
     }
-    }
+}

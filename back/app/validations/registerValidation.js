@@ -26,7 +26,13 @@ const registerValidation = [
             return Promise.reject('Error el email ya esta registrado')
          }
       })
-   })
+   }),
+   body("password2Reg").custom(async (confirmPassword, {req}) => {
+      const password = req.body.passwordReg
+      if(password !== confirmPassword){
+        throw new Error('Las contraseñas deben ser iguales')
+      }
+    })
 ]
 
 module.exports = registerValidation
