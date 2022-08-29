@@ -6,7 +6,7 @@ const editValidation = require("../validations/editValidation.js")
 const editValidationAdmin = require("../validations/editValidationAdmin.js")
 const {getAllPosts, updatePost, createPost, deletePost} = require ('../controllers/homeController.js');
 const { registerUser, loginUser, logout, isAuthenticated, userLogged, updateUser, getUserEdit, userToProfile } = require ('../controllers/UserController.js');
-const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin } = require('../controllers/adminController.js');
+const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin, getUserAdmin } = require('../controllers/adminController.js');
 const  userImage  = require("../middleware/userImages.js")
 
 
@@ -36,6 +36,7 @@ router.put('/profile/:user', userImage.any(), isAuthenticated, editValidation, u
 
 //Ruta admin. Todos los usuarios, editar, borrar.
 router.get('/allUsers', getAllUserAdmin); //Obtener todos los usuarios
+router.get('/allUsers/:id', getUserAdmin);
 router.put('/allUsers/:id', userImage.any()/* , editValidationAdmin */, updateUserAdmin); //modificar usuario por ID
 router.delete('/allUsers/:id', deleteUserAdmin); //Eliminar usuario por ID
 
