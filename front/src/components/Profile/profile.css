@@ -14,7 +14,10 @@
 /* Profile info */
 
 /*Profile info display*/
-.profileInfo, .profilePictureContainer, .userStats, .upperInfoProfile  {
+.profileInfo,
+.profilePictureContainer,
+.userStats,
+.upperInfoProfile {
     display: flex;
 }
 
@@ -27,20 +30,21 @@
     margin: 20px;
 }
 
-.profilePictureContainer{
-    width: 80vw; 
+.profilePictureContainer {
+    width: 80vw;
     height: 500px;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.272);
     position: absolute;
 }
+
 .headerProfile {
-    width: 80vw; 
+    width: 80vw;
     height: 250px;
     border-radius: 50px 50px 0 0;
     object-fit: cover;
     filter: blur(2px);
-    z-index: 2; 
+    z-index: 2;
 }
 
 .profilePicture {
@@ -49,7 +53,7 @@
     object-fit: cover;
     border-radius: 30px;
     margin: 0px 0px 0px 40px;
-    z-index: 3; 
+    z-index: 3;
 }
 
 .infoContainer {
@@ -58,7 +62,9 @@
     background-color: rgb(184, 184, 184);
 }
 
-.infoContainer p, .profileInfoEdit input[type='text'], .profileInfoEdit textarea {
+.infoContainer p,
+.profileInfoEdit input[type='text'],
+.profileInfoEdit textarea {
     font-size: 30px;
 }
 
@@ -67,17 +73,16 @@
 }
 
 .upperInfoProfile {
-    margin: 0 70px 0 200px;
+    margin: 5px 70px 0 200px;
     align-items: center;
     justify-content: space-between;
-    /* background-color: cadetblue; */
 }
 
 .profileDescription {
     margin: 40px 60px 0px 40px;
-    /* background-color: coral;  */
 }
-.editButton{
+
+.editButton {
     display: flex;
     width: 25px;
     height: 25px;
@@ -87,38 +92,101 @@
     right: 1.5vw;
 }
 
+.editButtons {
+    display: flex;
+}
+
+.configureButton {
+    display: flex;
+    position: absolute;
+    right: 4vw;
+    z-index: 3;
+}
 
 /* Edit view */
 
-.profileInfoEdit .profileDescription{
+.profileInfoEdit .profileDescription {
     width: 73vw;
     height: 150px;
 }
 
-.profilePicEdit{
+.profilePicEdit {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    filter:opacity(1);
+    filter: opacity(1);
     backdrop-filter: blur(2px);
-    background:url(https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80) no-repeat ;
+    background: url(https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80) no-repeat;
     background-position: center;
     background-size: cover;
 }
-.headerEdit{
-    background:url(https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80) no-repeat ;
+
+.headerEdit {
+    background: url(https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80) no-repeat;
     background-size: cover;
     background-position: center;
 }
-.profileInfoEdit textarea, .profileInfoEdit input[type='text']{
+
+.profileInfoEdit textarea,
+.profileInfoEdit input[type='text'] {
     display: flex;
-    border: none; 
-    background: none;
-    z-index: 90;
+    z-index: 5;
 }
-.profileInfoEdit textarea{
+
+.profileInfoEdit textarea,
+.profileInfoEdit input[type='text'],
+.profileInfoEdit textarea:focus,
+.profileInfoEdit input[type='text']:focus {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.profileInfoEdit textarea {
     position: absolute;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;;
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    ;
+}
+
+
+/*Media queries*/
+
+@media (max-width: 1200px) {
+
+    .infoContainer p,
+    .profileInfoEdit input[type='text'],
+    .profileInfoEdit textarea {
+        font-size: 25px;
+    }
+}
+
+@media (min-width: 991px) {
+    .upperInfoProfile {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 990px) {
+    .upperInfoProfile {
+        justify-content: center;
+    }
+
+    .upperInfoProfile p {
+        padding: 10px;
+    }
+
+    .profileDescription,
+    .profileInfoEdit textarea {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .profileDescription,
+    .profileInfoEdit textarea {
+        font-size: 15px;
+    }
 }

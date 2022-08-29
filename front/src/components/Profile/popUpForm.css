@@ -10,30 +10,52 @@ Los z index 2 y 3 estan en profile.css
 /* Edit user formulario */
 
 /*Edit user form display*/
-.editUserForm, .editBox, .glassmorphism  {
+.editUserForm,
+.editBox,
+.glassmorphism {
     display: flex;
 }
 
-.containerDataForm {
-    /* position: absolute; */
+.closeEditUser {
+    position: absolute;
+    z-index: 6;
+    top: 25vh;
+    left: 16vw;
+}
+
+.editUserForm {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .containerDataForm {
+    position: absolute;
     padding: 10px;
     border-radius: 30px;
-    /* background-color: rgb(242, 242, 242); */
-    /* background-color: blue; */
     margin: 10px;
-    /* El z-index es importante en la vista profile para que ande todo, si necesitan subirlo subanlo pero no lo bajen */
-    z-index: 4;
-    background-color: rgba(78, 78, 78, 0.461);
-    /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.44), rgba(255, 255, 255, 0.44)); */
+    El z-index es importante en la vista profile para que ande todo, si necesitan subirlo subanlo pero no lo bajen 
+    z-index: 5;
+    background-color: rgba(78, 78, 78, 0.868);
     backdrop-filter: blur(5px); 
-}
-.profileForm{
-    position: absolute; 
-    background-color: azure;
-    width: 80vw;
-    height: 600px;
+} */
+
+.profileForm {
+    position: absolute;
+    padding: 10px;
+    border-radius: 30px;
+    margin: 10px;
+    background-color: rgb(15, 213, 213);
+    width: 70vw;
+    height: 55vh;
     flex-direction: column;
+    z-index: 5;
 }
+
 .containerDataForm img {
     width: 20px;
     height: 20px;
@@ -53,10 +75,6 @@ Los z index 2 y 3 estan en profile.css
 
 /*Profile pop-up*/
 
-
-
-/* 
-Lo dejo comentado porque era mucho tener el pop up y el fondo con el mismo efecto, pero es el div que esta solo para darle un fondo que oscuresca/difumine todo lo que esta detras del pop up
 .glassmorphism {
     content: '';
     position: absolute;
@@ -64,11 +82,5 @@ Lo dejo comentado porque era mucho tener el pop up y el fondo con el mismo efect
     left: 0px;
     width: 100vw;
     height: 100vh;
-
-    background-color: rgba(62, 62, 62, 0.45);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, .25);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .25);
-    backdrop-filter: blur(5px); 
-    opacity: 0.8; 
-} */
+    background-color: rgba(62, 62, 62, 0.886);
+}

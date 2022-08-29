@@ -1,54 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 
 // EditUser es el componente que edita la informacion del usuario, puede cambiar su nombre de usuario, su email y su contraseña, se muestra cuando el usuario da click en el lapiz que aparece al lado de sus "estadisticas"(posts y likes). El componente tambien incluye un div llamado "glassmorphism" para difuminar el fondo cuando se visualice el pop-up.
 
 // El estado se le pasa desde el padre, tiene que estar false por default y el padre tiene que tener un boton que cambie este estado a true. La x debe cambiar ese estado a falso, y hay que indicarle en que vista se encuentra con el prop "father".
-function EditUser({ setPopUp, father }) {
+function EditUser({ setConfigure, father, userInfo}) {
+
+    const { email, user, password } = userInfo;
+console.log(userInfo)
+    const [form, setForm] = useState({
+        ...userInfo,
+        'userEdit': user,
+        'emailEdit': email,
+        'passwordEdit': password
+    });
+
+    const handleChange = (e) => {
+        setForm({
+            ...form,
+            [e.target.id]: e.target.value,
+        })
+    }
+    console.log(form);
+
+    const handleSubmit=(e)=>{
+        e.preventDefault()
+        // await axios.put(URI+id, form)
+        // navigate('/profile/')
+    }
+  
+
     return (
         <>
-            {/* className='editUserForm'> es ahora container data form, y data form tiene q tener todo centrado */}
-            <div className='containerDataForm'>
-                {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="30"
-                onClick={() => setPopUp(false)} >
-                    <path d="M22.853,1.148a3.626,3.626,0,0,0-5.124,0L1.465,17.412A4.968,4.968,0,0,0,0,20.947V23a1,1,0,0,0,1,1H3.053a4.966,4.966,0,0,0,3.535-1.464L22.853,6.271A3.626,3.626,0,0,0,22.853,1.148ZM5.174,21.122A3.022,3.022,0,0,1,3.053,22H2V20.947a2.98,2.98,0,0,1,.879-2.121L15.222,6.483l2.3,2.3ZM21.438,4.857,18.932,7.364l-2.3-2.295,2.507-2.507a1.623,1.623,0,1,1,2.295,2.3Z" />
-                </svg> */}
-                {/* <iconify-icon icon="bi:x-circle" onClick={() => setPopUp(false)} /> */}
+            <div className='editUserForm'>
+                <svg className='closeEditUser' xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="20" height="20" onClick={() => setConfigure(false)}><path d="M13.93,12L21.666,2.443c.521-.644,.422-1.588-.223-2.109-.645-.522-1.588-.421-2.109,.223l-7.334,9.06L4.666,.557c-1.241-1.519-3.56,.357-2.332,1.887l7.736,9.557L2.334,21.557c-.521,.644-.422,1.588,.223,2.109,.64,.519,1.586,.424,2.109-.223l7.334-9.06,7.334,9.06c.524,.647,1.47,.742,2.109,.223,.645-.521,.744-1.466,.223-2.109l-7.736-9.557Z" /></svg>
                 {/* Si father es profile renderiza el pop up que tiene que cambiar la informacion del perfil de usuario */}
-                {/* Del perfil se debe poder personalizar:
-                -Foto de perfil y header,
-                -Descripcion
-                -Nombre de usuario, email *
-                -Contraseña * */}
-                {/* Los elementos de la lista que tienen un * son los que estoy haciendo, todavia tengo que hablar con los de back para ver si editamos las fotos y la descripcion */}
                 {father === 'profile' ?
-                    <form method='PUT' className='profileForm'>
+                    <form method='PUT' className='profileForm' onSubmit={handleSubmit}>
                         <div className='user editBox'>
                             <label htmlfor='userEdit'>Username</label>
-                            <input type='text' id='userEdit' name='userEdit'></input>
+                            <input type='text' id='userEdit' name='userEdit'
+                            defaultValue={user} onChange={handleChange} />
                         </div>
                         <div className='email editBox'>
                             <label htlmfor='emailEdit'>Email</label>
-                            <input type='email' id='emailEdit' name='emailEdit'></input>
+                            <input type='email' id='emailEdit' name='emailEdit'
+                            defaultValue={email} onChange={handleChange} />
                         </div>
                         <div className='password editBox'>
                             <label htlmfor='passwordEdit'>Contraseña</label>
-                            <input type='password' name='passwordEdit' id='passwordEdit'></input>
+                        
+                            <input type='password' name='passwordEdit' id='passwordEdit'
+                             defaultValue={password} onChange={handleChange} />
                         </div>
                         <input type='submit' />
                     </form>
-                    // Si el father es home renderiza el pop up en el que se crean los posteos
-                    // No tiene ningun estilo pero le puedo poner el mismo estilo que el pop up de editar perfil
-                    /* El post debe contener:
-                    -Contenido 
-                    -Posibilidad de subir una imagen
-                    */
-                    : father === 'home' ?
-                        <form method='POST' className='homeForm'>
-                            <input type="text" name='content' id='content' maxLength='255' required />
-                            <input type="file" id='image' name='image' src='' alt='subir foto' />
-                            <input type='submit' placeholder="POST" />
-                        </form>
-                        : null}
+                    : null}
             </div>
             <div className='glassmorphism' />
         </>
