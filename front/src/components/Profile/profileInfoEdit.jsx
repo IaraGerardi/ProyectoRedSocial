@@ -1,17 +1,7 @@
 import React, { useState, useRef } from 'react';
 
-//     "id": 1,
-//     "user": "navixam",
-//     "password": "$2a$10$JhirSTUeOZRXMwjdjDpGmediGcLfE.HZlkomwOeZ0D31R6bksopM2",
-//     "email": "maxi@email.com",
-//     "avatar": "default.jpg",
-//     "rol": "admin",
-
-
 function ProfileInfoEdit({ setEdit, userInfo }) {
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    // }
+ 
     const profilePictureInput = useRef(null);
     const profileTextarea = useRef(null);
 
@@ -25,9 +15,7 @@ function ProfileInfoEdit({ setEdit, userInfo }) {
     const [nickname, setNickname] = useState('Nickname');
     const [description, setDescription] = useState('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro repellat veniam, illum eius veritatis autem nisi expedita odio. Nobis sint culpa voluptatibus quo alias ipsam tempore odio eius, perspiciatis eveniet esse unde asperiores.')
     console.log(description)
-    // const handleChangeDesc = (e) => {
-    //     setDescription(e.target.value);
-    // }
+
 
 
     return (

@@ -1,12 +1,3 @@
-/*Z-indexs:
-2- .headerProfile (foto header)
-3- .profilePicture
-3- .editButton (para abrir el modal de editar)
-
-Los z index 2 y 3 estan en profile.css
-
-4-.editUserForm (el form de edicion)
-*/
 /* Edit user formulario */
 
 /*Edit user form display*/
@@ -19,39 +10,28 @@ Los z index 2 y 3 estan en profile.css
 .closeEditUser {
     position: absolute;
     z-index: 6;
-    top: 25vh;
-    left: 16vw;
+    top: 20vh;
+    right: 16vw;
 }
 
 .editUserForm {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 100vw;
+    width: 98.85vw;
     height: 100vh;
     align-items: center;
     justify-content: center;
 }
 
-/* .containerDataForm {
-    position: absolute;
-    padding: 10px;
-    border-radius: 30px;
-    margin: 10px;
-    El z-index es importante en la vista profile para que ande todo, si necesitan subirlo subanlo pero no lo bajen 
-    z-index: 5;
-    background-color: rgba(78, 78, 78, 0.868);
-    backdrop-filter: blur(5px); 
-} */
-
 .profileForm {
     position: absolute;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: 20px;
     margin: 10px;
-    background-color: rgb(15, 213, 213);
+    background-color: rgb(235, 235, 235);
     width: 70vw;
-    height: 55vh;
+    height: 65vh;
     flex-direction: column;
     z-index: 5;
 }
@@ -68,19 +48,32 @@ Los z index 2 y 3 estan en profile.css
 }
 
 .editBox input {
+    padding: 10px;
     border-radius: 10px;
     border: none;
     margin: 15px;
 }
-
-/*Profile pop-up*/
+.editUserForm input[type='submit']{
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+  padding: 5px;
+  color: white;
+  background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+  border: none;
+  width: 100px;
+  border-radius: 15px;
+  height: 40px;
+  margin: 40px 0 0 0;
+}
 
 .glassmorphism {
     content: '';
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 100vw;
+    width: 98.85vw;
     height: 100vh;
-    background-color: rgba(62, 62, 62, 0.886);
+    z-index: 4;
+    background: linear-gradient(to right, #0f0c29b6, #24243eba);
 }

@@ -19,24 +19,19 @@ import { ShowUsers } from './components/admin/ShowUsers';
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      {/* Cambiar login, allUsers y * cuando vayan haciendo push con los componentes */}
-      <Route path='/' element={<Welcome/>}/>
-      {/* <Route path='/login' element={<Login/>}/> */}   
-      <Route path='/home' element={<Home/>}/>
-      <Route path='/profile/:user' element={<Profile/>}/>
-     {/*  <Route path='/allUsers' element={<Admin />}/> */}
-      {/* <Route path='/adminHome' element={<AdminHome />}/> */}
-       <Route path='/allUsers' element={<ShowUsers />}/>
-     <Route path='/allUsers/:id' element ={<EditUsers/>} />
-      {/* <Route path='/allUsers/create' element ={<CreateUser/>} /> */} 
-      <Route path='/login' element={<Login />}/>
-      <Route path='*' element={<Error/>}/>
-    </Routes>
-    {/* <div className="App">
-      <Home/> 
-      <Profile />
-    </div> */}
+      <Routes>
+        <Route path='/' element={<Welcome />} />
+        {/* <Route path='/login' element={<Login/>}/> */}
+        <Route path='/home' element={<Home />} />
+        <Route path='/profile/:user' element={<Profile />} />
+        {/*  <Route path='/allUsers' element={<Admin />}/> */}
+        {/* <Route path='/adminHome' element={<AdminHome />}/> */}
+        <Route path='/allUsers' element={<ShowUsers />} />
+        <Route path='/allUsers/:id' element={<EditUsers />} />
+        {/* <Route path='/allUsers/create' element ={<CreateUser/>} /> */}
+        <Route path='/login' element={<Login />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
     </BrowserRouter>
   );
 }

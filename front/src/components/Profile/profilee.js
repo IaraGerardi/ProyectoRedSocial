@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 
 import ProfileInfo from "./profile-info";
-import EditUser from "./popUpForm";
+import ConfigureUser from "./popUpForm";
 import Menu from "../Home/components-Home/Menu";
 // import Posts from "../Home/components-Home/Posts";
 import ProfileInfoEdit from "./profileInfoEdit";
 // import Post from "../Home/components-Home/Post";
-import "./profile.css"
-import './popUpForm.css'
+import "./css/profile.css"
+import './css/popUpForm.css'
 import { useParams } from "react-router-dom"
 import axios from 'axios';
+import PostsProfile from "./postsProfile";
 // Profile es el componente que contiene todos los componentes que forman la vista del perfil, y es el componente que renderiza react router en la ruta de "/user"
 
 // Los estilos de profile, profile info y edit user cuando el padre es profile estan en profile.css
@@ -43,9 +44,10 @@ function Profile() {
                     <ProfileInfoEdit setEdit={setEdit} userInfo={currentUser} /> :
                     <ProfileInfo setEdit={setEdit} setConfigure={setConfigure} userInfo={currentUser} />
                 }
+                <PostsProfile/>
                 {/* {popUp ? <EditUser father='profile' setPopUp={setPopUp} /> : null} */}
                 {/* Cuando tenga la info del back renderizo una lista con los post utilizando el componente de posts */}
-                {configure ? <EditUser setConfigure={setConfigure} father='profile' userInfo={currentUser} /> : null}
+                {configure ? <ConfigureUser setConfigure={setConfigure} father='profile' userInfo={currentUser} /> : null}
             </div>
 
         </div>
