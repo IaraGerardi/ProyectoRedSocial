@@ -564,4 +564,42 @@ justify-content: space-evenly;
   margin-top: 3px;
 }
   
+/* MEDIA QUERY*/
+@media (max-width: 880px){
+  .pSidebar{
+    display: none;
+  }
 
+  .btnEffectSession{
+    margin: 0;
+    width: 65px;
+  }
+
+  .spanSession{
+    font-size: 12px;
+  }
+
+  .profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .userProfile{
+    color: goldenrod;
+  }
+
+  
+}
+
+@media (max-width: 570px){
+  .btnsFormWritePost{
+gap: 0;
+width: 30px;
+    
+   
+   
+  }
+}
