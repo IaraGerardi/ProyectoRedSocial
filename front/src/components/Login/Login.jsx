@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
-// import { useState } from "react";
+import React, { useRef, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"
+
 
 // Components
 import Boton from "./Boton";
@@ -7,6 +9,7 @@ import Input from "./Input"
 
 // Style
 import "./css/login.css"
+
 
 
 function Login() {
@@ -28,18 +31,32 @@ function Login() {
 
 
 
-    // const URI = 'http://localhost:8000/login/';
+    const URI = 'http://localhost:8000/login/';
 
-    // const [user, setUser] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    // const [passwordsec, setPasswordSec] = useState('')
+    const [user, setUser] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [passwordsec, setPasswordSec] = useState('')
+
+    const navigate = useNavigate();
 
 
-    // //procedimiento guardar
+    const store = async (e) => {
+        e.preventDefault()
+        await axios.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
+        navigate("/home")
+    }
+
+
+    store()
+
+
+
+    //procedimiento guardar
     // const store = async (e) => {
-    //     e.preventDefault()
-    //     await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
+    //  const res = await axios.get(URI)
+    //  setUser(res.data)
+    //   await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
 
     // }
 
@@ -54,22 +71,20 @@ function Login() {
                 <div className="form-container login">
 
                     <form className="form-login" method='POST'
-                    //  onSubmit={store}
+                        onSubmit={store}
                     >
 
                         <h1 className="title">Crear Cuenta</h1>
                         <span className="coment">completar formulario para avanzar</span>
-                        {/* <Input
+                        <Input
                             ClassInput="input-login"
                             Type="text"
                             Placeholder="Usuario"
                             Id="userReg"
                             Name="userReg"
-                            onChange={(e) => setUser(e.target.value)}
-                        /> */}
-                        <input type="text" className="input-login" placeholder="Usuario" id="userReg" name="userReg"
-                        // onChange={(e) => setUser(e.target.value)} 
+                            EventoInput={(e) => setUser(e.target.value)}
                         />
+
 
                         <Input
                             ClassInput="input-login"
@@ -77,7 +92,7 @@ function Login() {
                             Placeholder="Email"
                             Id="emailReg"
                             Name="emailReg"
-                        // onChange={(e) => setEmail(e.target.value)} 
+                            EventoInput={(e) => setEmail(e.target.value)}
                         />
 
                         <Input
@@ -86,7 +101,7 @@ function Login() {
                             Placeholder="Contraseña"
                             Id="passwordReg"
                             Name="passwordReg"
-                        // onChange={(e) => setPassword(e.target.value)} 
+                            EventoInput={(e) => setPassword(e.target.value)}
                         />
 
                         <Input
@@ -95,7 +110,7 @@ function Login() {
                             Placeholder="Repetir contraseña"
                             Id="password2Reg"
                             Name="password2Reg"
-                        // onChange={(e) => setPasswordSec(e.target.value)}
+                            EventoInput={(e) => setPasswordSec(e.target.value)}
                         />
 
                         <Boton
@@ -103,7 +118,6 @@ function Login() {
                             BtnClass="btn"
                             BtnNombre="Crear Cuenta"
                             Id=""
-
                         />
                     </form>
                 </div>
@@ -120,6 +134,7 @@ function Login() {
                             Placeholder="Nombre usuario o Email"
                             Id="userLog"
                             Name="userLog"
+                            EventoInput=""
                         />
 
                         <Input
@@ -128,6 +143,7 @@ function Login() {
                             Placeholder="Contraseña"
                             Id="passwordLog"
                             Name="passwordLog"
+                            EventoInput=""
                         />
 
                         <a className="reload-paswword" href="notenemoslink">¿Olvidaste tu contraseña?</a>
