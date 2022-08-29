@@ -30,8 +30,8 @@ router.get('/logout', logout);
 
 
 //Profile
-router.get('/profile/:user', isAuthenticated, userToProfile, getUserEdit)
-router.put('/profile/:user', userImage.any(), isAuthenticated, editValidation, updateUser)
+router.get('/profile/:user', /* isAuthenticated, userToProfile, */ getUserEdit)
+router.put('/profile/:user', userImage.any(),/*  isAuthenticated, */ editValidation, updateUser)
 
 
 //Ruta admin. Todos los usuarios, editar, borrar.
