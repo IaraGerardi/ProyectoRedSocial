@@ -1,6 +1,25 @@
-import undo from '../assets/undo (1).png'
+import undo from '../assets/undo (1).png';
+/* import {axios} from 'axios'; */
+
+
 
 function WritePost({propWritePost}) {
+
+/* ----------------usando axios para agregar---------- */ /* no terminado ni lo probe todavia */
+
+ /*  const URI = 'https://jsonplaceholder.typicode.com/users';
+
+  const [text, setText] = useState('')
+  const [img, setImg] = useState('')
+  
+  //procedimiento guardar
+  const store = async (e) => {
+      e.preventDefault()
+      await axios.post(URI, {text: title, img:content})
+      
+  }    */
+
+
   return (
     <div className="container-filterWritePost">
             <div className="container-WritePost">
