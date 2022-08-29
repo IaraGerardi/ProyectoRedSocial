@@ -68,7 +68,7 @@ function Post({textPostProp,userPostProp}) {
                             </ul>
                              <form className='formComment' method='post'>
                              <input type="text" />
-                              <button type='submit'>Comentar</button>
+                              <button className='btnComment' type='submit'>Comentar</button>
                               </form> 
                                
                           </div>: null}

@@ -534,6 +534,18 @@ min-height: 40px;
 display: flex;
 justify-content: space-evenly;
 }
+
+.btnComment{
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.btnComment:hover{
+  background-color:#ad5389;
+  color: #0f0c29;
+}
+
 .imgUserComment{
   width: 11%;
   height: 35px;
@@ -552,3 +564,4 @@ justify-content: space-evenly;
   margin-top: 3px;
 }
   
+
