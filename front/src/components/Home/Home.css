@@ -196,6 +196,18 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   margin-left:10px;
 }
 /* ------------------Container Posts--------------- */
+
+.listPosts{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.liPosts{
+  width: 90%;
+}
+
 .container-Posts{
     width: 78%;
  

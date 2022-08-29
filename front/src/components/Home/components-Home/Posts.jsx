@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react';
-import {axios} from 'axios';
+import axios from 'axios';
 import BtnPosting from './BtnPosting';
 import Post from './Post';
 import WritePost from './WritePost';
@@ -57,11 +57,11 @@ useEffect( ()=>{
                <BtnPosting OpenWritePost={handlePopUpWritePost} />
                {popUp===true?<WritePost propWritePost={handlePopUpWritePost}/>:null} 
 
-
-               <ul>
+               {/* agrago clase para que los post se ubiquen en column */}
+               <ul className='listPosts'>
                   {
                     posts.map((elementPost)=>(
-                      <li key={elementPost.id}>
+                      <li key={elementPost.id} className='liPosts'>
                         <Post userPostProp={elementPost.username} textPostProp={elementPost.company.catchPhrase} />
                         </li>
                     ))

@@ -19,13 +19,13 @@ export const ShowUsers = () => {
         getUsers()
     },[])
 
-    //muestra todos los blogs
+    //muestra todos los users
     const getUsers = async () => {
         const res = await axios.get(URI) //peticion al back
         setUser(res.data)
     }
 
-    //elimina un blog
+    //elimina un user
     const deleteUser = async(id) => {
        await axios.delete(`${URI}${id}`)
         getUsers()
