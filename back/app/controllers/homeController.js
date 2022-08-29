@@ -64,7 +64,6 @@ exports.createComment = async (req, res) => {
     console.log(req.posts)
     try {
         await commentModel.create({
-            algoqueNOexiste: "hola",
             image: req.body.image,
             content: req.body.content,
             postId: req.posts,
