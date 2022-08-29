@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useNavigate , useParams} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 
 const URI = 'http://localhost:8000/allUsers/'
 
@@ -8,18 +8,20 @@ const URI = 'http://localhost:8000/allUsers/'
 export const EditUsers = () => {
     const [user,setUSer] = useState('')
     const [email,setEmail] = useState('')
-    const navigate = useNavigate()
+    const [password,setPassword] = useState('')
+    
     const {id} = useParams()
 
     //para actualizar
 
     const update = async (e)=>{
-        e.preventDefaul()
+        e.preventDefault()
         await axios.put(URI+id, {
-            user:user,
-            email:email
+            userEditAdmin:user,
+            emailEditAdmin:email,
+            passwordEditAdmin:password
         })
-        navigate('/allUsers')
+        
     }
 
     useEffect( ()=>{
@@ -35,9 +37,11 @@ export const EditUsers = () => {
   return (
     <div>
         <h3>Editar usuario</h3>
-        <form onSubmit={update}>
+        <form method='PUT' onSubmit={update}>
             <label>Usuario</label>
             <input
+            id="userEditAdmin" 
+            name="userEditAdmin"
             value={user}
             onChange={ (e)=> setUSer(e.target.value)}
             type='text'
@@ -45,10 +49,21 @@ export const EditUsers = () => {
 
             <label>email</label>
             <input
+            id="emailEditAdmin"
+             name="emailEditAdmin"
             value={email}
             onChange={ (e)=> setEmail(e.target.value)}
             type='text'
             />
+
+            <input
+            id="passwordEditAdmin"
+            name="passwordEditAdmin"
+            defaultValue={password}
+            
+            onChange={ (e)=> setPassword(e.target.value)}
+            type='password'
+            />  
 
             <button  type='submit'>Actualizar</button>
         </form>

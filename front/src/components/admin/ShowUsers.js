@@ -7,7 +7,7 @@ import './admin.css'
 
 //creo constante haciendo ref al endpoint del back
   /* 'https://jsonplaceholder.typicode.com/users' */
-const URI ='http://localhost:8000/allUsers'
+const URI ='http://localhost:8000/allUsers/'
 
 
 //componente funcional
