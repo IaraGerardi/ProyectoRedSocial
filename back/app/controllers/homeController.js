@@ -67,6 +67,18 @@ exports.updatePost = async (req, res) => {
 }
 
 exports.deletePost = async (req, res) => {
+    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+    const users = await userModel.findAll({
+        where: { id: decodificada.id }
+    })
+    const posts = await postModel.findAll({
+        where: { id: req.params.id }
+    })
+    req.user = users[0].id
+    req.postsUser = posts[0].usersId
+    console.log(req.user)
+    console.log(req.postsUser)
+    if(req.user == req.postsUser) {
     try {
         await postModel.destroy({
             where: { id: req.params.id }
@@ -75,4 +87,8 @@ exports.deletePost = async (req, res) => {
     } catch (error) {
         res.json({ message: error.message });
     }
+} else {
+    console.log("no podes negri")
+    res.json({mensaje:"q haces loro"})
+}
 };
