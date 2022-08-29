@@ -17,4 +17,8 @@ UserModel.hasMany(PostModel, { foreignKey: 'usersId' });//1 usuario / muchos pos
 PostModel.belongsTo(UserModel, {as: "users", foreignKey: 'usersId'}); //se añade una clave userId al tabla post
 
 
+UserModel.hasMany(CommentModel, { foreignKey: 'usersId'});
+CommentModel.belongsTo(UserModel, {foreignKey: 'usersId'});
+
+
 module.exports = {CommentModel, PostModel, UserModel};
