@@ -29,7 +29,7 @@ exports.registerUser = async(req, res)=>{
     }
 } else {
         console.log(errors)
-        return res.json({errors:errors.mapped()})
+        return res.json({errors:errors.errors})
     }
 }
 
