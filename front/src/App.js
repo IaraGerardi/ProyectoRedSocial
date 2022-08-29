@@ -9,10 +9,11 @@ import Profile from './components/Profile/profilee';
 import Login from './components/Login/Login';
 import Error from './components/Error/Error';
 import { Welcome } from './components/pageInitial/Welcome';
-/* import { EditUsers } from './components/admin/EditUsers'
-import { CreateUser } from './components/admin/CreateUser'; */
-import { Admin } from './components/admin/Admin';
-/* import { ShowUsers } from './components/admin/ShowUsers'; */
+import { EditUsers } from './components/admin/EditUsers'
+/* import { CreateUser } from './components/admin/CreateUser'; */
+/* import { Admin } from './components/admin/Admin'; */
+import { ShowUsers } from './components/admin/ShowUsers';
+/* import {AdminHome} from './components/admin/AdminHome' */
 
 
 function App() {
@@ -24,10 +25,11 @@ function App() {
       {/* <Route path='/login' element={<Login/>}/> */}   
       <Route path='/home' element={<Home/>}/>
       <Route path='/profile' element={<Profile/>}/>
-      <Route path='/allUsers' element={<Admin />}/>
-      {/* <Route path='/allUsers' element={<ShowUsers />}/> */}
-      {/* <Route path='/allUsers/:id' element ={<EditUsers/>} />
-      <Route path='/allUsers/create' element ={<CreateUser/>} /> */}
+     {/*  <Route path='/allUsers' element={<Admin />}/> */}
+      {/* <Route path='/adminHome' element={<AdminHome />}/> */}
+       <Route path='/allUsers' element={<ShowUsers />}/>
+     <Route path='/allUsers/:id' element ={<EditUsers/>} />
+      {/* <Route path='/allUsers/create' element ={<CreateUser/>} /> */} 
       <Route path='/login' element={<Login />}/>
       <Route path='*' element={<Error/>}/>
     </Routes>

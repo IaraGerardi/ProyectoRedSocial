@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams} from 'react-router-dom'
 
-const URI = 'http://localhost:8000/allUsers'
+const URI = 'http://localhost:8000/allUsers/'
 
 const EditUserForm = (props) => {
   const [user, setUser] = useState(props.currentUser)

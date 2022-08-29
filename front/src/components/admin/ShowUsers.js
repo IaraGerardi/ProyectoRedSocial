@@ -27,7 +27,7 @@ export const ShowUsers = () => {
 
     //elimina un user
     const deleteUser = async(id) => {
-       await axios.delete(`${URI}${id}`)
+       await axios.delete(`${URI}/${id}`)
         getUsers()
     }
 

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate , useParams} from 'react-router-dom'
 
-const URI = 'http://localhost:8000/allUsers'
+const URI = 'http://localhost:8000/allUsers/'
 
 
 export const EditUsers = () => {
@@ -28,8 +28,8 @@ export const EditUsers = () => {
 
     const getUserById = async ()=>{
         const res = await axios.get(URI+id)
-        setUSer(res.user)
-        setEmail(res.email)
+        setUSer(res.data.user)
+        setEmail(res.data.email)
     }
 
   return (
