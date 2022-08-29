@@ -39,31 +39,20 @@ ul{
 .sidebar{
     width:80%;
     height: 400px;
-    border-radius: 30px;
-    
+    border-radius: 30px;  
     display: flex;
     font-weight: 700;
     justify-content: center;
-
     background: rgba( 255, 255, 255, 0.25 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
-  
-
     
 }
-.sidebar ul{
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  text-align:center;
-  
-  
-}
+
+
 
 .ulSidebar{
   width: 80%;
@@ -73,6 +62,10 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   text-align:center;
   height: 500px;
   
+}
+
+.pCloseSession{
+  font-weight: 100;
 }
 
 .liSidebar{
@@ -96,15 +89,13 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .liEffect {
   --c: goldenrod;
   color: var(--c);
-  font-size: 16px;
-  
+  font-size: 16px; 
   border-radius: 0.5em;
   width: auto;
   height:50px;
   text-transform: uppercase;
   line-height: 3em;
   text-align: center;
- 
   position: relative;
   overflow: hidden;
   z-index: 1;
@@ -156,18 +147,19 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 /* -------------------------- button effect session ------------------------ */
 .btnEffectSession {
   display: flex;
-  margin-left: 15px;
   align-items: center;
   font-family: inherit;
-  font-weight: 500;
   font-size: 17px;
-  padding: 0.8em 1.3em 0.8em 0.9em;
+  padding:6px;
   color: white;
   background: #ad5389;
   background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
   border: none;
-  letter-spacing: 0.05em;
+  width: 150px;
   border-radius: 16px;
+  height: 60px;
+  
+  
  }
  
  .btnEffectSession svg {
@@ -591,6 +583,15 @@ justify-content: space-evenly;
     color: goldenrod;
   }
 
+  .boxReactions{
+    width: 300px;
+  }
+
+  .userProfile{
+    margin-top: 0px;
+    margin-left:0px;
+  }
+
   
 }
 
@@ -598,8 +599,7 @@ justify-content: space-evenly;
   .btnsFormWritePost{
 gap: 0;
 width: 30px;
-    
-   
+padding-right: 0;
    
   }
 }
