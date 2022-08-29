@@ -14,20 +14,24 @@ import './popUpForm.css'
 // Los estilos de profile, profile info y edit user cuando el padre es profile estan en profile.css
 // Si centralizamos los pop ups en editprofile tengo que cambiarle el nombre al archivo y crear un css aparte para eso
 function Profile() {
-    const [popUp, setPopUp] = useState(false);
+    const [edit, setEdit] = useState(false);
+    const [el, setEl] = useState('');
+
+    console.log(el)
     return (
         <div className='profileView'>
             <Menu />
             <div className='mainProfileContainer'>
                 {/* El pop up indicaria si la vision de editar se muestra */}
-                {popUp ?
-                    <ProfileInfoEdit setPopUp={setPopUp} /> :
-                    <ProfileInfo setPopUp={setPopUp} />
+                {edit ?
+                    <ProfileInfoEdit setEdit={setEdit} /> :
+                    <ProfileInfo setEdit={setEdit} />
                 }
                 {/* {popUp ? <EditUser father='profile' setPopUp={setPopUp} /> : null} */}
                 {/* Cuando tenga la info del back renderizo una lista con los post utilizando el componente de posts */}
             </div>
         </div>
+    
     )
 }
 

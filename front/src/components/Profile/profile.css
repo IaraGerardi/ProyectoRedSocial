@@ -91,8 +91,6 @@
 /* Edit view */
 
 .profileInfoEdit .profileDescription{
-    display: flex;
-    flex-grow: 1;
     width: 73vw;
     height: 150px;
 }
@@ -100,6 +98,9 @@
 .profilePicEdit{
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    filter:opacity(1);
+    backdrop-filter: blur(2px);
     background:url(https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=389&q=80) no-repeat ;
     background-position: center;
     background-size: cover;
@@ -110,10 +111,13 @@
     background-position: center;
 }
 .profileInfoEdit textarea, .profileInfoEdit input[type='text']{
-    border: none;
+    display: flex;
+    border: none; 
     background: none;
+    z-index: 90;
 }
 .profileInfoEdit textarea{
+    position: absolute;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;;
