@@ -12,7 +12,7 @@ function Home() {
   return (
 
 
-
+<div className='boxHome'>
     <div className="container-Home">
           <Menu />
      
@@ -21,6 +21,7 @@ function Home() {
 
     
     </div>
+</div>
   )
 }
 
