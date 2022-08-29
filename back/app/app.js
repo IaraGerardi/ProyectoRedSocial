@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors');
 const app = express();
 const session = require("express-session")
 const db = require("./database/db.js")
@@ -20,6 +21,7 @@ try {
 //
 app.use(logger('dev'));
 app.use(express.json());
+app.use(cors());
 app.use(session( {secret: "Our secret message",resave: true, saveUninitialized: true}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
