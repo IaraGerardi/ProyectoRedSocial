@@ -5,7 +5,6 @@ import Post from './Post';
 import WritePost from './WritePost';
 
 
- /* import {useEffect,useState} from 'react';  */
 
 function Posts() {
   const [popUp, setPopUp] = useState(false);
@@ -20,19 +19,9 @@ function Posts() {
         
         }
 /*   ----------------------esto lo dejo para traer el json de gente de back------- */
-/*     const [users,setUsers]=useState([]);
 
 
-const getUser=async()=>{
-  const dataUsers= await fetch(`https://randomuser.me/api/?results=10_`);
-  const dataUsersJson= await dataUsers.json();
-  setUsers(dataUsersJson.results);
-}
- useEffect(()=>{
-  getUser();
- },[])  */
-
-/*  -------usando axios traer todo los posts----------- */ /* conflicto linea 36 a 52, esta mapeado de 61 a 69; eror por consola de la terminal  */
+/*  -------usando axios traer todo los posts----------- */ 
 const[posts,setPosts]=useState([]);
 
 const URI = 'https://jsonplaceholder.typicode.com/users';

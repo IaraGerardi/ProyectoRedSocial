@@ -3,7 +3,8 @@ import imgReactionLikeado from '../assets/me-gusta (1).png';
  import imgUserPost from '../assets/imgUserPost.jpg';
  import imgUserComment from '../assets/Screenshot_3.png'
 import imgReactionComment from '../assets/comentario.png';
-import {useState} from 'react';
+import {useState/* ,useEffect */} from 'react';
+/* import axios from 'axios'; */
 
 function Post({textPostProp,userPostProp}) {
 
@@ -35,8 +36,26 @@ function Post({textPostProp,userPostProp}) {
       setlLiked(false);
     }
     }
-//-------------- cierra el manejo del like-----
-//r--------------abre renderizado------------
+    //------------abre axios para comentarios------
+/*                 const[comments,setComments]=useState([]);
+
+            const URI = 'https://jsonplaceholder.typicode.com/users/1';
+
+
+
+            //procedimiento para mostrar todos los comentarios
+            const getComments = async () => {
+                const res = await axios.get(URI);
+                setComments(res.data); 
+            }
+
+            useEffect( ()=>{
+              getComments();
+            },[])
+
+              console.log(comments); */
+
+//--------------abre renderizado------------
   return (
             <>
 
@@ -48,6 +67,7 @@ function Post({textPostProp,userPostProp}) {
                           <div className="textPost">
                           <p>{textPostProp}</p>
                           </div>   
+                          {/* <img src="" alt="" /> */} {/* agregar imagen al post si la hubiera en el json */}
                           <div className="boxReactions">
                             <span>{liked===false ? <img src={imgReactionLike} alt="" onClick={handleLike}/>: <img src={imgReactionLikeado} alt="" onClick={handleLike}/>}{like}</span>
                             <span><img src={imgReactionComment} alt="" onClick={handleOpenComments}/></span>
@@ -57,14 +77,18 @@ function Post({textPostProp,userPostProp}) {
                    
 
 {/* ---------------------------caja comentarios abre----------------------------------------- */}
-                          {openComments===true ? <div className='boxComments'>
+                          {openComments===true ?
+                           <div className='boxComments'>
                             <ul>
-                              <li>
-                                <div className='boxComment'>
-                                  <img src={imgUserComment} className="imgUserComment" alt="" />
-                                    <p>shgkjksdjgkhbdskhghdvsa</p> 
-                                </div>
-                              </li>
+                               {/*  { comments.map((comment)=>( */}
+                                    <li /* key={comment.id} */>
+                                        <div className='boxComment'>
+                                          <img src={imgUserComment} className="imgUserComment" alt="" />
+                                            <p>{/* {comment.company.bs} */}mgshkbvfsghvdas</p> 
+                                        </div>
+                                      </li>
+                                  {/* ))   */}
+                               {/*  }   */}
                             </ul>
                              <form className='formComment' method='post'>
                              <input type="text" />
