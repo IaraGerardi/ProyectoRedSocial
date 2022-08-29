@@ -7,6 +7,8 @@ const jwt = require('jsonwebtoken')
 const {promisify} = require('util')
 
 
+
+
 // Configuramos controllers para definir que usuario hizo cada post
 exports.getAllPosts = async (req, res) => {
     try {
@@ -18,7 +20,7 @@ exports.getAllPosts = async (req, res) => {
             }, {
                 model: associations.CommentModel,
                 association: "comments",
-                attributes: ['id', 'content', 'likes', 'images', 'postId', 'usersId']
+                attributes: ['id', 'content', 'likes', 'image', 'postId', 'usersId']
             }], attributes: ["id", "content", "likes", "image", "createdAt", "usersId"]
         });
         res.json(posts);
@@ -47,6 +49,31 @@ exports.createPost = async (req, res) => {
     }
 };
 
+
+exports.createComment = async (req, res) => {
+    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+    const users = await userModel.findAll({
+        where: { id: decodificada.id }
+    })
+    const posts = await postModel.findAll({
+        where: { id: req.params.id }
+    })
+    req.user = users[0].id
+    req.posts = posts[0].id
+    console.log(req.user)
+    console.log(req.posts)
+    try {
+        await commentModel.create({
+            image: req.body.image,
+            content: req.body.content,
+            postId: req.posts,
+            usersId: req.user
+        })
+        res.json({ "message": "comment created successfully" });
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+};
 
 //Metodo para actualizar un post de usuario verificando que el id del usuario que esta logueado sea igual al userId(llave foranea del post).
 exports.updatePost = async (req, res) => {
