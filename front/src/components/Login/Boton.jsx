@@ -1,9 +1,11 @@
 import React from "react";
 
 
-function Boton ({BtnClass,Type,BtnNombre, Id}){
+function Boton ({BtnClass,Type,BtnNombre, Id, Evento}){
     return(
-        <button type={Type} className={BtnClass} id={Id}>{BtnNombre}</button>
+        <button type={Type} className={BtnClass} id={Id} onClick={Evento}>
+            {BtnNombre}
+            </button>
     
     )
 }

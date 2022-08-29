@@ -1,5 +1,5 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useRef } from "react";
+// import { useState } from "react";
 
 // Components
 import Boton from "./Boton";
@@ -8,64 +8,55 @@ import Input from "./Input"
 // Style
 import "./css/login.css"
 
+
 function Login() {
 
-    // const [login, setLogin] = useState();
-    // useEffect(() => {
-    //     obtenerDatos()
-    // },[])
 
-    // const obtenerDatos = async () => {
-    //     const datos = await fetch("localhost:8000/login")
-    //     const user = await datos.post();
-    //     setLogin(login)
+    const moverSlider = useRef(null);
+
+    const moverRegister = () => {
+        if (moverSlider.current.children.length > 0) {
+            moverSlider.current.classList.add("right-panel-active")
+        }
+    }
+
+    const moverLogin = () => {
+        if (moverSlider.current.children.length > 0) {
+            moverSlider.current.classList.remove("right-panel-active")
+        }
+    }
+
+
+
+    // const URI = 'http://localhost:8000/login/';
+
+    // const [user, setUser] = useState('')
+    // const [email, setEmail] = useState('')
+    // const [password, setPassword] = useState('')
+    // const [passwordsec, setPasswordSec] = useState('')
+
+
+    // //procedimiento guardar
+    // const store = async (e) => {
+    //     e.preventDefault()
+    //     await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
 
     // }
 
-    // obtenerDatos();
+    // store();
 
-
-    const URI = 'http://localhost:8000/login/';
-
-    const [user, setUser] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [passwordsec, setPasswordSec] = useState('')
-
-
-    //procedimiento guardar
-    const store = async (e) => {
-        e.preventDefault()
-        await fetch.post(URI, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
-
-    }
-
-    store();
-
-    // DESCOMENTAR LO DE ABAJO
-
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-        container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-        container.classList.remove("right-panel-active");
-    });
-
-    // DESCOMENTAR LO DE ARRIBA
 
     return (
         <div className="all-cont">
 
-            <div className="container-login" id="container">
+            <div className="container-login" ref={moverSlider}>
 
                 <div className="form-container login">
 
-                    <form className="form-login" method='POST' onSubmit={store}>
+                    <form className="form-login" method='POST'
+                    //  onSubmit={store}
+                    >
+
                         <h1 className="title">Crear Cuenta</h1>
                         <span className="coment">completar formulario para avanzar</span>
                         {/* <Input
@@ -77,7 +68,8 @@ function Login() {
                             onChange={(e) => setUser(e.target.value)}
                         /> */}
                         <input type="text" className="input-login" placeholder="Usuario" id="userReg" name="userReg"
-                            onChange={(e) => setUser(e.target.value)} />
+                        // onChange={(e) => setUser(e.target.value)} 
+                        />
 
                         <Input
                             ClassInput="input-login"
@@ -85,7 +77,8 @@ function Login() {
                             Placeholder="Email"
                             Id="emailReg"
                             Name="emailReg"
-                            onChange={(e) => setEmail(e.target.value)} />
+                        // onChange={(e) => setEmail(e.target.value)} 
+                        />
 
                         <Input
                             ClassInput="input-login"
@@ -93,7 +86,8 @@ function Login() {
                             Placeholder="Contraseña"
                             Id="passwordReg"
                             Name="passwordReg"
-                            onChange={(e) => setPassword(e.target.value)} />
+                        // onChange={(e) => setPassword(e.target.value)} 
+                        />
 
                         <Input
                             ClassInput="input-login"
@@ -101,7 +95,7 @@ function Login() {
                             Placeholder="Repetir contraseña"
                             Id="password2Reg"
                             Name="password2Reg"
-                            onChange={(e) => setPasswordSec(e.target.value)}
+                        // onChange={(e) => setPasswordSec(e.target.value)}
                         />
 
                         <Boton
@@ -136,7 +130,7 @@ function Login() {
                             Name="passwordLog"
                         />
 
-                        <a className="reload-paswword" href="#">¿Olvidaste tu contraseña?</a>
+                        <a className="reload-paswword" href="notenemoslink">¿Olvidaste tu contraseña?</a>
                         <Boton
                             Type="submit"
                             BtnClass="btn"
@@ -146,6 +140,7 @@ function Login() {
                 </div>
 
                 <div className="cont-front">
+
                     <div className="front">
 
                         <div className="front-panel front-left">
@@ -163,7 +158,7 @@ function Login() {
                                 Type=""
                                 BtnNombre="Ingresar"
                                 Id="signIn"
-                            // onClick={() => setViewSingUp}
+                                Evento={moverLogin}
                             />
                         </div>
 
@@ -182,9 +177,10 @@ function Login() {
                                 Type=""
                                 BtnNombre="Registrarse"
                                 Id="signUp"
-                            // onClick={() => setViewSingIn} 
+                                Evento={moverRegister}
                             />
                         </div>
+
 
                     </div>
                 </div>
