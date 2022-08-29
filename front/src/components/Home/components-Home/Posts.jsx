@@ -7,6 +7,7 @@ import WritePost from './WritePost';
 
 
 function Posts() {
+
   const [popUp, setPopUp] = useState(false);
 
         const handlePopUpWritePost =()=>{
@@ -24,7 +25,7 @@ function Posts() {
 /*  -------usando axios traer todo los posts----------- */ 
 const[posts,setPosts]=useState([]);
 
-const URI = 'https://jsonplaceholder.typicode.com/users';
+const URI = 'http://localhost:8000/';
 
 
 
@@ -40,18 +41,21 @@ useEffect( ()=>{
 
   console.log(posts);
 
+
+
+
   return (
     <div className="container-Posts">
    
                <BtnPosting OpenWritePost={handlePopUpWritePost} />
-               {popUp===true?<WritePost propWritePost={handlePopUpWritePost}/>:null} 
+               {popUp===true?<WritePost propWritePost={handlePopUpWritePost}  />:null} 
 
                {/* agrago clase para que los post se ubiquen en column */}
                <ul className='listPosts'>
                   {
                     posts.map((elementPost)=>(
                       <li key={elementPost.id} className='liPosts'>
-                        <Post userPostProp={elementPost.username} textPostProp={elementPost.company.catchPhrase} />
+                        <Post userPostProp={elementPost.users.id} textPostProp={elementPost.content} />
                         </li>
                     ))
                   }
@@ -62,13 +66,6 @@ useEffect( ()=>{
 
 
 
-               {/*  <Post  textPostProp="holiiiiiiiiiiiiiii" userPostProp="gonzalo"/>
-                 <Post userPostProp="Macarena" textPostProp="holiii aguante react"/>
-                  <Post userPostProp="Maximiliano"textPostProp="Buenos dias a todos!" />
-                  <Post userPostProp="Cristian" textPostProp="Hola Gente" />
-                  <Post userPostProp="Ezequiel" textPostProp="Aguante Back"/>
-                  <Post userPostProp="Iara" textPostProp="Trabajar en la nasa es lo mejor"/> */}
-     
     
     </div>
   )

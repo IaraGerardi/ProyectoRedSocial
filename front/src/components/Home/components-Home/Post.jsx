@@ -1,7 +1,7 @@
 import imgReactionLike from '../assets/amor.png';
 import imgReactionLikeado from '../assets/me-gusta (1).png';
  import imgUserPost from '../assets/imgUserPost.jpg';
- import imgUserComment from '../assets/Screenshot_3.png'
+/*  import imgUserComment from '../assets/Screenshot_3.png' */
 import imgReactionComment from '../assets/comentario.png';
 import {useState/* ,useEffect */} from 'react';
 /* import axios from 'axios'; */
@@ -37,24 +37,24 @@ function Post({textPostProp,userPostProp}) {
     }
     }
     //------------abre axios para comentarios------
-/*                 const[comments,setComments]=useState([]);
+       /*           const[comments,setComments]=useState([]);
 
-            const URI = 'https://jsonplaceholder.typicode.com/users/1';
+            const URI = 'https://jsonplaceholder.typicode.com/users';
 
 
 
             //procedimiento para mostrar todos los comentarios
             const getComments = async () => {
                 const res = await axios.get(URI);
-                setComments(res.data); 
+                setComments(res.data.id.company); 
+                console.log(res.data);
             }
-
+ 
             useEffect( ()=>{
               getComments();
             },[])
-
-              console.log(comments); */
-
+               */
+             /*  console.log(comments);  */
 //--------------abre renderizado------------
   return (
             <>
@@ -80,15 +80,15 @@ function Post({textPostProp,userPostProp}) {
                           {openComments===true ?
                            <div className='boxComments'>
                             <ul>
-                               {/*  { comments.map((comment)=>( */}
-                                    <li /* key={comment.id} */>
+                              {/*  { comments.map((comment)=>( 
+                                    <li key={comment.id}>
                                         <div className='boxComment'>
                                           <img src={imgUserComment} className="imgUserComment" alt="" />
-                                            <p>{/* {comment.company.bs} */}mgshkbvfsghvdas</p> 
+                                            <p>{comment.bs}</p> 
                                         </div>
                                       </li>
-                                  {/* ))   */}
-                               {/*  }   */}
+                                  ))  
+                                }   */}
                             </ul>
                              <form className='formComment' method='post'>
                              <input type="text" />
