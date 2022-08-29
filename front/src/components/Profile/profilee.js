@@ -44,7 +44,7 @@ function Profile() {
                     <ProfileInfoEdit setEdit={setEdit} userInfo={currentUser} /> :
                     <ProfileInfo setEdit={setEdit} setConfigure={setConfigure} userInfo={currentUser} />
                 }
-                <PostsProfile/>
+                {/* <PostsProfile/> */}
                 {/* {popUp ? <EditUser father='profile' setPopUp={setPopUp} /> : null} */}
                 {/* Cuando tenga la info del back renderizo una lista con los post utilizando el componente de posts */}
                 {configure ? <ConfigureUser setConfigure={setConfigure} father='profile' userInfo={currentUser} /> : null}
