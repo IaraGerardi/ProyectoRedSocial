@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-
+import axios from 'axios';
 // EditUser es el componente que edita la informacion del usuario, puede cambiar su nombre de usuario, su email y su contraseña, se muestra cuando el usuario da click en el lapiz que aparece al lado de sus "estadisticas"(posts y likes). El componente tambien incluye un div llamado "glassmorphism" para difuminar el fondo cuando se visualice el pop-up.
 
 // El estado se le pasa desde el padre, tiene que estar false por default y el padre tiene que tener un boton que cambie este estado a true. La x debe cambiar ese estado a falso, y hay que indicarle en que vista se encuentra con el prop "father".
-function EditUser({ setConfigure, father, userInfo}) {
-
+function EditUser({ setConfigure, father, userInfo, URI }) {
+// profile/${user}
+// http://localhost:8000/profile/reloco
     const { email, user, password } = userInfo;
-console.log(userInfo)
+    console.log(userInfo)
     const [form, setForm] = useState({
-        ...userInfo,
         'userEdit': user,
         'emailEdit': email,
         'passwordEdit': password
@@ -22,12 +22,12 @@ console.log(userInfo)
     }
     console.log(form);
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        // await axios.put(URI+id, form)
+        await axios.put(URI, form)
         // navigate('/profile/')
     }
-  
+
 
     return (
         <>
@@ -39,18 +39,18 @@ console.log(userInfo)
                         <div className='user editBox'>
                             <label htmlfor='userEdit'>Username</label>
                             <input type='text' id='userEdit' name='userEdit'
-                            defaultValue={user} onChange={handleChange} />
+                                defaultValue={user} onChange={handleChange} />
                         </div>
                         <div className='email editBox'>
                             <label htlmfor='emailEdit'>Email</label>
                             <input type='email' id='emailEdit' name='emailEdit'
-                            defaultValue={email} onChange={handleChange} />
+                                defaultValue={email} onChange={handleChange} />
                         </div>
                         <div className='password editBox'>
                             <label htlmfor='passwordEdit'>Contraseña</label>
-                        
+
                             <input type='password' name='passwordEdit' id='passwordEdit'
-                             defaultValue={password} onChange={handleChange} />
+                                defaultValue={password} onChange={handleChange} />
                         </div>
                         <input type='submit' />
                     </form>

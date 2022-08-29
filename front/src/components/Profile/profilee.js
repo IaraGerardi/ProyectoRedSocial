@@ -19,13 +19,13 @@ function Profile() {
     const [edit, setEdit] = useState(false);
     const [configure, setConfigure] = useState(false);
     const [currentUser, setCurrentUser] = useState('');
-    let { id } = useParams();
+    let { user } = useParams();
 
-    const URI = 'http://localhost:8000/allUsers';
+    const URI = `http://localhost:8000/profile/${user}`;
 
     const getUsers = async () => {
         const res = await axios.get(URI)
-        setCurrentUser(res.data[id - 1])
+        setCurrentUser(res.data)
     };
     useEffect(() => {
         getUsers()
