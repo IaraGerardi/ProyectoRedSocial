@@ -15,6 +15,8 @@ import PostsProfile from "./postsProfile";
 
 // Los estilos de profile, profile info y edit user cuando el padre es profile estan en profile.css
 // Si centralizamos los pop ups en editprofile tengo que cambiarle el nombre al archivo y crear un css aparte para eso
+
+
 function Profile() {
 
     const [edit, setEdit] = useState(false);
@@ -31,23 +33,22 @@ function Profile() {
     useEffect(() => {
         getUsers()
     }, [])
-    // const { email, user, password } = currentUser
-    console.log(configure)
-    console.log(currentUser);
+    
+    // console.log(configure)
+    // console.log(currentUser);
 
     return (
         <div className='profileView'>
-            <Menu />
+            <Menu view='profile'/>
             <div className='mainProfileContainer'>
-                {/* El pop up indicaria si la vision de editar se muestra */}
+                {/* ProfileInfoEdit deberia poder editar la parte mas estetica de perfil (foto header/avatar, nickname, descripcion, etc) */}
                 {edit ?
                     <ProfileInfoEdit setEdit={setEdit} userInfo={currentUser} /> :
                     <ProfileInfo setEdit={setEdit} setConfigure={setConfigure} userInfo={currentUser} />
                 }
-                {/* <PostsProfile/> */}
-                {/* {popUp ? <EditUser father='profile' setPopUp={setPopUp} /> : null} */}
-                {/* Cuando tenga la info del back renderizo una lista con los post utilizando el componente de posts */}
-                {configure ? <ConfigureUser setConfigure={setConfigure} father='profile' userInfo={currentUser} /> : null}
+                {/* <PostsProfile currentUser={currentUser}/>  */}
+                {/* Configure user tiene el put para cambiar el usuario, la contraseña, y el email*/}
+                {configure ? <ConfigureUser URI={URI} setConfigure={setConfigure} father='profile' userInfo={currentUser} /> : null}
             </div>
 
         </div>

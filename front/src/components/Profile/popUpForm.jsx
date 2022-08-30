@@ -3,11 +3,14 @@ import axios from 'axios';
 // EditUser es el componente que edita la informacion del usuario, puede cambiar su nombre de usuario, su email y su contraseña, se muestra cuando el usuario da click en el lapiz que aparece al lado de sus "estadisticas"(posts y likes). El componente tambien incluye un div llamado "glassmorphism" para difuminar el fondo cuando se visualice el pop-up.
 
 // El estado se le pasa desde el padre, tiene que estar false por default y el padre tiene que tener un boton que cambie este estado a true. La x debe cambiar ese estado a falso, y hay que indicarle en que vista se encuentra con el prop "father".
+
+// Le paso la informacion del usuario que traje desde el profile y la URI que esta definida tambien en profilee.js
 function ConfigureUser({ setConfigure, father, userInfo, URI }) {
 
     const { email, user, password } = userInfo;
 
     const [form, setForm] = useState({
+        ...userInfo,
         'userEdit': user,
         'emailEdit': email,
         'passwordEdit': password
@@ -19,11 +22,13 @@ function ConfigureUser({ setConfigure, father, userInfo, URI }) {
             [e.target.id]: e.target.value,
         })
     }
-
+    console.log(form)
+    console.log(URI)
     const handleSubmit = async (e) => {
         e.preventDefault()
         await axios.put(URI, form)
-        // navigate('/profile/')
+        console.log(URI)
+        // window.location.reload();
     }
 
     return (

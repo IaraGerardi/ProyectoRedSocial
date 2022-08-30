@@ -4,14 +4,6 @@ import ImgProfileHeader from './assets/fondoprofile.jpg';
 // En este componente esta el icono que abre el popUp (tengo que cambiar el icono)
 // Este componente tiene que tener personalizado el user (nombre), la foto de perfil, el email; tengo que hablar con los de back para ver si pueden agregar header, numero de likes y posts y una descripcion
 
-
-// "id": 1,
-//     "user": "navixam",
-//     "password": "$2a$10$JhirSTUeOZRXMwjdjDpGmediGcLfE.HZlkomwOeZ0D31R6bksopM2",
-//     "email": "maxi@email.com",
-//     "avatar": "default.jpg",
-//     "rol": "admin",
-
 function ProfileInfo({ setEdit, setConfigure, userInfo }) {
     return (
         <div className='profileInfo'>
