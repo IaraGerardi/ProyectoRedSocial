@@ -10,6 +10,13 @@ const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin, getUserAdmin } = requ
 const  userImage  = require("../middleware/userImages.js")
 
 
+//Register y login CRUD
+router.post('/login', registerValidation, userLogged, registerUser);
+/* router.get('/login', loginValidation, userLogged, loginUser); */
+router.post('/logines', loginValidation, userLogged, loginUser);
+
+
+
 /* GET home page. */
 router.get('/', /* isAuthenticated, */ getAllPosts);
 
@@ -24,9 +31,6 @@ router.post('/:id', createComment);
 router.put('/:id/:id', updateComment);
 router.delete('/:id/:id', deleteComment);
 
-//Register y login CRUD
-router.post('/login', registerValidation, userLogged, registerUser);
-router.get('/login', loginValidation, userLogged, loginUser);
 
 
 //Logout

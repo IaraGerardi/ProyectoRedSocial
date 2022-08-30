@@ -57,6 +57,7 @@ export const ShowUsers = () => {
         ))}
 
             </div>
+            <div className='boxBtnReturn'><Link to='/adminHome'><button className='btnReturnHome'>Volver al Home</button></Link></div>
        
         
     </div>

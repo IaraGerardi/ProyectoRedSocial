@@ -6,7 +6,7 @@ import imgReactionComment from '../assets/comentario.png';
 import {useState,useEffect} from 'react';
 import axios from 'axios';
 
-function Post({textPostProp,userPostProp}) {
+function Post({textPostProp/* ,userPostProp */}) {
 
 /*   ---------manejo de caja Comentarios----- */
   const [openComments,setOpenComments]=useState(false);
@@ -49,7 +49,7 @@ function Post({textPostProp,userPostProp}) {
                 setCommentsState(res.data); 
                
             }
- 
+ console.log(commentsState)
             useEffect( ()=>{
               getComments();
             },[])
@@ -61,7 +61,7 @@ function Post({textPostProp,userPostProp}) {
 
                       <div className="boxPost">
                           <div className="boxProfilePost">
-                             <img className="boxImgProfile" src={imgUserPost} alt=""/> <span className="userPost">@{userPostProp}</span>
+                             <img className="boxImgProfile" src={imgUserPost} alt=""/> <span className="userPost">@ nosequsuario{/* {userPostProp} */}</span>
                           </div>
                     
                           <div className="textPost">
@@ -81,16 +81,16 @@ function Post({textPostProp,userPostProp}) {
                            <div className='boxComments'>
                             <ul>
                              
-                             {/* {commentsState.map((element)=>(  */}
-                                    <li /* key={element.id} */>
+                             {commentsState.comments?.map((element)=>( 
+                                    <li key={element.id}>
                                         <div className='boxComment'>
                                           <img src={imgUserComment} className="imgUserComment" alt="" />
-                                            <p>{/* {element.comments.content} */}sadsad</p> 
+                                            <p>{element.comments.content}</p> 
                                         </div>
                                       </li>
-                                 {/*  ))  
-                                }   
-                              */}
+                                   ))  
+                                 
+                              }
                              
                               
                             </ul>

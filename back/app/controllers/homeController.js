@@ -31,17 +31,16 @@ exports.getAllPosts = async (req, res) => {
 
 // Configuramos crear, actualizar y eliminar posts
 exports.createPost = async (req, res) => {
-    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+/*     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
         where: { id: decodificada.id }
     })
     req.user = users[0].id
-    console.log(req.user)
+    console.log(req.user) */
     try {
         await postModel.create({
             image: req.body.image,
-            content: req.body.content,
-            usersId: req.user,
+            content: req.body.content
         })
         res.json({ "message": "Post created successfully" });
     } catch (error) {
