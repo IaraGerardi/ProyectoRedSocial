@@ -4,7 +4,7 @@ const loginValidation = require("../validations/loginValidation.js")
 const registerValidation = require("../validations/registerValidation.js")
 const editValidation = require("../validations/editValidation.js")
 const editValidationAdmin = require("../validations/editValidationAdmin.js")
-const {getAllPosts, updatePost, createPost, deletePost, createComment} = require ('../controllers/homeController.js');
+const {getAllPosts, updatePost, createPost, deletePost, createComment, updateComment, deleteComment} = require ('../controllers/homeController.js');
 const { registerUser, loginUser, logout, isAuthenticated, userLogged, updateUser, getUserEdit, userToProfile } = require ('../controllers/UserController.js');
 const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin, getUserAdmin } = require('../controllers/adminController.js');
 const  userImage  = require("../middleware/userImages.js")
@@ -14,14 +14,15 @@ const  userImage  = require("../middleware/userImages.js")
 router.get('/', /* isAuthenticated, */ getAllPosts);
 
 
-/*  */
+// CRUD Home posts
 router.post('/', createPost);
 router.put('/:id', updatePost);
 router.delete('/:id', deletePost);
 
-// CRUD Home Comments posts 
+// CRUD Home Comments posts
 router.post('/:id', createComment);
-
+router.put('/:id/:id', updateComment);
+router.delete('/:id/:id', deleteComment);
 
 //Register y login CRUD
 router.post('/login', registerValidation, userLogged, registerUser);

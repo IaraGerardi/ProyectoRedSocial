@@ -49,7 +49,7 @@ exports.createPost = async (req, res) => {
     }
 };
 
-
+// Metodo para crear un comentario en un post verificando coincidencia entre el creador del comentario y el post en el que se comentó
 exports.createComment = async (req, res) => {
     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
@@ -103,6 +103,7 @@ exports.updatePost = async (req, res) => {
     }
 }
 
+// Metodo para eliminar un post
 exports.deletePost = async (req, res) => {
     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
@@ -113,8 +114,6 @@ exports.deletePost = async (req, res) => {
     })
     req.user = users[0].id
     req.postsUser = posts[0].usersId
-    console.log(req.user)
-    console.log(req.postsUser)
     if(req.user == req.postsUser) {
     try {
         await postModel.destroy({
@@ -128,4 +127,58 @@ exports.deletePost = async (req, res) => {
     console.log("no podes negri")
     res.json({mensaje:"q haces loro"})
 }
+};
+
+/* Metodo para EDITAR un comment de un post */
+exports.updateComment = async (req, res) => {
+    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+    const users = await userModel.findAll({
+        where: { id: decodificada.id }
+    })
+    const comment = await commentModel.findAll({
+        where: { id: req.params.id }
+    })
+    req.user = users[0].id
+    req.commentUser = comment[0].usersId
+    if (req.user == req.commentUser) {
+        try {
+            await commentModel.update(req.body, {
+                where: { id: req.params.id }      
+            })
+            res.json({ "message": "Comment updated succesfully" });
+        } catch (error) {
+            res.json({ message: error.message });
+        }
+    } else {
+        console.log("no podes negri")
+        res.json({ mensaje: "q haces loro" })
+    }
+}
+
+/* ELIMINAR */
+exports.deleteComment = async (req, res) => {
+    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+    const users = await userModel.findAll({
+        where: { id: decodificada.id }
+    })
+    const comment = await commentModel.findAll({
+        where: { id: req.params.id }
+    })
+    req.user = users[0].id
+    req.commentUser = comment[0].usersId
+    console.log(req.user)
+    console.log(req.commentUser)
+    if (req.user == req.commentUser) {
+        try {
+            await commentModel.destroy(req.body, {
+                where: { id: req.params.id }
+            })
+            res.json({ "message": "Comment deleted succesfully" })
+        } catch (error) {
+            res.json({ message: error.message });
+        }
+    } else {
+        console.log("no podes negri")
+        res.json({ mensaje: "q haces loro" })
+    }
 };

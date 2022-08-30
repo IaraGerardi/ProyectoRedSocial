@@ -26,7 +26,7 @@ CREATE TABLE `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(255) NOT NULL,
   `likes` int(11) DEFAULT NULL,
-  `images` varchar(100) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   `postId` int(11) DEFAULT NULL,
@@ -117,3 +117,13 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2022-08-25 10:49:35
+
+-- ---
+ALTER TABLE `socialmedia`.`posts` 
+ADD COLUMN `commentsId` INT(11) NULL DEFAULT NULL AFTER `usersId`;
+ALTER TABLE `socialmedia2`.`posts` 
+ADD CONSTRAINT `fk_commentsId`
+  FOREIGN KEY (`commentsId`)
+  REFERENCES `socialmedia2`.`comments` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
