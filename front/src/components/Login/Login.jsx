@@ -66,16 +66,17 @@ function Login() {
                     alert("Registro Completado!")
                         (navigate('/login'))
 
-                } else if (response.data.errors.userReg == "Error el email ya esta registrado") {
+                } else if (response.data.errors.length !== 0) {
                     alert(response.data.errors.userReg.msg);
                     setErrors(response.data);
+                }
+                else if (response.data.errors.length !== 0) {
+                    alert(response.data.errors.password2Reg.msg);
+                    setErrors(response.data);
 
-                } else if (response.data.errors.emailReg == "Error el usuario ya esta registrado") {
+                } else if (response.data.errors.length !== 0) {
                     alert(response.data.errors.emailReg.msg);
-                    setErrors(response.data)
-                } else if(response.data.errors.passwordReg == "Error el usuario ya esta registrado"){
-                    alert(response.data.errors.passwordReg.msg)
-
+                    setErrors(response.data);
                 }
             })
             .catch(error => {
@@ -88,9 +89,20 @@ function Login() {
     const Logeo = async (e) => {
         e.preventDefault()
         await axios.post(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo })
-        console.log("asd")
+        console.log("Logeado Correctamente")
+        (navigate('/home'))
+        
+            .then((response) => {
+                if (response.data.alertMessage === "¡LOGIN CORRECTO!") {
+                    alert("Logeo Completado!")
+                        (navigate('/home'))
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                console.log("problemas")
+            })
     }
-
 
 
 
@@ -100,23 +112,10 @@ function Login() {
     return (
         <div className="all-cont">
 
-
-            {/* 
-            <div> {errors.map((error) => (
-                <ul key={error.alertMesagge}>
-                    <li> {error.alertTitle} </li>
-                    <li> {error.alertMessage} </li>
-                </ul>))}
-            </div> */}
-
-
-
             <div className="container-login" ref={moverSlider}>
 
                 <div className="form-container login">
 
-
-                    <span></span>
 
                     <form className="form-login"
                         onSubmit={store} >
@@ -195,7 +194,7 @@ function Login() {
                             Name="passwordLog"
                             EventoInput={(e) => setPasswordLogeo(e.target.value)}
                         />
-                   
+
 
                         <a className="reload-paswword" href="notenemoslink">¿Olvidaste tu contraseña?</a>
                         <Boton
