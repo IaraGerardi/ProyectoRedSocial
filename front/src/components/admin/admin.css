@@ -8,11 +8,13 @@
 
 /* Admin nav */
 .boxAdmin{
-    background-image: url('https://i.pinimg.com/564x/17/3c/21/173c21b00a7ed05813919828e18b73b9.jpg');
+    background-image: url('https://i.pinimg.com/564x/d8/28/f8/d828f885f149b4b8c6332791eba18386.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+   
     height: 100vh;
+    
 }
 
 .navAdmin{
@@ -21,12 +23,15 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 20%;
-    color: aliceblue;
+    height: 100px;
     position: sticky;
     top:0;
     z-index: 999;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.768);
+}
+
+.colorAdminNav{
+    color: aliceblue;
 }
 
 .backgroundNav{
@@ -34,16 +39,13 @@
     flex-direction: row;
     justify-content: space-between;
     padding-top: 10px;
-    width: 100%;
+    width: 90%;
+    align-items: center;
    
 }
 
 
 
-.boxUser1{
-    width: 100%;
-    background-color: rgb(127, 91, 229);
-  }
 
 .actions{
     text-align: center;
@@ -63,27 +65,43 @@
     -webkit-backdrop-filter: blur( 4px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    margin-top: 10px;
+    margin-top: 50px;
     width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
  
+}
+
+.logoAdmin{
+    width: 200px;
+    height: 150px;
+    padding: 10px;
+
+}
+
+.logoAdmin:hover{
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .cardsAdmin{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+    
 }
 
 .idAdminCard{
-    background-color: black;
+    background-color: rgb(29, 29, 29);
     color: aliceblue;
     width: 350px;
     height: 30px;
     text-align: center;
+    border-radius: 25px;
 }
 
 .name1{
@@ -101,21 +119,24 @@
     width: 300px;
     text-align: start;
     padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 
 .boxBtn{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin-right: 20px;
+    
 }
 
 .iconEdit{
     fill:currentColor;
-    color: aliceblue;
+    color: white;
 }
+
 
 
 .btnAction{
@@ -125,7 +146,10 @@
     padding: 8px;
     cursor: pointer;
     text-decoration: none;
-    color:black
+    color:black;
+    border:1px solid blanchedalmond;
+    margin:15px;
+    font-weight: 500;
 }
 
 
@@ -133,14 +157,16 @@
 
 
 .btnAction:hover{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.634);
     color: beige;
     font-weight: bold;
+    border: none;
 }
 
 .usersAdmin{
     padding: 5px;
     margin-left: 20px;
+    width: 70px;
 }
 
 
@@ -204,10 +230,7 @@
     color: white;
 }
 
-.logoAdmin{
-    width: 250px;
-    height: 190px;
-}
+
 
 /* iconos */
 
@@ -224,3 +247,7 @@
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
   }
+
+
+/*   MEDIA QUERY */
+

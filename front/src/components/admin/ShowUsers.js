@@ -37,8 +37,8 @@ export const ShowUsers = () => {
     <div className='boxAdmin'>
         <nav className='navAdmin'>
         <ul className='backgroundNav'>
-        <li className='liNavAdmin'><img className='logoAdmin' src={socialLogo} alt="logo" /></li> 
-        <li>Admin</li>
+        <Link to='/home'><li className='liNavAdmin'><img className='logoAdmin' src={socialLogo} alt="logo" /></li></Link>
+        <li><h2 className='colorAdminNav'>Administrador</h2></li> 
         </ul>
         </nav>
         
