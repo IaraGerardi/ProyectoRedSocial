@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams} from 'react-router-dom'
+import { useNavigate, useParams} from 'react-router-dom'
 
 const URI = 'http://localhost:8000/allUsers/'
 
@@ -9,7 +9,7 @@ export const EditUsers = () => {
     const [user,setUSer] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    
+    const navigate = useNavigate()
     const {id} = useParams()
 
     //para actualizar
@@ -21,7 +21,7 @@ export const EditUsers = () => {
             emailEditAdmin:email,
             passwordEditAdmin:password
         })
-        
+        navigate('/allUSers/')
     }
 
     useEffect( ()=>{
