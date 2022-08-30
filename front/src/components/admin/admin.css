@@ -249,5 +249,85 @@
   }
 
 
-/*   MEDIA QUERY */
+/*   form */
 
+.boxFormEdit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(73, 71, 71, 0.426);
+    background-image: url('./assets/5501757.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+
+}
+
+.formEdit{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+    height: 400px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 20px;
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.passwordNone{
+    display: none;
+}
+
+.inputEdit{
+    height: 50px;
+    width: 250px;
+    margin-top: 10px;
+    border-radius: 30px;
+  
+}
+
+.labelEdit{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btnUpdateEdit{
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    width: 200px;
+    padding: 10px;
+}
+
+.pSidebar{
+    text-decoration: none;
+}
+
+.btnReturnHome{
+    border: 2px solid black;
+    width: 200px;
+    height: 35px;
+}
+
+.boxBtnReturn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btnReturnHome:hover{
+    
+    background-color: azure;
+}

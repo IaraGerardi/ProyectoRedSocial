@@ -49,7 +49,7 @@ function Post({textPostProp/* ,userPostProp */}) {
                 setCommentsState(res.data); 
                
             }
- 
+ console.log(commentsState)
             useEffect( ()=>{
               getComments();
             },[])
@@ -81,7 +81,7 @@ function Post({textPostProp/* ,userPostProp */}) {
                            <div className='boxComments'>
                             <ul>
                              
-                             {commentsState.map((element)=>( 
+                             {commentsState.comments?.map((element)=>( 
                                     <li key={element.id}>
                                         <div className='boxComment'>
                                           <img src={imgUserComment} className="imgUserComment" alt="" />

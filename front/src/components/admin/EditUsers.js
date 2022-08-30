@@ -35,37 +35,39 @@ export const EditUsers = () => {
     }
 
   return (
-    <div>
+    <div className='boxFormEdit'>
         <h3>Editar usuario</h3>
-        <form method='PUT' onSubmit={update}>
-            <label>Usuario</label>
+        <form className='formEdit' method='PUT' onSubmit={update}>
+            <label className='labelEdit'>Usuario</label>
             <input
             id="userEditAdmin" 
             name="userEditAdmin"
             value={user}
             onChange={ (e)=> setUSer(e.target.value)}
             type='text'
+            className='inputEdit'
             />
 
-            <label>email</label>
+            <label className='labelEdit'>Email</label>
             <input
             id="emailEditAdmin"
              name="emailEditAdmin"
             value={email}
             onChange={ (e)=> setEmail(e.target.value)}
             type='text'
+            className='inputEdit'
             />
 
             <input
             id="passwordEditAdmin"
             name="passwordEditAdmin"
             defaultValue={password}
-            
+            className='passwordNone'
             onChange={ (e)=> setPassword(e.target.value)}
             type='password'
             />  
 
-            <button  type='submit'>Actualizar</button>
+            <button className='btnUpdateEdit'  type='submit'>Actualizar</button>
         </form>
     </div>
   )
