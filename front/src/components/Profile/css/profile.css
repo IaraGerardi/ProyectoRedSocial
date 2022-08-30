@@ -9,7 +9,7 @@
 .profileView {
     display: flex;
     justify-content: center;
-    background: url(https://cdn.dribbble.com/users/4361436/screenshots/16114143/media/9ceefe68cd0be3489227684daa781ba4.png?compress=1&resize=1000x750&vertical=top) no-repeat;
+    background: url(../assets/nave-espacial-espacio-exterior-planetas-o-asteroides_107791-2262.jpg) no-repeat;
     background-position: center;
     background-size: cover;
 
@@ -46,8 +46,8 @@
     height: 250px;
     border-radius: 50px 50px 0 0;
     object-fit: cover;
-    filter: blur(2px);
-    z-index: 2;
+    z-index: 2; 
+    opacity: 0.9;
 }
 
 .profilePicture {
@@ -65,18 +65,20 @@
     background-color: rgb(184, 184, 184);
     background: rgba(255, 255, 255, 0.40);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.40);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(2px);
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .infoContainer p,
 .profileInfoEdit input[type='text'],
 .profileInfoEdit textarea {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .userStats p {
     margin: 5px;
+    font-weight: 600;
+   
 }
 
 .upperInfoProfile {
