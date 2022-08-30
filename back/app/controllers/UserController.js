@@ -113,7 +113,7 @@ exports.loginUser = async (req, res)=>{
                 const user = await UserModel.findAll({
                     where : {id : decodificada.id}
                 }) 
-                console.log(decodificada)
+                console.log(decodificada) 
                     if(!user){res.redirect('/'); console.log("Usuario logueado, redirigiendo a home")}
                     req.user = user[0]
                     res.redirect('/'); console.log("Usuario logueado, redirigiendo a home") 
