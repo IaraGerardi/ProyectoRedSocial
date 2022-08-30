@@ -87,7 +87,7 @@ function Login() {
 
     const Logeo = async (e) => {
         e.preventDefault()
-        await axios.get(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo })
+        await axios.post(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo })
         console.log("asd")
     }
 
