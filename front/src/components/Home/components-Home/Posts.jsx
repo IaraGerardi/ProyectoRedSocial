@@ -56,7 +56,7 @@ useEffect( ()=>{
                   {
                     posts.map((elementPost)=>(
                       <li key={elementPost.id} className='liPosts'>
-                        <Post /* userPostProp={elementPost .users.id}  */ textPostProp={elementPost.content} commentsProp={elementPost.comments} elementPost={elementPost}/>
+                        <Post /* userPostProp={elementPost .users.id}  */ textPostProp={elementPost.content} commentsProp={elementPost.comments} /* elementPost={elementPost} *//>
                         
                         </li>
                     ))

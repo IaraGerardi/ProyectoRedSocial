@@ -6,10 +6,10 @@ import imgReactionComment from '../assets/comentario.png';
 import {useState/* ,useEffect */} from 'react';
 /* import axios from 'axios'; */
 
-function Post({textPostProp/* ,commentsProps */,elementPost}) {
+function Post({textPostProp,commentsProp/* ,elementPost */}) {
 
-/*   console.log(commentsProps); */
-console.log(elementPost.comments)
+  console.log(commentsProp);
+/* console.log(elementPost.comments) */
 /*   ---------manejo de caja Comentarios----- */
   const [openComments,setOpenComments]=useState(false);
  const handleOpenComments =()=>{
@@ -83,16 +83,19 @@ console.log(elementPost.comments)
                            <div className='boxComments'>
                             <ul>
                              
-                               
-                                    <li /* key={keyComments} */>
-                                        <div className='boxComment'>
-                                          <img src={imgUserComment} className="imgUserComment" alt="" />
-                                            <p>{/* {contenidoComments} */}gfgfg</p> 
-                                        </div>
-                                      </li>
-                                  
+                               {
+                                commentsProp.map((eleComm)=>(
+                                  <li key={eleComm.id}>
+                                  <div className='boxComment'>
+                                    <img src={imgUserComment} className="imgUserComment" alt="" />
+                                      <p>{eleComm.content}</p> 
+                                  </div>
+                                </li>
+                            
+                                ))
+                                   
                                  
-                             
+                               }
                               
                             </ul>
                              <form className='formComment' method='post'>
