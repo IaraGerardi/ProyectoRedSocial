@@ -3,11 +3,13 @@ import imgReactionLikeado from '../assets/me-gusta (1).png';
  import imgUserPost from '../assets/imgUserPost.jpg';
  import imgUserComment from '../assets/Screenshot_3.png'
 import imgReactionComment from '../assets/comentario.png';
-import {useState,useEffect} from 'react';
-import axios from 'axios';
+import {useState/* ,useEffect */} from 'react';
+/* import axios from 'axios'; */
 
-function Post({textPostProp/* ,userPostProp */}) {
+function Post({textPostProp/* ,commentsProps */,elementPost}) {
 
+/*   console.log(commentsProps); */
+console.log(elementPost.comments)
 /*   ---------manejo de caja Comentarios----- */
   const [openComments,setOpenComments]=useState(false);
  const handleOpenComments =()=>{
@@ -37,7 +39,7 @@ function Post({textPostProp/* ,userPostProp */}) {
     }
     }
     //------------abre axios para comentarios------
-                 const[commentsState,setCommentsState]=useState([]);
+           /*       const[commentsState,setCommentsState]=useState([]);
 
             const URI = 'http://localhost:8000/';
 
@@ -48,12 +50,12 @@ function Post({textPostProp/* ,userPostProp */}) {
                 const res = await axios.get(URI);
                 setCommentsState(res.data); 
                
-            }
- console.log(commentsState)
+            } */
+ /* console.log(commentsState)
             useEffect( ()=>{
               getComments();
             },[])
-               
+                */
            
 //--------------abre renderizado------------
   return (
@@ -81,16 +83,15 @@ function Post({textPostProp/* ,userPostProp */}) {
                            <div className='boxComments'>
                             <ul>
                              
-                             {commentsState.comments?.map((element)=>( 
-                                    <li key={element.id}>
+                               
+                                    <li /* key={keyComments} */>
                                         <div className='boxComment'>
                                           <img src={imgUserComment} className="imgUserComment" alt="" />
-                                            <p>{element.comments.content}</p> 
+                                            <p>{/* {contenidoComments} */}gfgfg</p> 
                                         </div>
                                       </li>
-                                   ))  
+                                  
                                  
-                              }
                              
                               
                             </ul>
