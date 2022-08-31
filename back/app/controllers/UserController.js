@@ -96,8 +96,8 @@ exports.loginUser = async (req, res)=>{
                         alertIcon:'success',
                         showConfirmButton: false,
                         timer: 800,
-                        ruta: ''
-                   })
+                        ruta: '',
+                    })
                 }
             
         }
@@ -171,7 +171,7 @@ exports.loginUser = async (req, res)=>{
     
     exports.logout = (req, res)=>{
         res.clearCookie('jwt')   
-        res.redirect('/login')
+        res.json("Usuario deslogueado")
     } 
 
     exports.getUserEdit = async (req, res) => {

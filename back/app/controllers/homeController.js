@@ -50,17 +50,6 @@ exports.createPost = async (req, res) => {
 
 // Metodo para crear un comentario en un post verificando coincidencia entre el creador del comentario y el post en el que se comentó
 exports.createComment = async (req, res) => {
-    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-    const users = await userModel.findAll({
-        where: { id: decodificada.id }
-    })
-    const posts = await postModel.findAll({
-        where: { id: req.params.id }
-    })
-    req.user = users[0].id
-    req.posts = posts[0].id
-    console.log(req.user)
-    console.log(req.posts)
     try {
         await commentModel.create({
             image: req.body.image,

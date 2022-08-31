@@ -11,14 +11,14 @@ const  userImage  = require("../middleware/userImages.js")
 
 
 //Register y login CRUD
-router.post('/login', registerValidation, userLogged, registerUser);
+router.post('/login', registerValidation, registerUser);
 /* router.get('/login', loginValidation, userLogged, loginUser); */
-router.post('/logines', loginValidation, userLogged, loginUser);
+router.post('/logines', loginValidation, loginUser);
 
 
 
 /* GET home page. */
-router.get('/', /* isAuthenticated, */ getAllPosts);
+router.get('/', getAllPosts);
 
 
 // CRUD Home posts
