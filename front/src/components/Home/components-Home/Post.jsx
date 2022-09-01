@@ -3,13 +3,14 @@ import imgReactionLikeado from '../assets/me-gusta (1).png';
  import imgUserPost from '../assets/imgUserPost.jpg';
  import imgUserComment from '../assets/Screenshot_3.png'
 import imgReactionComment from '../assets/comentario.png';
-import {useState/* ,useEffect */} from 'react';
-/* import axios from 'axios'; */
+import WriteComment from './WriteComment';
+import {useState} from 'react';
+import axios from 'axios';
 
-function Post({textPostProp,commentsProp/* ,elementPost */}) {
+function Post({textPostProp,commentsProp}) {
 
-  console.log(commentsProp);
-/* console.log(elementPost.comments) */
+ 
+
 /*   ---------manejo de caja Comentarios----- */
   const [openComments,setOpenComments]=useState(false);
  const handleOpenComments =()=>{
@@ -38,25 +39,23 @@ function Post({textPostProp,commentsProp/* ,elementPost */}) {
       setlLiked(false);
     }
     }
-    //------------abre axios para comentarios------
-           /*       const[commentsState,setCommentsState]=useState([]);
+    //------------abre axios para agregar comentarios------
+          const[comments,setComments]=useState(commentsProp)
+          
+          console.log(comments)
+          
 
-            const URI = 'http://localhost:8000/';
+          const [content, setContent] = useState('')
+  
 
 
+  //procedimiento guardar -  joyaaaaaaaaaaa
+  const storeComments = async (e) => {
+      e.preventDefault()
+      await axios.post(setComments , {content: content,likes:0,image:null,createdAt:'2022-08-28',updatedAt:'2022-08-29',usersId:1})           /* esto tendria que funcionar con el json de la gente  back  */
+     
+  }    
 
-            //procedimiento para mostrar todos los comentarios
-            const getComments = async () => {
-                const res = await axios.get(URI);
-                setCommentsState(res.data); 
-               
-            } */
- /* console.log(commentsState)
-            useEffect( ()=>{
-              getComments();
-            },[])
-                */
-           
 //--------------abre renderizado------------
   return (
             <>
@@ -98,10 +97,8 @@ function Post({textPostProp,commentsProp/* ,elementPost */}) {
                                }
                               
                             </ul>
-                             <form className='formComment' method='post'>
-                             <input type="text" />
-                              <button className='btnComment' type='submit'>Comentar</button>
-                              </form> 
+
+                            <WriteComment storeProp={storeComments} valueContentComment={content} changeValueProp={ (e)=> setContent(e.target.value)}/>
                                
                           </div>: null}
 

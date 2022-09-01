@@ -24,7 +24,7 @@ function Posts() {
 
 /*  -------usando axios traer todo los posts----------- */ 
 const[posts,setPosts]=useState([]);
-const[comments,setComments]=useState([])
+
 
 const URI = 'http://localhost:8000/';
 
@@ -34,9 +34,9 @@ const URI = 'http://localhost:8000/';
 const getPosts = async () => {
     const res = await axios.get(URI);
     setPosts(res.data);
-    setComments();
+   
 }
-console.log(comments);
+
 useEffect( ()=>{
   getPosts();
 },[])
