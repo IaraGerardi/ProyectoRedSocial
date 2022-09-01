@@ -5,9 +5,9 @@ import imgReactionLikeado from '../assets/me-gusta (1).png';
 import imgReactionComment from '../assets/comentario.png';
 import WriteComment from './WriteComment';
 import {useState} from 'react';
-import axios from 'axios';
+/* import axios from 'axios'; */
 
-function Post({textPostProp,commentsProp}) {
+function Post({textPostProp,commentsProp,onClickProp,id}) {
 
  
 
@@ -40,21 +40,70 @@ function Post({textPostProp,commentsProp}) {
     }
     }
     //------------abre axios para agregar comentarios------
-          const[comments,setComments]=useState(commentsProp)
-          
-          console.log(comments)
-          
+     /*   const URI=`http://localhost:8000/comments/2/${id}`;
+          const[comments,setComments]=useState([])
+
+          const Comment = async () => {
+            const res = await axios.get(URI);
+            setComments(res.data);
+           
+        }
+      
+
+        console.log(comments);
 
           const [content, setContent] = useState('')
+          //guardar
+          const storeComments = async(e)=> {
+            e.preventDefault()
+            await axios.post(URI, {content:content})
+           
+          }
+         
+      
+
+
+
+
+          console.log(commentsProp)
+           */
+
   
 
 
-  //procedimiento guardar -  joyaaaaaaaaaaa
-  const storeComments = async (e) => {
+  //procedimiento guardar - 
+ /*  const storeComments = async (e) => {
       e.preventDefault()
-      await axios.post(setComments , {content: content,likes:0,image:null,createdAt:'2022-08-28',updatedAt:'2022-08-29',usersId:1})           /* esto tendria que funcionar con el json de la gente  back  */
+      await axios.post(URI, {content: content,likes:0,image:null,createdAt:'2022-08-28',updatedAt:'2022-08-29',usersId:1})           /* esto tendria que funcionar con el json de la gente  back  */
      
-  }    
+     
+//espero sea lo ultimo- actualizar post
+  //para actualizar
+  const [postEdit,setPostEdit]=useState([])
+  const URI='http://localhost:8000/home/'
+
+
+  //esto solo lo traje
+  const update = async (e)=>{
+    e.preventDefault()
+    await axios.put(URI+id, {
+        userEditAdmin:user
+       
+    })
+   
+}
+
+useEffect( ()=>{
+    getPostById()
+},[])
+
+const getPostById = async ()=>{
+    const res = await axios.get(URI+id)
+    setPostEdit(res.data.user)
+    
+}
+
+  
 
 //--------------abre renderizado------------
   return (
@@ -63,6 +112,7 @@ function Post({textPostProp,commentsProp}) {
                       <div className="boxPost">
                           <div className="boxProfilePost">
                              <img className="boxImgProfile" src={imgUserPost} alt=""/> <span className="userPost">@ nosequsuario{/* {userPostProp} */}</span>
+                             <button onClick={onClickProp}>Borrar</button>
                           </div>
                     
                           <div className="textPost">
@@ -98,7 +148,7 @@ function Post({textPostProp,commentsProp}) {
                               
                             </ul>
 
-                            <WriteComment storeProp={storeComments} valueContentComment={content} changeValueProp={ (e)=> setContent(e.target.value)}/>
+                            <WriteComment /* storeProp={storeComments}  *//* valueContentComment={content}  *//* changeValueProp={ (e)=> setContent(e.target.value)} *//>
                                
                           </div>: null}
 
