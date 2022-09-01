@@ -61,7 +61,7 @@ const deletePost = async(id) => {
                   {
                     posts.map((elementPost)=>(
                       <li key={elementPost.id} className='liPosts'>
-                        <Post id={elementPost.id} textPostProp={elementPost.content} commentsProp={elementPost.comments} onClickProp={()=> deletePost(elementPost.id)}/>
+                        <Post postData={elementPost} id={elementPost.id} textPostProp={elementPost.content} commentsProp={elementPost.comments} onClickProp={()=> deletePost(elementPost.id)}/>
                         
                         </li>
                     ))
