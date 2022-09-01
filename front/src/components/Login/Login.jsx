@@ -10,7 +10,6 @@ import Input from "./Input"
 
 // Style
 import "./css/login.css"
-import { useEffect } from "react";
 
 
 
@@ -48,40 +47,40 @@ function Login() {
     const [userLogeo, setuserLogeo] = useState('')
     const [passwordlogeo, setPasswordLogeo] = useState('')
 
-    const [errors, setErrors] = useState([])
-    useEffect(() => {
-
-    })
 
     const navigate = useNavigate();
 
 
     const store = async (e) => {
         e.preventDefault()
-
         await axios.post(`${URI}`, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
 
             .then((response) => {
-                if (response.data.completado == "Registro Completado!") {
+
+                if (response.data.completado === "Registro Completado!") {
                     alert("Registro Completado!")
-                        (navigate('/login'))
 
                 } else if (response.data.errors.length !== 0) {
                     alert(response.data.errors.userReg.msg);
-                    setErrors(response.data);
                 }
-                else if (response.data.errors.length !== 0) {
-                    alert(response.data.errors.password2Reg.msg);
-                    setErrors(response.data);
+
+                if (response.data.completado === "Registro Completado!") {
+                    alert("Registro Completado!")
 
                 } else if (response.data.errors.length !== 0) {
                     alert(response.data.errors.emailReg.msg);
-                    setErrors(response.data);
+
+                }
+
+                if (response.data.completado === "Registro Completado!") {
+                    alert("Registro Completado!")
+
+                } else if (response.data.errors.length !== 0) {
+                    alert(response.data.errors.password2Reg.msg);
+
                 }
             })
-            .catch(error => {
-                console.log(error);
-            })
+          
 
     }
 
@@ -89,24 +88,16 @@ function Login() {
     const Logeo = async (e) => {
         e.preventDefault()
         await axios.post(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo })
-        console.log("Logeado Correctamente")
-        (navigate('/home'))
-        
-            .then((response) => {
-                if (response.data.alertMessage === "¡LOGIN CORRECTO!") {
-                    alert("Logeo Completado!")
-                        (navigate('/home'))
+            .then((response, userLog, passwordLog) => {
+                if (!userLog || !passwordLog) {
+                    alert(response.data.alertTitle)
+                    alert(response.data.alertMessage)
+                    navigate('/home')
                 }
             })
-            .catch(error => {
-                console.log(error);
-                console.log("problemas")
-            })
+
+
     }
-
-
-
-
 
 
     return (

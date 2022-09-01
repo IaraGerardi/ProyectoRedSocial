@@ -22,7 +22,7 @@ router.get('/home', getAllPosts);
 router.get('/home/:id', getPost);
 
 // CRUD Home posts
-router.post('/home/', createPost);
+router.post('/home', createPost);
 router.put('/home/:id', updatePost);
 router.delete('/home/:id', deletePost);
 
