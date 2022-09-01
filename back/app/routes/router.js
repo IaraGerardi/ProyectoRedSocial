@@ -4,7 +4,7 @@ const loginValidation = require("../validations/loginValidation.js")
 const registerValidation = require("../validations/registerValidation.js")
 const editValidation = require("../validations/editValidation.js")
 const editValidationAdmin = require("../validations/editValidationAdmin.js")
-const {getAllPosts, updatePost, createPost, deletePost, createComment, updateComment, deleteComment} = require ('../controllers/homeController.js');
+const {getAllPosts, updatePost, createPost, deletePost, createComment, updateComment, deleteComment, getPost} = require ('../controllers/homeController.js');
 const { registerUser, loginUser, logout, isAuthenticated, userLogged, updateUser, getUserEdit, userToProfile } = require ('../controllers/UserController.js');
 const { getAllUserAdmin, updateUserAdmin, deleteUserAdmin, getUserAdmin } = require('../controllers/adminController.js');
 const  userImage  = require("../middleware/userImages.js")
@@ -19,7 +19,7 @@ router.post('/logines', loginValidation, loginUser);
 
 /* GET home page. */
 router.get('/home', getAllPosts);
-
+router.get('/home/:id', getPost);
 
 // CRUD Home posts
 router.post('/home/', createPost);

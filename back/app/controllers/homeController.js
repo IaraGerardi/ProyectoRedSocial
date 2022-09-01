@@ -29,6 +29,27 @@ exports.getAllPosts = async (req, res) => {
     }
 };
 
+// Configuramos mostrar 1 post
+exports.getPost = async (req, res) => {
+    try {
+        const post = await associations.PostModel.findOne({
+            where: { id: req.params.id},
+            include: [{
+                model: associations.UserModel,
+                association: "users",
+                attributes: ['id', 'user']
+            }, {
+                model: associations.CommentModel,
+                association: "comments",
+                attributes: ['id', 'content', 'likes', 'image', 'postId', 'usersId']
+            }], attributes: ["id", "content", "likes", "image", "createdAt", "usersId"]
+        });
+        res.json(post);
+    } catch (error) {
+        res.json({ message: error.message });
+    }
+};
+
 // Configuramos crear, actualizar y eliminar posts
 exports.createPost = async (req, res) => {
 /*     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
