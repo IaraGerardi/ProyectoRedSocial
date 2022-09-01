@@ -18,7 +18,7 @@ router.post('/logines', loginValidation, loginUser);
 
 
 /* GET home page. */
-router.get('/home', getAllPosts);
+router.get('/', getAllPosts);
 
 
 // CRUD Home posts
