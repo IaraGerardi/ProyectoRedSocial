@@ -54,49 +54,32 @@ function Login() {
     const store = async (e) => {
         e.preventDefault()
         await axios.post(`${URI}`, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
-
             .then((response) => {
-
-                if (response.data.completado === "Registro Completado!") {
+                if (response.data.errors) {
+                    const pepe = response.data.errors.errors
+                    for(let i=0; i<pepe.length; i++){
+                        alert(pepe[i].msg)
+                    }
+                } else {
                     alert("Registro Completado!")
-
-                } else if (response.data.errors.length !== 0) {
-                    alert(response.data.errors.userReg.msg);
+                    console.log(response.data)
                 }
-
-                if (response.data.completado === "Registro Completado!") {
-                    alert("Registro Completado!")
-
-                } else if (response.data.errors.length !== 0) {
-                    alert(response.data.errors.emailReg.msg);
-
-                }
-
-                if (response.data.completado === "Registro Completado!") {
-                    alert("Registro Completado!")
-
-                } else if (response.data.errors.length !== 0) {
-                    alert(response.data.errors.password2Reg.msg);
-
-                }
-            })
-          
-
+    })
     }
-
 
     const Logeo = async (e) => {
         e.preventDefault()
         await axios.post(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo })
-            .then((response, userLog, passwordLog) => {
-                if (!userLog || !passwordLog) {
+            .then((response) => {
+                if (response.data.token) {
+                    localStorage.setItem("usuario", JSON.stringify(response.data));
+                    navigate('/home')
+                } else {
                     alert(response.data.alertTitle)
                     alert(response.data.alertMessage)
-                    navigate('/home')
                 }
+                return response.data;
             })
-
-
     }
 
 
