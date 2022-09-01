@@ -65,7 +65,7 @@ exports.createComment = async (req, res) => {
 
 //Metodo para actualizar un post de usuario verificando que el id del usuario que esta logueado sea igual al userId(llave foranea del post).
 exports.updatePost = async (req, res) => {
-    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+/*     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
         where: { id: decodificada.id }
     })
@@ -76,7 +76,7 @@ exports.updatePost = async (req, res) => {
     req.postsUser = posts[0].usersId
     console.log(req.user)
     console.log(req.postsUser)
-    if(req.user == req.postsUser) {
+    if(req.user == req.postsUser) { */
     try {
         await postModel.update(req.body, {
             where: { id: req.params.id }
@@ -85,15 +85,15 @@ exports.updatePost = async (req, res) => {
     } catch (error) {
         res.json({ message: error.message });
     }
-    } else {
+    } /* else {
         console.log("no podes negri")
         res.json({mensaje:"q haces loro"})
     }
-}
+} */
 
 // Metodo para eliminar un post
 exports.deletePost = async (req, res) => {
-    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+/*     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
         where: { id: decodificada.id }
     })
@@ -102,7 +102,7 @@ exports.deletePost = async (req, res) => {
     })
     req.user = users[0].id
     req.postsUser = posts[0].usersId
-    if(req.user == req.postsUser) {
+    if(req.user == req.postsUser) { */
     try {
         await postModel.destroy({
             where: { id: req.params.id }
@@ -111,15 +111,15 @@ exports.deletePost = async (req, res) => {
     } catch (error) {
         res.json({ message: error.message });
     }
-} else {
+}/*  else {
     console.log("no podes negri")
     res.json({mensaje:"q haces loro"})
 }
-};
+}; */
 
 /* Metodo para EDITAR un comment de un post */
 exports.updateComment = async (req, res) => {
-    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+/*     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
         where: { id: decodificada.id }
     })
@@ -128,7 +128,7 @@ exports.updateComment = async (req, res) => {
     })
     req.user = users[0].id
     req.commentUser = comment[0].usersId
-    if (req.user == req.commentUser) {
+    if (req.user == req.commentUser) { */
         try {
             await commentModel.update(req.body, {
                 where: { id: req.params.id }      
@@ -137,15 +137,15 @@ exports.updateComment = async (req, res) => {
         } catch (error) {
             res.json({ message: error.message });
         }
-    } else {
+    } /* else {
         console.log("no podes negri")
         res.json({ mensaje: "q haces loro" })
     }
-}
+} */
 
 /* ELIMINAR */
 exports.deleteComment = async (req, res) => {
-    const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
+/*     const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
     const users = await userModel.findAll({
         where: { id: decodificada.id }
     })
@@ -156,7 +156,7 @@ exports.deleteComment = async (req, res) => {
     req.commentUser = comment[0].usersId
     console.log(req.user)
     console.log(req.commentUser)
-    if (req.user == req.commentUser) {
+    if (req.user == req.commentUser) { */
         try {
             await commentModel.destroy(req.body, {
                 where: { id: req.params.id }
@@ -165,8 +165,8 @@ exports.deleteComment = async (req, res) => {
         } catch (error) {
             res.json({ message: error.message });
         }
-    } else {
+    } /* else {
         console.log("no podes negri")
         res.json({ mensaje: "q haces loro" })
     }
-};
+}; */
