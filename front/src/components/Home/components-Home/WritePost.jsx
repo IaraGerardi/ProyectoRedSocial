@@ -1,27 +1,26 @@
 import undo from '../assets/undo (1).png';
  import axios from 'axios';
  import {useState} from 'react';
- import { useNavigate } from 'react-router-dom';
+/*  import { useNavigate } from 'react-router-dom'; */
 
 
 
 function WritePost({propWritePost}) {
 
 /* ----------------usando axios para agregar un post---------- */ /* no terminado */
-const URI = 'http://localhost:8000/';
+const URI = 'http://localhost:8000/home';
 
   const [content, setContent] = useState('')
   const [image, setImage] = useState('')
-  console.log(useNavigate)
   
-  const navigate = useNavigate()
-console.log(navigate)
+  
+
 
   //procedimiento guardar -  joyaaaaaaaaaaa
   const store = async (e) => {
       e.preventDefault()
       await axios.post(URI, {content: content, image:image,likes:0,createdAt:'2022-08-28',updatedAt:'2022-08-29',usersId:1})           /* esto tendria que funcionar con el json de la gente  back  */
-      navigate('/home')
+      
   }    
 
  //refrescar cuando hago click 

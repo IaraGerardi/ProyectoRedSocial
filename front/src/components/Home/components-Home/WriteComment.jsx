@@ -1,6 +1,6 @@
 
 
-function WriteComment({storeProp,changeValueProp,valueContentComment}) {
+function WriteComment({storeProp,changeValueProp,valueContentComment,setContent}) {
 
   return (
     <form className='formComment' onSubmit={storeProp} >

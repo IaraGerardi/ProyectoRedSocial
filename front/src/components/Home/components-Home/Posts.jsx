@@ -26,7 +26,7 @@ function Posts() {
 const[posts,setPosts]=useState([]);
 
 
-const URI = 'http://localhost:8000/';
+const URI = 'http://localhost:8000/home';
 
 
 
@@ -42,6 +42,11 @@ useEffect( ()=>{
 },[])
 
 
+//eliminar post 
+const deletePost = async(id) => {
+  await axios.delete(`${URI}/${id}`)
+   getPosts()
+}
 
 
 
@@ -56,7 +61,7 @@ useEffect( ()=>{
                   {
                     posts.map((elementPost)=>(
                       <li key={elementPost.id} className='liPosts'>
-                        <Post /* userPostProp={elementPost .users.id}  */ textPostProp={elementPost.content} commentsProp={elementPost.comments} /* elementPost={elementPost} *//>
+                        <Post id={elementPost.id} textPostProp={elementPost.content} commentsProp={elementPost.comments} onClickProp={()=> deletePost(elementPost.id)}/>
                         
                         </li>
                     ))
