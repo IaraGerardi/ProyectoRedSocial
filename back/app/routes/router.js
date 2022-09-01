@@ -18,11 +18,11 @@ router.post('/logines', loginValidation, loginUser);
 
 
 /* GET home page. */
-router.get('/', getAllPosts);
+router.get('/home', getAllPosts);
 
 
 // CRUD Home posts
-router.post('/home/', createPost);
+router.post('/home', createPost);
 router.put('/home/:id', updatePost);
 router.delete('/home/:id', deletePost);
 
