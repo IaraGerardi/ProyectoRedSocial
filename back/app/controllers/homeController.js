@@ -54,8 +54,8 @@ exports.createComment = async (req, res) => {
         await commentModel.create({
             image: req.body.image,
             content: req.body.content,
-            postId: req.posts,
-            usersId: req.user
+            postId: req.params.postId,
+            usersId: req.params.userId
         })
         res.json({ "message": "comment created successfully" });
     } catch (error) {
@@ -79,7 +79,9 @@ exports.updatePost = async (req, res) => {
     if(req.user == req.postsUser) { */
     try {
         await postModel.update(req.body, {
-            where: { id: req.params.id }
+            where: { 
+                id: req.params.id
+            }
         })
         res.json({ "message": "Post updated succesfully" });
     } catch (error) {
@@ -158,7 +160,7 @@ exports.deleteComment = async (req, res) => {
     console.log(req.commentUser)
     if (req.user == req.commentUser) { */
         try {
-            await commentModel.destroy(req.body, {
+            await commentModel.destroy({
                 where: { id: req.params.id }
             })
             res.json({ "message": "Comment deleted succesfully" })

@@ -18,19 +18,18 @@ router.post('/logines', loginValidation, loginUser);
 
 
 /* GET home page. */
-router.get('/', getAllPosts);
+router.get('/home', getAllPosts);
 
 
 // CRUD Home posts
-router.post('/', createPost);
-router.put('/:id', updatePost);
-router.delete('/:id', deletePost);
+router.post('/home/', createPost);
+router.put('/home/:id', updatePost);
+router.delete('/home/:id', deletePost);
 
 // CRUD Home Comments posts
-router.post('/:id', createComment);
-router.put('/:id/:id', updateComment);
-router.delete('/:id/:id', deleteComment);
-
+router.post('/comments/:userId/:postId', createComment);
+router.put('/comments/:id', updateComment);
+router.delete('/comments/:id', deleteComment);
 
 
 //Logout
