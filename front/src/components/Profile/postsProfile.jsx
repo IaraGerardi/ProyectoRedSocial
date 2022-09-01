@@ -5,24 +5,25 @@ import Posts from "../Home/components-Home/Posts";
 
 
 
-function PostsProfile({currentUser}) {
-    const [comments, setComments] = useState('')
-    const URI = 'http://localhost:8000/';
+function PostsProfile({ currentUser }) {
+    const [posts, setPosts] = useState([])
+    const URI = 'http://localhost:8000/home';
 
     const getUsers = async () => {
         const res = await axios.get(URI)
-        setComments(res.data)
+        setPosts(res.data)
     };
+    const postsList = posts.filter(post => post.usersID === 2)
 
-    const commentList = comments.filter(comments.userID == currentUser.id)
+    console.log(postsList)
 
     useEffect(() => {
         getUsers()
     }, [])
-
+    console.log(postsList)
     return (
         <>
-        {commentList.map(comment=><Post comment={comment}/>)}
+            {postsList.map(post => <Post postData={post} />)}
         </>
     );
 }

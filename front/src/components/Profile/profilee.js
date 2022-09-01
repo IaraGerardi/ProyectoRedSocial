@@ -46,7 +46,7 @@ function Profile() {
                     <ProfileInfoEdit setEdit={setEdit} userInfo={currentUser} /> :
                     <ProfileInfo setEdit={setEdit} setConfigure={setConfigure} userInfo={currentUser} />
                 }
-                {/* <PostsProfile currentUser={currentUser}/>  */}
+                <PostsProfile currentUser={currentUser}/> 
                 {/* Configure user tiene el put para cambiar el usuario, la contraseña, y el email*/}
                 {configure ? <ConfigureUser URI={URI} setConfigure={setConfigure} father='profile' userInfo={currentUser} /> : null}
             </div>
