@@ -14,7 +14,7 @@ import axios from 'axios';
 - la funcion que elimina posts,
 - el id del post*/
 
-function Post({ postData, textPostProp, commentsProp, onClickProp, id }) {
+function Post({ postData, textPostProp, commentsProp, /*onClickProp, */ id }) {
   console.log('-------------------Post Data:--------------------')
   console.log(postData)
   /*   ---------manejo de caja Comentarios----- */
@@ -70,15 +70,22 @@ function Post({ postData, textPostProp, commentsProp, onClickProp, id }) {
 
   // A post Edit le paso toda la informacion que el metodo get trae en la peticion de Posts.jsx, y despues la propiedad "contentEdit", asi puedo devolver toda la informacion cuando haga la funcion con el metodo put
   const [isEditing, setIsEditing] = useState(false);
-  const [postEdit, setPostEdit] = useState({
-    ...postData,
-    contentEdit: textPostProp,
-  })
+  const [postEdit, setPostEdit] = useState({})
   const URI = 'http://localhost:8000/home/'
 
+  /*
+  1- Traigo la info con un get, y la uso para darle un valor dinamico a un input
+  2- Al input le asigno una funcion para que la ejecute onChange, y esa funcion (handlePostChange en este caso) cambia el estado
+  3- Al set*Estado* primero le paso toda la informacion que obtuve del metodo get, para despues mandarlo completo, y al despues le agrego la/las propiedades que cambian
+  4- Esa propiedad la cambio con el value del evento y despues defino la funcion que se va a ejecutar cuando el formulario se suba
+  5- A axios.put le paso la URI que corresponda y el estado en el que guarde toda la info
+  
+  El flujo de info con el metodo put es asi:
+  Info metodo get --> estado que guarda esa info --> input que tiene como defaultValue alguna propiedad de ese estado --> funcion onChange cuando el valor del input cambia --> funcion onSubmit una vez que se presiona el boton enviar */
+
+  // En handlePostChange 
   const handlePostChange = (e) => {
     setPostEdit({
-      // ...postEdit,
       ...postData,
       'content': e.target.value,
     })
@@ -90,14 +97,19 @@ function Post({ postData, textPostProp, commentsProp, onClickProp, id }) {
     window.location.reload()
   }
 
-  useEffect(() => {
-    getPostById()
-  }, [])
-
-  const getPostById = async () => {
-    const res = await axios.get(URI + id)
-    setPostEdit(res.data.user)
+  const deletePost = async() => {
+    await axios.delete(`${URI}${postData.id}`)
+    window.location.reload()
   }
+
+  // useEffect(() => {
+  //   getPostById()
+  // }, [])
+
+  // const getPostById = async () => {
+  //   const res = await axios.get(URI + id)
+  //   setPostEdit(res.data.user)
+  // }
 
 
   //--------------abre renderizado------------
@@ -110,7 +122,8 @@ function Post({ postData, textPostProp, commentsProp, onClickProp, id }) {
          {/* Agrego un condicional para que estas opciones solo se vean un ciertos posts, cuando tengamos la info del web token podemos cambiarlo para que en vez de dos este el id del usuario que actualmente esta logueado */}
           {postData.usersId == 2 ?
             <>
-              <button onClick={onClickProp}>Borrar</button>
+              <button 
+              onClick={deletePost}>Borrar</button>
               <button onClick={() => setIsEditing(true)}>Editar</button>
             </>
             : null}

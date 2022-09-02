@@ -34,7 +34,6 @@ const URI = 'http://localhost:8000/home';
 const getPosts = async () => {
     const res = await axios.get(URI);
     setPosts(res.data);
-   
 }
 
 useEffect( ()=>{
@@ -43,10 +42,11 @@ useEffect( ()=>{
 
 
 //eliminar post 
-const deletePost = async(id) => {
-  await axios.delete(`${URI}/${id}`)
-   getPosts()
-}
+// const deletePost = async(id) => {
+//   await axios.delete(`${URI}/${id}`)
+//   //  getPosts()
+//   window.location.reload()
+// }
 
 
 
@@ -61,7 +61,9 @@ const deletePost = async(id) => {
                   {
                     posts.map((elementPost)=>(
                       <li key={elementPost.id} className='liPosts'>
-                        <Post postData={elementPost} id={elementPost.id} textPostProp={elementPost.content} commentsProp={elementPost.comments} onClickProp={()=> deletePost(elementPost.id)}/>
+                        <Post postData={elementPost} id={elementPost.id} textPostProp={elementPost.content} commentsProp={elementPost.comments} 
+                        // onClickProp={()=> deletePost(elementPost.id)}
+                        />
                         
                         </li>
                     ))
