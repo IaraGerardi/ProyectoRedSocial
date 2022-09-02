@@ -24,7 +24,11 @@
 .upperInfoProfile {
     display: flex;
 }
-
+.mainProfileContainer{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 .profileInfo {
     width: 80vw;
     height: 500px;
@@ -203,4 +207,15 @@
     .profileInfoEdit textarea {
         font-size: 15px;
     }
+}
+
+/* Posts */
+.postListProfile{
+    width: 73vw;
+}
+.postListProfile .boxPost{
+    width: 100%
+}
+.postListProfile .textPost{
+    width: 90%
 }

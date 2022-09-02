@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import Post from "../Home/components-Home/Post";
-import Posts from "../Home/components-Home/Posts";
 
-
-
-function PostsProfile({ currentUser }) {
+function PostsProfile(/*{ currentUser }*/) {
     const [posts, setPosts] = useState([])
     const URI = 'http://localhost:8000/home';
 
@@ -13,18 +10,19 @@ function PostsProfile({ currentUser }) {
         const res = await axios.get(URI)
         setPosts(res.data)
     };
-    const postsList = posts.filter(post => post.usersID === 2)
-
-    console.log(postsList)
 
     useEffect(() => {
         getUsers()
     }, [])
-    console.log(postsList)
+
     return (
-        <>
-            {postsList.map(post => <Post postData={post} />)}
-        </>
+        <ul className="postListProfile">
+            {posts?.map((el, posts) => <li key={posts.id}>
+                {el.usersId == 2 ?
+                    <Post postData={el} id={el.id} textPostProp={el.content} commentsProp={el.comments} />
+                    : null}
+            </li>)}
+        </ul>
     );
 }
 
