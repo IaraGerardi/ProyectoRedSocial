@@ -56,9 +56,9 @@ function Login() {
         await axios.post(`${URI}`, { userReg: user, emailReg: email, passwordReg: password, password2Reg: passwordsec })
             .then((response) => {
                 if (response.data.errors) {
-                    const pepe = response.data.errors.errors
-                    for(let i=0; i<pepe.length; i++){
-                        alert(pepe[i].msg)
+                    const msjerror = response.data.errors.errors
+                    for(let i=0; i<msjerror.length; i++){
+                        alert(msjerror[i].msg)
                     }
                 } else {
                     alert("Registro Completado!")
