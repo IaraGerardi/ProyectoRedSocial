@@ -41,7 +41,7 @@ useEffect( ()=>{
 },[])
 
 
-//eliminar post 
+//eliminar post ----- sirveeeeee lo cambiamos de lugar
 // const deletePost = async(id) => {
 //   await axios.delete(`${URI}/${id}`)
 //   //  getPosts()

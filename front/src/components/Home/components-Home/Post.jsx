@@ -1,10 +1,12 @@
 import imgReactionLike from '../assets/amor.png';
 import imgReactionLikeado from '../assets/me-gusta (1).png';
 import imgUserPost from '../assets/imgUserPost.jpg';
+import imgDeletePost from '../assets/eliminar.png'
+import imgEditPost from '../assets/lapiz.png'
 import imgUserComment from '../assets/Screenshot_3.png'
 import imgReactionComment from '../assets/comentario.png';
 import WriteComment from './WriteComment';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import axios from 'axios';
 
 /* El componente recibe como props: 
@@ -17,6 +19,9 @@ import axios from 'axios';
 function Post({ postData, textPostProp, commentsProp, /*onClickProp, */ id }) {
   console.log('-------------------Post Data:--------------------')
   console.log(postData)
+
+
+
   /*   ---------manejo de caja Comentarios----- */
   const [openComments, setOpenComments] = useState(false);
   const handleOpenComments = () => {
@@ -38,35 +43,9 @@ function Post({ postData, textPostProp, commentsProp, /*onClickProp, */ id }) {
       setlLiked(false);
     }
   }
-  //------------abre axios para agregar comentarios------
-  /*   const URI=`http://localhost:8000/comments/2/${id}`;
-       const[comments,setComments]=useState([])
+  //------------abre axios para editar post ------
+  
 
-       const Comment = async () => {
-         const res = await axios.get(URI);
-         setComments(res.data);
-        
-     }
-   
-
-     console.log(comments);
-
-       const [content, setContent] = useState('')
-       //guardar
-       const storeComments = async(e)=> {
-         e.preventDefault()
-         await axios.post(URI, {content:content})
-        
-       }
-
-       console.log(commentsProp)
-        
-
-
-  //procedimiento guardar - 
-    const storeComments = async (e) => {
-      e.preventDefault()
-      await axios.post(URI, {content: content,likes:0,image:null,createdAt:'2022-08-28',updatedAt:'2022-08-29',usersId:1}) */
 
   // A post Edit le paso toda la informacion que el metodo get trae en la peticion de Posts.jsx, y despues la propiedad "contentEdit", asi puedo devolver toda la informacion cuando haga la funcion con el metodo put
   const [isEditing, setIsEditing] = useState(false);
@@ -90,26 +69,18 @@ function Post({ postData, textPostProp, commentsProp, /*onClickProp, */ id }) {
       'content': e.target.value,
     })
   }
-
+//---------actualizar post--------------------
   const updatePost = async (e) => {
     e.preventDefault()
     await axios.put(`${URI}${postData.id}`, postEdit);
     window.location.reload()
   }
-
+//-----------eleiminar post--------------
   const deletePost = async() => {
     await axios.delete(`${URI}${postData.id}`)
     window.location.reload()
   }
 
-  // useEffect(() => {
-  //   getPostById()
-  // }, [])
-
-  // const getPostById = async () => {
-  //   const res = await axios.get(URI + id)
-  //   setPostEdit(res.data.user)
-  // }
 
 
   //--------------abre renderizado------------
@@ -121,19 +92,18 @@ function Post({ postData, textPostProp, commentsProp, /*onClickProp, */ id }) {
           <img className="boxImgProfile" src={imgUserPost} alt="" /> <span className="userPost">@ nosequsuario{/* {userPostProp} */}</span>
          {/* Agrego un condicional para que estas opciones solo se vean un ciertos posts, cuando tengamos la info del web token podemos cambiarlo para que en vez de dos este el id del usuario que actualmente esta logueado */}
           {postData.usersId == 2 ?
-            <>
-              <button 
-              onClick={deletePost}>Borrar</button>
-              <button onClick={() => setIsEditing(true)}>Editar</button>
-            </>
+            < div className='btnsProfilePost'>
+              <div className='btnDeletePost' onClick={deletePost}> <img src={imgDeletePost} alt="" /></div>
+              <div className='btnEditPost' onClick={() => setIsEditing(true)}> <img src={imgEditPost} alt="" /> </div>
+            </div>
             : null}
         </div>
 
         <div className="textPost">
           {isEditing ?
-            <form method='put' onSubmit={updatePost}>
-              <input defaultValue={textPostProp} id='contentEdit' onChange={handlePostChange} />
-              <input type='submit' value='Guardar cambios'/>
+            <form className='formEditPost' method='put' onSubmit={updatePost}>
+              <input className='inputEditPost' defaultValue={textPostProp} id='contentEdit' onChange={handlePostChange} />
+              <input className='saveChangeInput' type='submit' value='Guardar'/>
             </form>
             :
             <p>{textPostProp}</p>
