@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect, useNavigate } from 'react';
 import axios from 'axios';
 import BtnPosting from './BtnPosting';
 import Post from './Post';
@@ -7,7 +7,7 @@ import WritePost from './WritePost';
 
 
 function Posts() {
-
+  const navigate = useNavigate()
   const [popUp, setPopUp] = useState(false);
 
         const handlePopUpWritePost =()=>{
@@ -32,8 +32,16 @@ const URI = 'http://localhost:8000/home';
 
 //procedimiento para mostrar todos los posts
 const getPosts = async () => {
-    const res = await axios.get(URI);
-    setPosts(res.data);
+  await axios.get(URI, {withCredentials:true}).then(result=>{
+    if(result.data.mensaje) {
+      console.log("miau")
+      navigate('/login')
+    } else {
+      console.log(result.data)
+      setPosts(result.data);
+    }
+  })
+  /* setPosts(res.data); */
 }
 
 useEffect( ()=>{

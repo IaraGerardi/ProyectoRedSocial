@@ -67,11 +67,11 @@ function Login() {
     })
     }
 
-    const Logeo = async (e) => {
+const Logeo = async (e) => {
         e.preventDefault()
-        await axios.post(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo })
+        await axios.post(`${URI2}`, { userLog: userLogeo, passwordLog: passwordlogeo },{withCredentials:true})
             .then((response) => {
-                if (response.data.token) {
+                if (response.data.si) {
                     localStorage.setItem("usuario", JSON.stringify(response.data));
                     navigate('/home')
                 } else {

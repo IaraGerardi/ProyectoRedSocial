@@ -91,7 +91,7 @@ function Post({ postData, textPostProp, commentsProp, /*onClickProp, */ id }) {
         <div className="boxProfilePost">
           <img className="boxImgProfile" src={imgUserPost} alt="" /> <span className="userPost">@ nosequsuario{/* {userPostProp} */}</span>
          {/* Agrego un condicional para que estas opciones solo se vean un ciertos posts, cuando tengamos la info del web token podemos cambiarlo para que en vez de dos este el id del usuario que actualmente esta logueado */}
-          {postData.usersId == 2 ?
+          {postData.usersId === 2 ?
             < div className='btnsProfilePost'>
               <div className='btnDeletePost' onClick={deletePost}> <img src={imgDeletePost} alt="" /></div>
               <div className='btnEditPost' onClick={() => setIsEditing(true)}> <img src={imgEditPost} alt="" /> </div>

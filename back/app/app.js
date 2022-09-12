@@ -21,8 +21,12 @@ try {
 //
 app.use(logger('dev'));
 app.use(express.json());
-app.use(cors());
-app.use(session( {secret: "Our secret message",resave: true, saveUninitialized: true}));
+app.use(cors({
+  credentials:true,
+  origin:["http://localhost:3000"],
+  methods:["GET","POST","PUT","DELETE"]
+}));
+/* app.use(session( {secret: "Our secret message",resave: true, saveUninitialized: true})); */
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

@@ -18,7 +18,7 @@ function PostsProfile(/*{ currentUser }*/) {
     return (
         <ul className="postListProfile">
             {posts?.map((el, posts) => <li key={posts.id}>
-                {el.usersId == 2 ?
+                {el.usersId === 2 ?
                     <Post postData={el} id={el.id} textPostProp={el.content} commentsProp={el.comments} />
                     : null}
             </li>)}

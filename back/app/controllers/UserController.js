@@ -71,14 +71,14 @@ exports.loginUser = async (req, res) => {
                 })
             } else {
                 const id = user[0].id
-                req.session.userNew = {
+             /*    req.session.userNew = {
                     id: user[0].id,
                     username: user[0].name,
                     apellido: user[0].apellido,
                     email: user[0].email,
                     avatar: user[0].avatar,
                     password: user[0].password
-                }
+                } */
                 const token = jwt.sign({ id: id }, process.env.JWT_SECRETO, {
                     expiresIn: process.env.JWT_TIEMPO_EXPIRA
                 })
@@ -88,7 +88,18 @@ exports.loginUser = async (req, res) => {
                     httpOnly: true
                 }
                 res.cookie('jwt', token, cookiesOptions)
-                jwt.verify(token, process.env.JWT_SECRETO, (error, authData) => {
+                res.json({
+                    alert: true,
+                    alertTitle: "Conexión exitosa",
+                    alertMessage: "¡LOGIN CORRECTO!",
+                    alertIcon: 'success',
+                    showConfirmButton: false,
+                    timer: 800,
+                    ruta: '',
+                    si:'si'
+                   
+                });
+                /* jwt.verify(token, process.env.JWT_SECRETO, (error, authData) => {
                     if (error) {
                         res.sendStatus(403);
                     } else {
@@ -105,7 +116,7 @@ exports.loginUser = async (req, res) => {
                             authData
                         });
                     }
-                });
+                }); */
             }
 
         }
@@ -173,7 +184,8 @@ exports.isAuthenticated = async (req, res, next) => {
             return next()
         }
     } else {
-        res.redirect('/login')
+            console.log("Akkkksd")
+            res.json({mensaje: 'hola kevin no puedo pasar'})
     }
 }
 
